@@ -203,14 +203,14 @@ justify-content:center;
   font-weight: bold;
   font-size: 20px;
 }
-.containerCategorie button{
+/* .containerCategorie button{
   margin-left: 80%;
   padding:20px 10px;
   font-size: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transform-origin: 50% 50%;
 
-}
+} */
 .link{
   text-decoration: none;
   color:white;
@@ -331,4 +331,21 @@ justify-content:center;
 .container_summary h1{
   text-align: center;
   margin-bottom: 70px;
+}
+
+.modal{
+  background-color: #46426E;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+.modal h5, h3{
+  color:black;
+  text-align: center;
+}
+
+.modal img{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 50%;
+  margin-left: 15%;
 }

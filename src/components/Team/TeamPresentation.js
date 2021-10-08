@@ -19,24 +19,29 @@ class TeamPresentation extends React.Component{
 
     componentDidMount(){
         axios.get('http://127.0.0.1:8000/api/teamPresentation')
-            .then(res => {
-                this.setState({teams:res.data})
-               
-            })
-            .catch(error => {
-                console.log(error.response)
-            })
-        axios.get('http://127.0.0.1:8000/api/teamPresentation')
-        .then(res => {
-            this.setState({conditions:res.data.length})
+            .then(res => {this.setState({teams:res.data})})
+            .catch(error => {console.log(error.response)})
             
-        })
-        .catch(error => {
-            console.log(error.response)
-        })     
+        axios.get('http://127.0.0.1:8000/api/teamPresentation')
+        .then(res => {this.setState({conditions:res.data.length})})
+        .catch(error => {console.log(error.response)})     
     }
  
 
+handleSubmit = event =>{
+    event.preventDefault()
+    console.log("colonne is_used des couleurs updatée")
+
+    axios.put('http://127.0.0.1:8000/api/color', {is_used:0})
+        .then(res => {this.setState(console.log(res))})
+        .catch(error =>{
+            if(error.response.status === 401){
+                this.setState({errors: error.response.data.errors}, ()=>{console.log(this.state)})
+            }
+            console.log(error.response)
+        }) 
+}
+    
     render(){
 
         return(
@@ -70,7 +75,7 @@ class TeamPresentation extends React.Component{
                     <div className="avatar_button" style={{backgroundImage:`url(${team.avatar})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
                     </div>
                     )}
-                   <button type="button" class="btn btn-success"><Link className="link" to="/startGame">Commencer la partie</Link></button>       
+                   <button type="button" class="btn btn-success" onClick={this.handleSubmit} value={0}><Link className="link" to="/startGame">Commencer la partie</Link></button>                 
 
                     </div>
                     </>    

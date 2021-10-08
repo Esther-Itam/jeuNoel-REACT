@@ -3,15 +3,6 @@ import NavbarTeam from '../Navbar/NavbarTeam';
 import Random from './Random';
 
 class StartGame extends React.Component{
-    constructor(props){
-        super(props)
-        this.state={
-  
-            errors:[]
-        }
-    }
-
-
 
     render(){
         return(
@@ -20,10 +11,8 @@ class StartGame extends React.Component{
                 <div class="container w-50">
                  <Random/>
 
-                <div>
-                   
                 </div>
-                </div>
+  
             </>
         )
     }

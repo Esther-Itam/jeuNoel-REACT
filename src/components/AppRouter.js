@@ -11,6 +11,7 @@ import Random from './Game/Random';
 import Categories from './Game/Categories';
 import CategorieShow from './Game/CategorieShow';
 import Waiting from './Game/Waiting';
+import RatingScreen from './Team/RatingScreen';
 
 import TeamBuilding from './Team/TeamBuilding';
 import TeamPresentation from './Team/TeamPresentation';
@@ -27,6 +28,7 @@ import ShowQuiz from './Quiz/Show/ShowQuiz';
 import IndexQuiz from './Quiz/Show/IndexQuiz';
 import QuizUpdate from './Quiz/Update/QuizUpdate';
 import CategorieUpdate from './Quiz/Update/CategorieUpdate';
+
 
 
 
@@ -49,7 +51,7 @@ class AppRouter extends React.Component{
                 <Route exact path="/random" component={Random}/>
                 <Route exact path="/categorie" component={Categories}/>
                 <Route exact path="/waiting" component={Waiting}/>
-                <Route exact path="/account" component={Account}/>
+                <Route exact path="/account/:id" component={Account}/>
                 <Route exact path="/quizIndex/:id" component={IndexQuiz}/>
                 <Route exact path="/quizUpdate/:id" component={QuizUpdate}/>
                 <Route exact path="/categorieUpdate/:id" component={CategorieUpdate}/>
@@ -62,6 +64,7 @@ class AppRouter extends React.Component{
                 <Route exact path="/summary" component={Summary}/>
                 <Route exact path="/categorieControl" component={CategorieControl}/>
                 <Route exact path="/quizControl" component={QuizControl}/>
+                <Route exact path="/rating" component={RatingScreen}/>
 
 
             </Switch>

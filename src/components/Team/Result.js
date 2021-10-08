@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import NavbarTeam from '../Navbar/NavbarTeam';
+import { Link } from 'react-router-dom';
 
 
 class Result extends React.Component{
@@ -71,7 +72,7 @@ componentDidMount(){
                             )}
                         </div>
                         <div>
-                        <button type="submit" className="btn btn-danger">Voir tous les résultats</button>
+                        <Link type="button" className="btn btn-danger" to="/resultTeams">Voir tous les résultats</Link>
                         </div>
                     </div>
                             

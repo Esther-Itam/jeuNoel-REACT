@@ -21,11 +21,9 @@ class Navbar extends React.Component{
                     
                 } }
         let id =localStorage.getItem('token');
-        console.log(id)
         axios.get(`http://127.0.0.1:8000/api/show/${id}`, headers)
             .then(res => {
                 this.setState({userInfos:res.data.data[0]})
-                console.log(res.data)
             })
             .catch(error => {
                 console.log(error.response)
@@ -57,22 +55,22 @@ class Navbar extends React.Component{
                             </li>
                             <li className="nav-item" classNameName="identifiantNav">
                                 {this.state.userInfos.map((userInfo)=>
+                                <>
                                     <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" to="/" role="button" aria-expanded="false">Joyeux Noel {userInfo.userName}</Link>
-                                )}
+                               
                                 <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to="/account">Compte</Link></li>
-                                    {this.state.userInfos.map((userInfo)=>
-                                    <>
+                                    <li><Link className="dropdown-item" to={`/account/${userInfo.userId}`}>Compte</Link></li>
+                                    
                                         {userInfo.userAdmin ===1
                                             ?
                                             <li><Link className="dropdown-item" to="/summary">Tableau de bord</Link></li>
                                             :
                                             null
                                         }
-                                    </>
-                                    )}
                                     <li><Link className='btn' onClick={()=>this.logout()} to="/">Déconnexion</Link></li>
                                 </ul>
+                                </>
+                                )}
                             </li>
                         </>
                         :

@@ -165,7 +165,7 @@ componentDidMount(){
             :
             null
             }  
-            <Link type="button" class="btn btn-success" to='/quizSummary'>Retour au sommaire</Link>
+            <Link type="button" class="btn btn-success" to='/summary'>Retour au sommaire</Link>
                
         </div>
     </div>

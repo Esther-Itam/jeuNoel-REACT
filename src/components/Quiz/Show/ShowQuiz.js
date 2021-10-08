@@ -16,7 +16,8 @@ class ShowQuiz extends React.Component{
             answer_id:0,
             quiz:0,
             team_answers:[],
-            questions:[]
+            questions:[],
+            userInfos:[]
 
         }
     }
@@ -31,7 +32,7 @@ componentDidMount(){
          .catch(error => {
              console.log(error.response)
          })
-         axios.get('http://127.0.0.1:8000/api/team_answers')
+         axios.get('http://127.0.0.1:8000/api/team_answers/index')
          .then(res=>{
             this.setState({results:res.data.data.length})
              console.log(res.data.data.length)
@@ -44,21 +45,31 @@ componentDidMount(){
                  })
              }
              console.log(error.response)
-         })     
+         }) 
+         let headers={headers:{'API_TOKEN':localStorage.getItem('token')}}
+        let idToken =localStorage.getItem('token');
+        axios.get(`http://127.0.0.1:8000/api/teamShow/${idToken}`, headers)
+            .then(res => {
+                this.setState({userInfos:res.data.data[0]})
+            })
+            .catch(error => {
+                console.log(error.response)
+            })    
  
     }
  
     
 handleSubmit = event =>{
     event.preventDefault()
-    console.log("réponse envoyée!")
+    console.log(this.state.userInfos[0].teamId)
     let bodyFormData = new FormData();
     bodyFormData.set('question_id', this.state.question_id)
     bodyFormData.set('answer_id', this.state.answer_id)
+    bodyFormData.set('team_id', this.state.userInfos[0].teamId)
 
     axios.post('http://127.0.0.1:8000/api/team_answers', bodyFormData)
             .then(res=>{
-                /* console.log(res.data) */
+                console.log(res.data)
                 localStorage.setItem('token', res.data.api_token)
                /*  this.setState({redirect:true}) */
 
@@ -95,7 +106,7 @@ refreshPage = (event) =>{
   
     render(){
        
-        const progress=(this.state.team_answers/10)*100
+        const progress=(this.state.results/10)*100
       
         return(
             <>
@@ -113,7 +124,7 @@ refreshPage = (event) =>{
                 <form method="POST" onSubmit={this.handleSubmit}>
                     {this.state.quizzes.map((quiz)=>
                     <>
-                     <Timer question_id={quiz[2][0].questionId} answer_id={quiz[3][0].answerId}/>
+                   {/*   <Timer question_id={quiz[2][0].questionId} answer_id={quiz[3][0].answerId}/> */}
                         <h1>Catégorie: {quiz[0][0].categorieName}</h1>
                         <h3>Quiz: {quiz[1][0].quizName}</h3>
                         <div className="container bg-white container_question">
@@ -141,7 +152,7 @@ refreshPage = (event) =>{
                         </> 
                        
                         )} 
-                         {progress>=10
+                         {this.state.results>=10
                             ?
                             
                             <Redirect to={`/result/${this.props.match.params.id}`}/>

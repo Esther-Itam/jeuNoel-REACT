@@ -20,7 +20,7 @@ class NavbarTeam extends React.Component{
                 
             } }
     let id =localStorage.getItem('token');
-    axios.get(`http://127.0.0.1:8000/api/show/${id}`, headers)
+    axios.get(`http://127.0.0.1:8000/api/teamShow/${id}`, headers)
         .then(res => {
             this.setState({userInfos:res.data.data[0]})
 

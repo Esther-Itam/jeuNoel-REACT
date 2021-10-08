@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
 import axios from 'axios';
-import ButtonColor from '../Game/ButtonColor';
+import ButtonColor from '../Buttons/ButtonColor';
 
 
 class TeamBuilding extends React.Component{
@@ -151,11 +151,8 @@ handleColorChange4= event =>{
                         <label className="form-label">Choisir l'avatar</label>
                         <div className="row justify-content-md-center">
                             <div className="col-9">
-                        
                             {this.state.avatars.map((avatar)=>
-                        
                                     <button className="avatar_button" onClick={this.handleAvatarChange} type="button" value={avatar.avatar} style={{backgroundImage:`url(${avatar.avatar})`,  backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></button>
-                            
                             )}
                              </div>
                         </div>
@@ -171,64 +168,38 @@ handleColorChange4= event =>{
                         <button className="color_button" type="button" style={{backgroundColor:"grey"}} disabled></button>
                         :
                         <button className="color_button" onClick={this.handleColorChange1} type="submit" style={{backgroundColor:color[0].colorName}} value={color[0].colorName}></button>
-
                         }
                         {color[1].colorUsed === 1
                         ?
                         <button className="color_button" type="button" style={{backgroundColor:"grey"}} disabled></button>
                         :
                         <button className="color_button" onClick={this.handleColorChange2} type="submit" style={{backgroundColor:color[1].colorName}} value={color[1].colorName}></button>
-
                         }
                         {color[2].colorUsed === 1
                         ?
                         <button className="color_button" type="button" style={{backgroundColor:"grey"}} disabled></button>
                         :
                         <button className="color_button" onClick={this.handleColorChange3} type="submit" style={{backgroundColor:color[2].colorName}} value={color[2].colorName}></button>
-
                         }
                         {color[3].colorUsed === 1
                         ?
                         <button className="color_button" type="button" style={{backgroundColor:"grey"}} disabled></button>
                         :
                         <button className="color_button" onClick={this.handleColorChange4} type="submit" style={{backgroundColor:color[3].colorName}} value={color[3].colorName}></button>
-
                         }
                         </>
                     )}
                     </div>
             </form>
 
-{this.state.colors.map((color)=>
-    <>
-    {color.color="green" && this.state.clicked1
-    ?
-    <ButtonColor idColor={1}/>
-    :
-    null
-    }
-    {color.color="red" && this.state.clicked2
-    ?
-    <ButtonColor idColor={2}/>
-    :
-    null
-    }
-    {color.color="blue" && this.state.clicked3
-    ?
-    <ButtonColor idColor={3}/>
-    :
-    null
-    }
-    {color.color="yellow" && this.state.clicked4
-    ?
-    <ButtonColor idColor={4}/>
-    :
-    null
-    }
-
-</>
-)}
-
+                    {this.state.colors.map((color)=>
+                        <>
+                        {color.color="green" && this.state.clicked1?<ButtonColor idColor={1}/>:null}
+                        {color.color="red" && this.state.clicked2?<ButtonColor idColor={2}/>:null}
+                        {color.color="blue" && this.state.clicked3?<ButtonColor idColor={3}/>:null}
+                        {color.color="yellow" && this.state.clicked4?<ButtonColor idColor={4}/>:null}
+                        </>
+                    )}
                 </div>
             </>
         )

@@ -3,14 +3,6 @@ import gifAttente from '../../pictures/gifAttente.webp';
 import NavbarTeam from '../Navbar/NavbarTeam';
 
 class Waiting extends React.Component{
-    constructor(props){
-        super(props)
-        this.state={
-
-        }
-    }
-
-
 
     render(){
         return(
