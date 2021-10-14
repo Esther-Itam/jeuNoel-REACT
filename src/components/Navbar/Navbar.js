@@ -4,38 +4,30 @@ import axios from 'axios';
 import logo from '../../pictures/logo.webp'
 
 class Navbar extends React.Component{
-    constructor(){
-        super()
-        this.state={
-            token:null,
-            userInfos:[],
-            name:'',
-            userInfo:""
-        }
-    }
-    componentDidMount(){
 
-            let headers={
-                headers:{
-                    'API_TOKEN':localStorage.getItem('token'),
-                    
-                } }
-        let id =localStorage.getItem('token');
-        axios.get(`http://127.0.0.1:8000/api/show/${id}`, headers)
-            .then(res => {
-                this.setState({userInfos:res.data.data[0]})
-            })
-            .catch(error => {
-                console.log(error.response)
-            })
+constructor(){
+    super()
+    this.state={
+        token:null,
+        userInfos:[],
+        name:'',
+        userInfo:""
     }
-  
+}
+
+componentDidMount(){
+    let headers={headers:{'API_TOKEN':localStorage.getItem('token')}}
+    let id =localStorage.getItem('token');
+    axios.get(`http://127.0.0.1:8000/api/show/${id}`, headers)
+        .then(res => {this.setState({userInfos:res.data.data[0]}) })
+        .catch(error => {console.log(error.response)})
+} 
     
-    logout = () =>{
-        localStorage.setItem('token', '')
-        localStorage.clear()
-        this.setState({token:null})
-    }
+logout = () =>{
+    localStorage.setItem('token', '')
+    localStorage.clear()
+    this.setState({token:null})
+}
     render(){
 
         return(
@@ -51,12 +43,12 @@ class Navbar extends React.Component{
                                 <Link className="nav-link active" aria-current="page" to="/player"><img src={logo} alt="" width="100px"/></Link>
                             </li>
                             <li className="nav-item">
-                                <h1 classNameName="titleNav">Bienvenue au Quiz de Noël</h1>
+                                <h1 className="titleNav">Bienvenue au Quiz de Noël</h1>
                             </li>
-                            <li className="nav-item" classNameName="identifiantNav">
+                            <li className="nav-item" className="identifiantNav">
                                 {this.state.userInfos.map((userInfo)=>
                                 <>
-                                    <Link className="nav-link dropdown-toggle" data-bs-toggle="dropdown" to="/" role="button" aria-expanded="false">Joyeux Noel {userInfo.userName}</Link>
+                                    <Link className="nav-link dropdown-toggle nav-link-color" data-bs-toggle="dropdown" to="/" role="button" aria-expanded="false">Joyeux Noël {userInfo.userName}  🎄 </Link>
                                
                                 <ul className="dropdown-menu">
                                     <li><Link className="dropdown-item" to={`/account/${userInfo.userId}`}>Compte</Link></li>
@@ -67,7 +59,7 @@ class Navbar extends React.Component{
                                             :
                                             null
                                         }
-                                    <li><Link className='btn' onClick={()=>this.logout()} to="/">Déconnexion</Link></li>
+                                    <li><Link className='dropdown-item' onClick={()=>this.logout()} to="/">Déconnexion</Link></li>
                                 </ul>
                                 </>
                                 )}

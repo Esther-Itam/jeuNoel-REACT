@@ -16,7 +16,6 @@ class ButtonReplay extends React.Component{
 handleSubmit = event =>{
     event.preventDefault()
     console.log("colonne is_used des catégories updatée")
-
     axios.put('http://127.0.0.1:8000/api/categorie', {is_used:0})
         .then(res => {this.setState(console.log(res))
                       this.setState({redirect:true})})

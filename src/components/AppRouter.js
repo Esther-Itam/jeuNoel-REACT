@@ -1,33 +1,34 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
 import Home from './Home';
-import Register from './Authentification/Register';
-import Login from './Authentification/Login';
-import Account from './Authentification/Account';
+import RegisterScreen from './Authentification/RegisterScreen';
+import LoginScreen from './Authentification/LoginScreen';
+import AccountScreen from './Authentification/AccountScreen';
 
-import Player from './Game/Player';
-import StartGame from './Game/StartGame';
+import PlayerScreen from './Game/PlayerScreen';
+import StartGameScreen from './Game/StartGameScreen';
 import Random from './Game/Random';
-import Categories from './Game/Categories';
-import CategorieShow from './Game/CategorieShow';
-import Waiting from './Game/Waiting';
+import CategoriesScreen from './Game/CategoriesScreen';
+import CategorieShowScreen from './Game/CategorieShowScreen';
+import WaitingScreen from './Game/WaitingScreen';
 import RatingScreen from './Team/RatingScreen';
 
-import TeamBuilding from './Team/TeamBuilding';
-import TeamPresentation from './Team/TeamPresentation';
-import Result from './Team/Result';
-import ResultTeams from './Team/ResultTeams';
+import TeamBuildingScreen from './Team/TeamBuildingScreen';
+import TeamPresentationScreen from './Team/TeamPresentationScreen';
+import TeamContinueGameScreen from './Team/TeamContinueGameScreen';
+import ResultScreen from './Team/ResultScreen';
+import ResultTeamsScreen from './Team/ResultTeamsScreen';
 
-import Summary from './Quiz/Show/Summary';
-import QuizControl from './Quiz/Show/QuizControl';
-import CategorieControl from './Quiz/Show/CategorieControl';
-import CreateQuiz from './Quiz/Create/CreateQuiz';
-import CreateCategorie from './Quiz/Create/CreateCategorie';
+import SummaryScreen from './Quiz/Show/SummaryScreen';
+import QuizControlScreen from './Quiz/Show/QuizControlScreen';
+import CategorieControlScreen from './Quiz/Show/CategorieControlScreen';
+import CreateQuizScreen from './Quiz/Create/CreateQuizScreen';
+import CreateCategorieScreen from './Quiz/Create/CreateCategorieScreen';
 
-import ShowQuiz from './Quiz/Show/ShowQuiz';
-import IndexQuiz from './Quiz/Show/IndexQuiz';
-import QuizUpdate from './Quiz/Update/QuizUpdate';
-import CategorieUpdate from './Quiz/Update/CategorieUpdate';
+import ShowQuizScreen from './Quiz/Show/ShowQuizScreen';
+import IndexQuizScreen from './Quiz/Index/IndexQuizScreen';
+import QuizUpdateScreen from './Quiz/Update/QuizUpdateScreen';
+import CategorieUpdateScreen from './Quiz/Update/CategorieUpdateScreen';
 
 
 
@@ -42,30 +43,41 @@ class AppRouter extends React.Component{
         return(
             <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route exact path="/register" component={Register}/>
-                <Route exact path="/player" component={Player}/>
-                <Route exact path="/login" component={Login}/>
-                <Route exact path="/teamBuilding" component={TeamBuilding}/>
-                <Route exact path="/teamPresentation" component={TeamPresentation}/>
-                <Route exact path="/startGame" component={StartGame}/>
-                <Route exact path="/random" component={Random}/>
-                <Route exact path="/categorie" component={Categories}/>
-                <Route exact path="/waiting" component={Waiting}/>
-                <Route exact path="/account/:id" component={Account}/>
-                <Route exact path="/quizIndex/:id" component={IndexQuiz}/>
-                <Route exact path="/quizUpdate/:id" component={QuizUpdate}/>
-                <Route exact path="/categorieUpdate/:id" component={CategorieUpdate}/>
-                <Route exact path="/quizCreate" component={CreateQuiz}/>
-                <Route exact path="/categorieCreate" component={CreateCategorie}/>
-                <Route exact path="/quizShow/:id" component={ShowQuiz}/>
-                <Route exact path="/result/:id" component={Result}/>
-                <Route exact path="/resultTeams" component={ResultTeams}/>
-                <Route exact path="/categorieShow/:id" component={CategorieShow}/>
-                <Route exact path="/summary" component={Summary}/>
-                <Route exact path="/categorieControl" component={CategorieControl}/>
-                <Route exact path="/quizControl" component={QuizControl}/>
-                <Route exact path="/rating" component={RatingScreen}/>
+                {/* ************************AUTHENTIFICATION **************************/}
+                <Route exact path="/register" component={RegisterScreen}/>
+                <Route exact path="/login" component={LoginScreen}/>
+                <Route exact path="/account/:id" component={AccountScreen}/>
 
+                {/* ******************************GAME ********************************/}
+                <Route exact path="/player" component={PlayerScreen}/>
+                <Route exact path="/categorie" component={CategoriesScreen}/>
+                <Route exact path="/categorieShow/:id" component={CategorieShowScreen}/>
+                <Route exact path="/random" component={Random}/>
+                <Route exact path="/startGame" component={StartGameScreen}/>
+                <Route exact path="/waiting" component={WaitingScreen}/>
+
+                {/* ******************************QUIZ ********************************/}
+                    {/* *************************INDEX**************************** */}
+                    <Route exact path="/quizIndex/:id" component={IndexQuizScreen}/>
+                    {/* **************************SHOW**************************** */}
+                    <Route exact path="/categorieControl" component={CategorieControlScreen}/>
+                    <Route exact path="/quizControl" component={QuizControlScreen}/>
+                    <Route exact path="/quizShow/:id" component={ShowQuizScreen}/>
+                    <Route exact path="/summary" component={SummaryScreen}/>
+                    {/* *************************CREATE*************************** */}
+                    <Route exact path="/categorieCreate" component={CreateCategorieScreen}/>
+                    <Route exact path="/quizCreate" component={CreateQuizScreen}/>      
+                    {/* *************************UPDATE*************************** */}
+                    <Route exact path="/categorieUpdate/:id" component={CategorieUpdateScreen}/>
+                    <Route exact path="/quizUpdate/:id" component={QuizUpdateScreen}/>
+
+                {/* ******************************TEAM ********************************/}
+                <Route exact path="/rating" component={RatingScreen}/>
+                <Route exact path="/result/:id" component={ResultScreen}/>
+                <Route exact path="/resultTeams" component={ResultTeamsScreen}/>
+                <Route exact path="/teamPresentation" component={TeamPresentationScreen}/>
+                <Route exact path="/teamBuilding" component={TeamBuildingScreen}/>
+                <Route exact path="/teamContinueGame" component={TeamContinueGameScreen}/>
 
             </Switch>
         )

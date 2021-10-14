@@ -16,19 +16,12 @@ componentDidMount(){
                 console.log(res.data.data[0])
 
             })  
-            .catch(error =>{
-                if(error.response.status === 401){
-                    this.setState({errors: error.response.data.errors}, ()=>{
-                        console.log(this.state)
-                    })
-                }
-                console.log(error.response)
-            })
+            .catch(error =>{console.log(error.response)})
 }
     render(){
         return(
             <div>
-                <table class="table">
+               <table class="table">
                     <thead>
                         <tr>
                         <th scope="col"></th>
@@ -50,7 +43,7 @@ componentDidMount(){
                         </tr>
                         <tr>
                         <th scope="row">Score</th>
-                       {this.state.results.map((result)=><td>{result.userCount/3}/20</td>)}
+                       {this.state.results.map((result)=><td>{parseInt(result.userCount)} 🎁</td>)}
                         </tr> 
                     </tbody>
                     </table>

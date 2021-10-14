@@ -11,13 +11,16 @@ class Home extends React.Component{
     render(){
         return(
             <>
-                <div className="container w-50 homeContainer">
+              <div className="containerBodyHome">
+                <div className="containerHome">
                     <h1>Bienvenue au Quizz de Noël</h1>
-                    <div className="container">
-                    <button type="button" className="btn btn-danger"><Link to="/register">S'inscrire</Link></button>
-                    <button type="button" className="btn btn-danger"><Link to="/login">Se connecter</Link></button>
+                    <div className="containerLinkHome">
+                    <Link className="linkStandard" to="/register">S'inscrire</Link>
+                    <Link className="linkStandard" to="/login">Se connecter</Link>
                     </div>
                 </div>
+            </div>
+
             </>
         )
     }
