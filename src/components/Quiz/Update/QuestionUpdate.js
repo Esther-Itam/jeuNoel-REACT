@@ -35,12 +35,14 @@ handleQuestionChange= event =>{this.setState({question: event.target.value}, ()=
         
         return(
                 <>
+                <div className="questionUpdate">
                     {this.state.quizzes.map((quiz)=>
                         <form method="PUT"  onSubmit={this.handleSubmitQuestion}>        
                             <input onChange={this.handleQuestionChange} placeholder={quiz[1][this.props.questionIndex].questionName}/>
-                            <button type="submit" class="btn">Modifier</button>
+                            <button type="submit" className="buttonValid">Modifier</button>
                         </form> 
                     )} 
+                </div>    
                 </>
         )
     }

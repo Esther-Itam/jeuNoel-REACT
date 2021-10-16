@@ -44,11 +44,13 @@ handleSubmit = event =>{
     render(){
 
         return(
-
-            <div className="container w-50">
+            <div className="containerTeamBuilding">
+            <div className="containerTeam">
                     <h2 className="text-center my-5">Voici les équipes qui s'affrontent</h2>
-                    <h5>Les lutins ont perdu 60 🎁 dans le jeu, celui qui leur rapporte sera le grand vainqueur!</h5>
-                    <p>Il y a 10 🎁 par catégorie à trouver</p>
+                    <div className="containerRulers">
+                    <h4>Les lutins ont perdu 60 🎁 dans le jeu, celui qui leur rapporte sera le grand vainqueur!</h4>
+                    <h4>Il y a 10 🎁 par catégorie à trouver</h4>
+                    </div>
                     {this.state.conditions <2
                     ?
                     <>
@@ -56,9 +58,11 @@ handleSubmit = event =>{
                     <h5>Attendez qu'un joueur rejoigne la partie!</h5>
                     <div>
                         {this.state.teams.map((team)=>
-                        <div>
-                            <h5 style={{color:team.color.color}}>{team.name}</h5>
+                        <div className="containerAvatarPresentation">
+                            <div className="containerAvatarPresentationTitle">
                             <div className="avatar_button" style={{backgroundImage:`url(${team.avatar})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
+                            <h2 style={{color:team.color.color}}>L'équipe {team.name}</h2>
+                        </div>
                         </div>
                         )}
                     </div>
@@ -68,14 +72,19 @@ handleSubmit = event =>{
                
                     <>
                         {this.state.teams.map((team)=>
-                        <div>
-                            <h5 style={{color:team.color.color}}>{team.name}</h5>
+                        <div className="containerAvatarPresentation">
+                            <div className="containerAvatarPresentationTitle">
                             <div className="avatar_button" style={{backgroundImage:`url(${team.avatar})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
+                            <h2 style={{color:team.color.color}}>L'équipe {team.name}</h2>
+                        </div>
                         </div>
                         )}
-                        <button type="button" class="btn btn-success" onClick={this.handleSubmit} value={0}><Link className="link" to="/startGame">Commencer la partie</Link></button>                 
+                        <div className="containerButtonGame">
+                        <button type="button" class="buttonGame" onClick={this.handleSubmit} value={0}><Link className="link" to="/startGame">GO!</Link></button>                 
+                        </div>
                     </>               
                     }
+            </div>
             </div>
         )
     }

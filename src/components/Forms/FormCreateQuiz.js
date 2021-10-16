@@ -46,8 +46,8 @@ handleSubmit = event =>{
 render(){
         return(
             <>
-    <div className="containerCategorie" >
-        <div>
+    <div className="containerSummaryUpdate">
+        <div className="containerUpdate" >
             <h2 class="text-center my-5">Création d'un Quiz</h2>
             <form method="POST"  onSubmit={this.handleSubmit}>
                 <div class="mb-3">

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
+import ButtonStandard from '../../Buttons/ButtonStandard';
 
 
 class CategorieUpdate extends React.Component{
@@ -39,7 +40,8 @@ render(){
     }
     return(
     <>
-        <div className="containerCategorie" >  
+    <div className="containerSummaryUpdate" > 
+        <div className="containerUpdate" >  
             <div className="row justify-content-md-center">
             <> 
                 <h1>Modification des catégories</h1>
@@ -47,15 +49,18 @@ render(){
                 <>
                 <div className="answerUpdate">
                     <form method="PUT"  onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleNameChange} placeholder={categorie.categorieName}/>
-                    <button className="buttonValid" type="submit" className="btn">Modifier</button>
+                    <input  className="inputUpdate" onChange={this.handleNameChange} placeholder={categorie.categorieName}/>
+                    <div className="buttonStandardUpdate">
+                    <ButtonStandard text={"Modifier"}/>
+                    </div>
                 </form>  
                 </div>
-            
+           
                 </>  
                 )}
             </>  
             </div>
+        </div>
         </div>
     </>
         )

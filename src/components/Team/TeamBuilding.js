@@ -10,10 +10,14 @@ class TeamBuilding extends React.Component{
 
         return(
             <>
-                <div className="container w-50">
+                <div className='containerTeamBuilding'>
+                
+                <div className="containerTeam">
                 <h2 className="text-center my-5">Création de l'équipe</h2>
                 <FormCreateTeam/>
                 </div>
+                </div>
+               
             </>
         )
     }

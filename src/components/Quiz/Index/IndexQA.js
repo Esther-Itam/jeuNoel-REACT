@@ -26,6 +26,7 @@ componentDidMount(){
     render(){
         return(
             <>
+            <div className="containerSummaryQA" > 
                 <div className="containerCategorie" >  
                     <div class="row justify-content-md-center">
                         {this.state.quizzes.map((quiz)=><h1>Quiz: {quiz[0][0].quizName}</h1>)}
@@ -43,7 +44,8 @@ componentDidMount(){
                         <Link type="button" class="btn btn-success" to='/summary'>Retour au sommaire</Link>
                         
                     </div>
-                </div>  
+                </div> 
+                </div> 
             </>
         )
     }

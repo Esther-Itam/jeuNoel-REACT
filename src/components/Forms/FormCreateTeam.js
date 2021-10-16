@@ -55,17 +55,19 @@ handleColorChange4= event =>{this.setState({color: event.target.value}, ()=>{thi
                     <div className="mb-3">
                         <label className="form-label">Choisir l'avatar</label>
                         <div className="row justify-content-md-center">
-                            <div className="col-9">
+                            <div className="col-12">
                            <ButtonAvatar onClickAvatar={this.handleAvatarChange}/>
                              </div>
                         </div>
                     </div>
                     <div className="mb-3">
-                        <label className="form-label">Choisir la couleur de l'équipe</label>    
+                        <label className="form-label">Choisir la couleur de l'équipe</label> 
+                        <div className="row justify-content-md-center">
                         <ColorManagement onClickColor={this.handleColorChange1} index={0}/> 
                         <ColorManagement onClickColor={this.handleColorChange2} index={1}/>                                        
                         <ColorManagement onClickColor={this.handleColorChange3} index={2}/>                                        
-                        <ColorManagement onClickColor={this.handleColorChange4} index={3}/>                                        
+                        <ColorManagement onClickColor={this.handleColorChange4} index={3}/>  
+                        </div>                                      
                     </div>
                 </form>
                         <ColorCheckManagement color={"green"} checked={this.state.clicked1} idColor={1}/>

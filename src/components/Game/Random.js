@@ -62,11 +62,17 @@ const random= () =>{
               </div>
             </> 
             :
-            <div class="container w-50">
+            <div className="containerTeamBuilding">
+            <div className="containerTeamRandom">
             <h2 class="text-center my-5">Une équipe va être sélectionnée au hasard</h2>
             <h4 class="text-center my-5">L'équipe sélectionnée choisira la catégorie</h4>
-            <img src={gifRandom} alt="" width="400px"/>
             <button className="bouton" onClick={random}>Lancement du random</button>
+
+            <div className="containerTeamRandomdiv">
+            <img src={gifRandom} alt="" width="400px"/>
+
+            </div>
+            </div>
             </div>
             }
            

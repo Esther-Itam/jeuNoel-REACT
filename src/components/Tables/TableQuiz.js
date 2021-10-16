@@ -46,7 +46,10 @@ render(){
             <>
                 {this.state.quizzes.length===0
                 ?
+                <>
                 <div className="no_categorie_show">Il n'y a pas encore de Quiz créés</div>
+                <Link type="button" class="linkStandard" to='/quizCreate'>Créer</Link>
+                </>
                 :
                 <table class="table table-borderless">
                     <thead className='table-dark'>

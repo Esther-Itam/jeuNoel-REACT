@@ -53,7 +53,7 @@ handleAnswerValid= event =>{this.setState({is_valid: parseInt(event.target.value
                         <option value={numVrai}>Vrai</option>
                         <option value={numFaux}>Faux</option>   
                     </select>
-                    <button className="buttonValid" type="submit" class="btn">Modifier</button>
+                    <button className="buttonValid" type="submit">Modifier</button>
                </form>  
             </div>  
             )}

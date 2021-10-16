@@ -25,7 +25,7 @@ componentDidMount(){
             <>
                 
                     
-                    <div>
+                    <div className='containerPlayer'>
                         {this.state.teams <4
                         ?
                         <div className="buttonPlayerContainer">

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
+import ButtonStandard from '../Buttons/ButtonStandard';
 
 class FormCreateCategorie extends React.Component{
 constructor(props){
@@ -38,17 +39,20 @@ handleSubmit = event =>{
 
         return(
             <>
-            <div className="containerCategorie" >
-                <div>
+             <div className="containerSummaryUpdate" > 
+            <div className="containerUpdate" >
+                <div className="row justify-content-md-center">
                 <h2 class="text-center my-5">Création d'une catégorie</h2>
+                <div className="answerUpdate">
                     <form method="POST"  onSubmit={this.handleSubmit}>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nom</label>
-                            <input onChange={this.handleNameChange} type="text"id="name"/>
-                        </div>
-                            <button type="submit" className="btn btn-sucess">Valider</button>
+                            <input  className="inputCreate" onChange={this.handleNameChange} type="text"id="name"/>
+                        <div className="buttonStandardUpdate">
+                        <ButtonStandard text={"Créer"}/>
+                        </div>    
                     </form>
+                    </div>
                 </div>
+            </div>
             </div>
             </>
         )

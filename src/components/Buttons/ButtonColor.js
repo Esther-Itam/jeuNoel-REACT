@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
+import ButtonGame from './ButtonGame';
 
 class ButtonColor extends React.Component{
     constructor(){
@@ -51,7 +52,7 @@ handleSubmit = event =>{
         return(
                 <>
                 <form method="PUT" onSubmit={this.handleSubmit}>
-                    <button type="submit" onClick={this.handleIsUsedChange} className="bouton">Valider</button>
+                    <ButtonGame onClick={this.handleIsUsedChange} titleButton={"Valider"}/>
                 </form>    
                 </>
         )

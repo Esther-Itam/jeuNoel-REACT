@@ -27,12 +27,13 @@ render(){
       
         return(
     <>
+     <div className="containerSummaryQA" > 
         <div className="containerCategorie" >  
             <div className="row justify-content-md-center">
                 {this.state.quizzes.map((quiz)=>
                 <>
                         <h1>Quiz: {quiz[0][0].quizName}</h1>
-                                        <IndexUpdateQA numberQuestion={1} questionIndex={0} answerIndex1={0} answerIndex2={1} answerIndex3={2} id = {this.props.id}/>
+                                           <IndexUpdateQA numberQuestion={1} questionIndex={0} answerIndex1={0} answerIndex2={1} answerIndex3={2} id = {this.props.id}/>
                     {this.state.index >1 ? <IndexUpdateQA numberQuestion={2} questionIndex={1} answerIndex1={3} answerIndex2={4} answerIndex3={5} id = {this.props.id}/> : null}
                     {this.state.index >2 ? <IndexUpdateQA numberQuestion={3} questionIndex={2} answerIndex1={6} answerIndex2={7} answerIndex3={8} id = {this.props.id}/> : null}
                     {this.state.index >3 ? <IndexUpdateQA numberQuestion={4} questionIndex={3} answerIndex1={9} answerIndex2={10} answerIndex3={11} id = {this.props.id}/> : null}
@@ -46,6 +47,7 @@ render(){
                 )} 
             <Link type="button" className="btn btn-success" to='/summary'>Retour au sommaire</Link>  
             </div>
+        </div>
         </div>
     </>
         )

@@ -45,7 +45,10 @@ render(){
             <>
                {this.state.categories.length===0
                 ?
+                <>
                 <div className="no_categorie_show">Il n'y a pas encore de catégories créées</div>
+                <Link type="button" className="linkStandard" to='/categorieCreate'>Créer</Link>
+                </>
                 :
                 <table className="table table-borderless">
                     <thead className='table-dark'>
