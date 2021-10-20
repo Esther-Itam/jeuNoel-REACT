@@ -19,11 +19,11 @@ class TeamPresentation extends React.Component{
 
     componentDidMount(){
         axios.get('http://127.0.0.1:8000/api/teamPresentation')
-            .then(res => {this.setState({teams:res.data})})
+            .then(res => {this.setState({teams:res.data.data})})
             .catch(error => {console.log(error.response)})
             
         axios.get('http://127.0.0.1:8000/api/teamPresentation')
-            .then(res => {this.setState({conditions:res.data.length})})
+            .then(res => {this.setState({conditions:res.data.data.length})})
             .catch(error => {console.log(error.response)})
 
         axios.get('http://127.0.0.1:8000/api/categorie')

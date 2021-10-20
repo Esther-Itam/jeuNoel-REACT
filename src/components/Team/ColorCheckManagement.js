@@ -1,11 +1,6 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
 import axios from 'axios';
 import ButtonColor from '../Buttons/ButtonColor';
-import ButtonColorDisabled from '../Buttons/ButtonColorDisabled';
-import ButtonColorChange from '../Buttons/ButtonColorChange';
-import ButtonAvatar from '../Buttons/ButtonAvatar';
-
 
 class ColorCheckManagement extends React.Component{
     constructor(props){

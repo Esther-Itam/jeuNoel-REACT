@@ -18,8 +18,8 @@ componentDidMount(){
   let id = this.props.id;
     axios.get(`http://127.0.0.1:8000/api/quiz/${id}`)
     .then(res => {
-        this.setState({quizzes:res.data})
-            this.setState({index:res.data[0][1].length})
+        this.setState({quizzes:res.data.data})
+        this.setState({index:res.data.data[0][1].length})
         })
         .catch(error => {console.log(error.response) })}
 

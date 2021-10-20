@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import gifRandom from '../../pictures/random.webp'
+import gifRandom from '../../pictures/random.webp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import gitBonhomme from '../../pictures/bonhomme.webp';
+import bonnet from '../../pictures/bonnet.png';
 
 const Random = () =>{
       const [colors, setColors]=useState("");
@@ -11,7 +13,7 @@ const Random = () =>{
 
 useEffect(() => {
   axios.get('http://127.0.0.1:8000/api/teamPresentation').then((res) => {
-      setTeams(res.data);
+      setTeams(res.data.data);
   },1000)
 },[]);
 
@@ -39,7 +41,8 @@ const random= () =>{
         <>  
             {affichage ?  
             <>
-             <div  className="containerCategorie">
+             <div className="containerTeamBuildingResultRandom">
+              <div className="containerTeamRandomResultRandom">
               <h2>
                 {(() => {
                   switch (colors) {
@@ -50,29 +53,38 @@ const random= () =>{
                     default:      return "Relancer le random";
                   }
                 })()}
-               
               </h2>
               <div className="color_button" style={{backgroundColor:colors}} value={colors}></div> 
+              <div className="containerTeamRandomdiv">
+                  <img src={gitBonhomme} alt="" width="400px"/>
+              </div>
               {redirect === colors 
               ?
-              <Link className="btn btn-success" to="/categorie">Suite</Link>
-               :
-              <Link className="btn btn-success" to="/waiting">Suite</Link>
-              }
+              <>
+              <div>
+              <div className="containerLinkGame"></div>
+              <Link className="buttonGame" to="/categorie">Suite</Link>
               </div>
+             </>
+              :
+              <>
+              <img className="bonnet" src={bonnet} alt="" width="160px"/>
+              <Link className="linkGame" to="/waiting">Suite</Link>
+            </>
+              }
+            </div>
+            </div>
             </> 
             :
             <div className="containerTeamBuilding">
-            <div className="containerTeamRandom">
-            <h2 class="text-center my-5">Une équipe va être sélectionnée au hasard</h2>
-            <h4 class="text-center my-5">L'équipe sélectionnée choisira la catégorie</h4>
-            <button className="bouton" onClick={random}>Lancement du random</button>
-
-            <div className="containerTeamRandomdiv">
-            <img src={gifRandom} alt="" width="400px"/>
-
-            </div>
-            </div>
+              <div className="containerTeamRandom">
+                <h2 class="text-center my-5">Une équipe va être sélectionnée au hasard</h2>
+                <h4 class="text-center my-5">L'équipe sélectionnée choisira la catégorie</h4>
+                <button className="bouton" onClick={random}>Lancement du random</button>
+                <div className="containerTeamRandomdiv">
+                  <img src={gifRandom} alt="" width="400px"/>
+                </div>
+              </div>
             </div>
             }
            

@@ -20,7 +20,7 @@ componentDidMount(){
     let id =localStorage.getItem('token');
     axios.get(`http://127.0.0.1:8000/api/show/${id}`, headers)
         .then(res => {this.setState({userInfos:res.data.data[0]}) })
-        .catch(error => {console.log(error.response)})
+        .catch(error => {})
 } 
     
 logout = () =>{

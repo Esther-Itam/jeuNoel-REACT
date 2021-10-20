@@ -239,7 +239,19 @@ body{
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   color:white;
 }
-
+.containerTeamRandomResultRandom{
+  background-color: rgb(70, 66, 110);
+  text-align: center;
+  padding-left:4%;
+  padding-right:4%;
+  padding-top: 20px;
+  padding-bottom: 3%;
+  margin-top: 2%;
+  margin-left: 5%;
+  border-radius:5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  color:white;
+}
 .containerButtonGame{
   background-image: url('./pictures/bonnet.png');
   background-repeat: no-repeat;
@@ -276,6 +288,18 @@ body{
   text-align: center;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.containerTeamBuildingResultRandom{
+  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'),url('./pictures/snow5.png'),url('./pictures/snow.png'),linear-gradient(#3cf0f6,#fad688,#ffdf88, #ebf8e1 );;
+  background-repeat:repeat, no-repeat, repeat-x, repeat-x, no-repeat;
+  background-position:right;
+  background-size:contain;
+  padding-top: 2%;
+  display:flex;
+  justify-content:center;
+  color:white;
+  padding-bottom:6%;
 }
 /* ****************************************************************************************************************** */
 /* ******************************************** Buttons ************************************************************* */
@@ -473,6 +497,31 @@ margin-top: 25px;
   color:white;
   font-size: 22px;
 }
+
+.linkGame{
+  border-radius:50%;
+  padding: 40px 30px;
+  background-color: rgba(255, 255, 255, 0.123);
+  border:none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  color:red;
+  font-weight: bold;
+  font-size: 22px;
+  text-transform: uppercase;
+  z-index:1;
+  text-decoration: none;
+  margin-left: 80%;
+
+}
+.bonnet{
+float:right;
+position: absolute;
+margin-left: 20.5%;
+margin-top: -5%;
+
+}
+
+
 /* ******************************************************************************************************************* */
 /* ***************************************************** LABEL ******************************************************* */
 label{

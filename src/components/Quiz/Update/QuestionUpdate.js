@@ -16,13 +16,13 @@ class QuestionUpdate extends React.Component{
 componentDidMount(){
     let id = this.props.id;
     axios.get(`http://127.0.0.1:8000/api/quiz/${id}`)
-        .then(res => {this.setState({quizzes:res.data})})
+        .then(res => {this.setState({quizzes:res.data.data})})
         .catch(error => {console.log(error.response)}) 
     }
 
 handleSubmitQuestion= event =>{
     event.preventDefault()
-    console.log("answer enregistrée")
+    console.log("question enregistrée")
     let id = this.props.idQuestion;
     axios.put(`http://127.0.0.1:8000/api/question/${id}`, {name:this.state.question})
             .then(res=>{console.log(res.data)})  

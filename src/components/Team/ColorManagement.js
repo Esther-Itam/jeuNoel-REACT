@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import ButtonColorDisabled from '../Buttons/ButtonColorDisabled';
 import ButtonColorChange from '../Buttons/ButtonColorChange';
-import ColorCheckManagement from './ColorCheckManagement';
 
 class ColorManagement extends React.Component{
     constructor(props){

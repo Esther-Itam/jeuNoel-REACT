@@ -15,7 +15,7 @@ constructor(props){
 componentDidMount(){
 
     axios.get('http://127.0.0.1:8000/api/avatar')
-        .then(res => {this.setState({avatars:res.data})})
+        .then(res => {this.setState({avatars:res.data.data})})
         .catch(error => {console.log(error.response)})  
 }
     

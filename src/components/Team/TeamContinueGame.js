@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import loading from '../../pictures/loading.gif';
-
 
 class TeamContinueGame extends React.Component{
     constructor(props){
@@ -15,7 +13,7 @@ class TeamContinueGame extends React.Component{
 
     componentDidMount(){
         axios.get('http://127.0.0.1:8000/api/teamPresentation')
-            .then(res => {this.setState({teams:res.data})})
+            .then(res => {this.setState({teams:res.data.data})})
             .catch(error => {console.log(error.response)})           
     }
  

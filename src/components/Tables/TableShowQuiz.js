@@ -23,10 +23,12 @@ class TableShowQuiz extends React.Component{
 
 componentDidMount(){
   let id = this.props.id;
+  console.log(id)
   let headers={headers:{'API_TOKEN':localStorage.getItem('token')}}
   let idToken =localStorage.getItem('token');
     axios.get(`http://127.0.0.1:8000/api/categorie/${id}`)
-        .then(res => {this.setState({quizzes:res.data})})
+        .then(res => {this.setState({quizzes:res.data.data})
+    console.log(res.data.data)})
         .catch(error => {console.log(error.response) })
     axios.get('http://127.0.0.1:8000/api/team_answers/index')
         .then(res=>{this.setState({results:res.data.data.length})
@@ -45,7 +47,9 @@ handleSubmit = event =>{
     bodyFormData.set('team_id', this.state.userInfos[0].teamId)
 
     axios.post('http://127.0.0.1:8000/api/team_answers', bodyFormData)
-            .then(res=>{localStorage.setItem('token', res.data.api_token) })  
+            .then(res=>{localStorage.setItem('token', res.data.data.api_token) 
+            console.log(res.data.data.api_token)
+        })  
             .catch(error =>{
                 if(error.response.status === 401){this.setState({errors: error.response.data.errors}, ()=>{})}
                 console.log(error.response)
@@ -56,7 +60,7 @@ handleSubmit = event =>{
 handleAnswerChange = event =>{this.setState({answer_id: event.target.value}, ()=>{})} 
 
 refreshPage = (event) =>{window.location.reload(false);
-                         this.setState({question_id: event.target.value}, ()=>{})}
+                         this.setState({question_id: event.target.value}, ()=>{console.log(this.state)})}
     
 render(){
     const progress=(this.state.results/10)*100

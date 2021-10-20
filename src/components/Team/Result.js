@@ -19,11 +19,12 @@ componentDidMount(){
     axios.get(`http://127.0.0.1:8000/api/categorie/${id}`)
         .then(res => {this.setState({quizzes:res.data})})
         .catch(error => {console.log(error.response)}) 
+    axios.get('http://127.0.0.1:8000/api/team_showAnswers')
+        .then(res=>{this.setState({results:res.data.data})})  
+        .catch(error =>{console.log(error.response) })
     axios.get('http://127.0.0.1:8000/api/team_answers')
-        .then(res=>{this.setState({results:res.data.data})
-                    this.setState({count:res.data.data.length})
-                    })  
-        .catch(error =>{console.log(error.response) }) 
+    .then(res=>{this.setState({count:res.data.data.length})})  
+    .catch(error =>{console.log(error.response) })          
 }
 
 
