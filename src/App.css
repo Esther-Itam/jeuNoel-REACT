@@ -89,12 +89,12 @@ body{
 }
 
 .containerLinkHome{
-  height: 200px;
-  width:200px;
+  height: 250px;
+  width:290px;
   display: flex;
   flex-flow: column wrap;
   justify-content: space-around;
-  margin-left: 25%;
+  margin-left: 20%;
   margin-top: 10%;
   text-align: center;
   font-size: 20px;
@@ -156,6 +156,18 @@ body{
   width:700px;
 }
 
+.containerCategorieGame{
+    background-color: #46426eb6;
+  padding:5%;
+  display:flex;
+  flex-flow: row wrap;
+  justify-content:center;
+  margin-top: 50px;
+  border-radius:5px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  color:white;
+  width:70%;
+}
 .containerSummaryQA{
   background-image: url('./pictures/background11.png'),url('./pictures/flocon4.gif');
   background-repeat: repeat-x;
@@ -234,7 +246,7 @@ body{
   padding-right:50px;
   padding-top: 20px;
   margin-top: 2%;
-  margin-left: 5%;
+  margin-left: 0%;
   border-radius:5px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   color:white;
@@ -244,10 +256,10 @@ body{
   text-align: center;
   padding-left:4%;
   padding-right:4%;
-  padding-top: 20px;
+  padding-top: 3%;
   padding-bottom: 3%;
   margin-top: 2%;
-  margin-left: 5%;
+  margin-left: 0%;
   border-radius:5px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   color:white;
@@ -275,6 +287,7 @@ body{
   justify-content:left;
   padding-top: 20px;
   padding-bottom: 20px;
+  min-width:800px;
 
 }
 .containerAvatarPresentationTitle h2{
@@ -295,11 +308,39 @@ body{
   background-repeat:repeat, no-repeat, repeat-x, repeat-x, no-repeat;
   background-position:right;
   background-size:contain;
+  padding-top: 0%;
+  display:flex;
+  justify-content:center;
+  color:white;
+  padding-bottom:3%;
+}
+
+.containerTeamBuildingCategorie{
+  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'),url('./pictures/snow5.png'),url('./pictures/snow.png'),linear-gradient(#3cf0f6,#fad688,#ffdf88, #ebf8e1 );;
+  background-repeat:repeat, no-repeat, repeat-x, repeat-x, no-repeat;
+  background-position:right;
+  background-size:contain;
   padding-top: 2%;
   display:flex;
   justify-content:center;
   color:white;
-  padding-bottom:6%;
+  padding-bottom:7%;
+}
+
+.containerCategorieButton{
+  width:320px;
+  margin:30px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background-color:#46426E;
+  text-align: center;
+  border-radius:5px;
+  font-size: 45px; 
+  height: 130px;
+  padding-top: 2%;
+}
+.containerCategorieButton:hover{
+  background-color: #6c66ad;
+  color:white;
 }
 /* ****************************************************************************************************************** */
 /* ******************************************** Buttons ************************************************************* */
@@ -419,7 +460,28 @@ margin-top: 25px;
   filter: contrast(50%);
 
 } 
+.color_button_random{
+  width:110px;
+height:110px;
+border-radius: 50%;
+border: none;
+padding: 0;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+margin-top: 25px;
+margin-left: 40%;
+margin-bottom: 2%;
+}
 
+.color_button_random:hover{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.color_button_random:focus{
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  filter: contrast(50%);
+
+} 
 .buttonGame{
   border-radius:50%;
   padding: 15px;
@@ -451,6 +513,17 @@ margin-top: 25px;
 
 }
 
+.categorieButton{
+  text-decoration:none;
+  color:white;
+}
+
+
+.categorieButton:hover{
+  text-decoration:none;
+  color:white;
+}
+
 
 /* ****************************************************************************************************************** */
 /* ***********************************************LINK ************************************************************** */
@@ -464,15 +537,21 @@ margin-top: 25px;
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
+  margin-left: 5px;
 }
 
 .linkStandard:hover{
-
+  color:white;
   background-color: #6c66ad;
   box-shadow: rgba(255, 254, 254, 0.4) 0px 0px 0px 2px, rgba(40, 41, 43, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-
-
 }
+.linkGoogle{
+  border:none;
+  text-decoration: none;
+  width:290px;
+}
+
+
 .linkAdmin{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;  
   padding: 5px;
@@ -560,7 +639,7 @@ label{
 
 .titleNav{
   color:white;
-  margin-left:600px;
+  margin-left:560px;
   margin-top:2%;
 }
 .nav-link-color{
@@ -591,7 +670,7 @@ label{
 }
 
 .titleNavTeam{
-  margin-left:670px;
+  margin-left:700px;
   margin-top:2%;
   font-size: 50px;
 }
@@ -786,18 +865,6 @@ label{
 
 }
 
-
-.categorieButton{
-  padding:40px 60px;
-  background-color:#FF0000;
-  border-radius:5px;
-  text-decoration:none;
-  color:white;
-  font-size: 45px; 
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  margin-right:30px;
-
-}
 
 
 /* .containerCategorie button{

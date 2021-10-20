@@ -3,7 +3,7 @@ import gifRandom from '../../pictures/random.webp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import gitBonhomme from '../../pictures/bonhomme.webp';
-import bonnet from '../../pictures/bonnet.png';
+import LinkGame from '../Buttons/LinkGame';
 
 const Random = () =>{
       const [colors, setColors]=useState("");
@@ -54,7 +54,7 @@ const random= () =>{
                   }
                 })()}
               </h2>
-              <div className="color_button" style={{backgroundColor:colors}} value={colors}></div> 
+              <div className="color_button_random" style={{backgroundColor:colors}} value={colors}></div> 
               <div className="containerTeamRandomdiv">
                   <img src={gitBonhomme} alt="" width="400px"/>
               </div>
@@ -62,21 +62,19 @@ const random= () =>{
               ?
               <>
               <div>
-              <div className="containerLinkGame"></div>
-              <Link className="buttonGame" to="/categorie">Suite</Link>
+              <LinkGame link='/categorie' titleLink='Suite'/>
               </div>
              </>
               :
               <>
-              <img className="bonnet" src={bonnet} alt="" width="160px"/>
-              <Link className="linkGame" to="/waiting">Suite</Link>
+              <LinkGame link='/waiting' titleLink='Suite'/>
             </>
               }
             </div>
             </div>
             </> 
             :
-            <div className="containerTeamBuilding">
+            <div className="containerTeamBuildingResultRandom">
               <div className="containerTeamRandom">
                 <h2 class="text-center my-5">Une équipe va être sélectionnée au hasard</h2>
                 <h4 class="text-center my-5">L'équipe sélectionnée choisira la catégorie</h4>

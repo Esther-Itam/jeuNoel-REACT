@@ -29,6 +29,7 @@ import ShowQuizScreen from './Quiz/Show/ShowQuizScreen';
 import IndexQuizScreen from './Quiz/Index/IndexQuizScreen';
 import QuizUpdateScreen from './Quiz/Update/QuizUpdateScreen';
 import CategorieUpdateScreen from './Quiz/Update/CategorieUpdateScreen';
+import AuthentificationSocialite from './Authentification/AuthentificationSocialite';
 
 
 
@@ -47,6 +48,7 @@ class AppRouter extends React.Component{
                 <Route exact path="/register" component={RegisterScreen}/>
                 <Route exact path="/login" component={LoginScreen}/>
                 <Route exact path="/account/:id" component={AccountScreen}/>
+                <Route path="/player/:provider/:token" component={AuthentificationSocialite}/>
 
                 {/* ******************************GAME ********************************/}
                 <Route exact path="/player" component={PlayerScreen}/>

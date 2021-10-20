@@ -21,24 +21,26 @@ componentDidMount(){
      
         return(
             <>
-                <div className="containerCategorie" >
-                    <div className="row justify-content-md-center">
-                        <div className='row'>
-                            <div className="col-12">
+             <div className="containerTeamBuildingCategorie">
+                <div className="containerCategorieGame" >
+
                            
                              {this.state.categories.map((categorie)=>
                             <>
                             {
                                 categorie.is_used===1
                                 ?
+                                <div className="containerCategorieButton">
                                 <button className="categorieButton" type="button" style={{backgroundColor:"grey"}}>{categorie.name}</button>
+                                </div>
                                 :
+                                <div className="containerCategorieButton">
                                 <Link className="categorieButton" type="button" value={categorie.name} to={`/categorieShow/${categorie.id}`}>{categorie.name}</Link>
+                                </div>
                             }
                             </>
                             )} 
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </>
