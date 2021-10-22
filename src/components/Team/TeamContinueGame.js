@@ -20,16 +20,24 @@ class TeamContinueGame extends React.Component{
     render(){
 
         return(
-            <div className="container w-50">
+            <div className='containerTeamBuilding'>
+            <div className="containerTeam">
                 <h2 className="text-center my-5">Voici les équipes qui s'affrontent</h2>
-                <h5>Tout n'est pas encore terminé, vous pouvez encore sauver Noël!</h5>
+                <h4  className="text-center my-5">Tout n'est pas encore terminé, vous pouvez encore sauver Noël!</h4>
+                <div>
                     {this.state.teams.map((team)=>
-                    <div>
-                        <h5 style={{color:team.color.color}}>{team.name}</h5>
+                    <div className="containerAvatarPresentation">
+                    <div className="containerAvatarPresentationTitle">
                         <div className="avatar_button" style={{backgroundImage:`url(${team.avatar})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
+                        <h2 style={{color:team.color.color}}>{team.name}</h2>
+                    </div>
                     </div>
                     )}
-                    <button type="button" class="btn btn-success"><Link className="link" to="/startGame">Continuer la partie</Link></button>                 
+                </div>
+                <div className="containerButtonGame">
+                    <button type="button" class="buttonGame"><Link className="link" to="/startGame">Go go go!!!</Link></button>                 
+                </div>        
+            </div>
             </div>
         )
     }

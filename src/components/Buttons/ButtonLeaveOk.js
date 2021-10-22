@@ -47,7 +47,7 @@ teamDelete = () =>{axios.delete('http://127.0.0.1:8000/api/teamDelete')
 
         return(
             <>
-                <button type="submit" className="btn btn-success" data-bs-dismiss="modal" onClick={this.handleSubmit}>OK</button> 
+                <button type="submit" className="btn btn-warning" data-bs-dismiss="modal" onClick={this.handleSubmit}>OK</button> 
             </>
         )
     }

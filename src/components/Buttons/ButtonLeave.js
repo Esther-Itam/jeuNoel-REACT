@@ -8,7 +8,7 @@ class ButtonLeave extends React.Component{
 
         return(
             <div>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Quitter</button>
+                <button type="button" class="buttonLeave" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Quitter</button>
                 <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content">

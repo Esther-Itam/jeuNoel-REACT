@@ -33,26 +33,27 @@ componentDidMount(){
        const count = this.state.count;
         return(
             <>
-                <div  className="containerCategorie">
+            <div  className="containerResult">
+                <div  className="containerResultText">
                 
                     <div className="row justify-content-md-center">
                         {this.state.quizzes.map((quiz)=><h1>Catégorie: {quiz[0][0].categorieName}</h1>)}    
-                        <h3>Résultat : {count} 🎁</h3>
-                        <div className="container bg-white container_question">
+                        <h1>Ton équipe a déjà retrouvé <span> {count}</span> 🎁!</h1>
+                        <div className="row container-result">
                             <h4>Les bonnes réponses étaient:</h4>
                             {this.state.results.map((result)=>
-                            <>
-                            <h5>Question: {result.questionName} </h5>
-                            <p>Bonne réponse: {result.answerName}</p>
-                            </>
+                            <div className="col-6">
+                            <h5>{result.questionName}</h5>
+                            <p><i>Bonne réponse:</i> {result.answerName}</p>
+                            </div>
                             )}
+                            <div className="linkStandardContainerResult">
+                            <Link type="button" className="linkStandard" to="/resultTeams">Voir tous les résultats</Link>
+                            </div>
                         </div>
-                        <div>
-                        <Link type="button" className="btn btn-danger" to="/resultTeams">Voir tous les résultats</Link>
-                        </div>
-                    </div>
-                            
+                    </div>         
                 </div>
+            </div>    
             </>
         )
     }

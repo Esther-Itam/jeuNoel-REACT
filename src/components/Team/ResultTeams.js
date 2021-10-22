@@ -22,17 +22,23 @@ componentDidMount(){
     render(){
         return(
             <>
-                <div  className="containerCategorie">
+             <div  className="containerResult">
+                <div  className="containerResultTeam">
                     <h1>Classement provisoire des équipes</h1>
                     <TableResult/>
+                    <div className="containerLinkResult">
                     {this.state.categories>6
                         ?
-                        <Link type="button" className="btn btn-success" to="/rating">Voir le classement</Link>
+                        <Link type="button" className="linkStandard" to="/rating">Voir le classement</Link>
                         :
-                        <Link type="button" className="btn btn-success" to="/teamContinueGame">Continuer le jeu</Link>
+                        <Link type="button" className="linkStandard" to="/teamContinueGame">Continuer le jeu</Link>
                     }
                     <ButtonLeave/>
+                    </div>
+                    
                 </div>
+             </div>
+
             </>
         )
     }
