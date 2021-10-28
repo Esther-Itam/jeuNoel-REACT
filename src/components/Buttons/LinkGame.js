@@ -9,7 +9,7 @@ class LinkGame extends React.Component{
 
         return(
                 <>
-                    <img className="bonnet" src={bonnet} alt="" width="160px"/>
+                    <img className="bonnet" src={bonnet} alt="" width="180px"/>
                     <Link className="linkGame" to={this.props.link}>{this.props.titleLink}</Link>
                 </>
         )

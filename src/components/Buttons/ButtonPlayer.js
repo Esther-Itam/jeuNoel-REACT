@@ -32,11 +32,13 @@ componentDidMount(){
                         <Link className="playButton" to='/teamBuilding'>Jouer</Link>
                         </div>
                         :
-                        <>
-                            <h2>Le nombre de joueur est atteint</h2>
-                            <h3>Veuillez revenir plus tard!</h3>
-                            <img src={later} alt="" width="350px"/>
-                        </>        
+                        <div className="containerTeamBuildingMax">
+                            <div className="containerTeamMax">
+                                <h2>Le nombre de joueur est atteint</h2>
+                                <h3>Veuillez revenir plus tard!</h3>
+                                <img src={later} alt="" width="400px"/>
+                            </div>
+                        </div>       
                         }
                     </div>
                    

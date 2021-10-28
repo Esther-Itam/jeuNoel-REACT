@@ -31,7 +31,7 @@ import QuizUpdateScreen from './Quiz/Update/QuizUpdateScreen';
 import CategorieUpdateScreen from './Quiz/Update/CategorieUpdateScreen';
 import AuthentificationSocialite from './Authentification/AuthentificationSocialite';
 
-
+import Websockets from '../Websockets';
 
 
 class AppRouter extends React.Component{
@@ -81,6 +81,7 @@ class AppRouter extends React.Component{
                 <Route exact path="/teamBuilding" component={TeamBuildingScreen}/>
                 <Route exact path="/teamContinueGame" component={TeamContinueGameScreen}/>
 
+                <Route path="/websocket" component={Websockets}/>
             </Switch>
         )
     }

@@ -60,15 +60,9 @@ const random= () =>{
               </div>
               {redirect === colors 
               ?
-              <>
-              <div>
               <LinkGame link='/categorie' titleLink='Suite'/>
-              </div>
-             </>
               :
-              <>
               <LinkGame link='/waiting' titleLink='Suite'/>
-            </>
               }
             </div>
             </div>

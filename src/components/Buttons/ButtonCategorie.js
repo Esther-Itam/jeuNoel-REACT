@@ -30,8 +30,8 @@ componentDidMount(){
                             {
                                 categorie.is_used===1
                                 ?
-                                <div className="containerCategorieButton">
-                                <button className="categorieButton" type="button" style={{backgroundColor:"grey"}}>{categorie.name}</button>
+                                <div className="containerCategorieButtonUsed">
+                                <button className="categorieButtonUsed" type="button">{categorie.name}</button>
                                 </div>
                                 :
                                 <div className="containerCategorieButton">

@@ -8,9 +8,11 @@ class WaitingScreen extends React.Component{
         return(
             <>
                 <NavbarTeam/>
-                <div class="container w-50">
+                <div class="containerQuiz">
+                <div class="containerTeamRandom">
                     <h2>En attendant que l'équipe choississe la catégorie, on se détend!</h2>
                     <img src={gifAttente} alt="" swidth="800px"/>
+                </div>
                 </div>
             </>
         )

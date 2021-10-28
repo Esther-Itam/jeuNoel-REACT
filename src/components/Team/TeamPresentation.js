@@ -2,9 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import loading from '../../pictures/loading.gif';
+import Echo from 'laravel-echo';
 
+window.Pusher = require('pusher-js');      
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: 'bcb7c6b9143d45ae9407',
+    cluster: 'eu',
+    forceTLS: false,
+   enabledTransports: ['ws', 'wss']
+  });
 
-
+  window.Echo.channel('my-channel').listen('.my-event', function(data) {
+    console.log(data, 'ça fonctionne');
+  }); 
 class TeamPresentation extends React.Component{
     constructor(props){
         super(props)
@@ -18,6 +29,10 @@ class TeamPresentation extends React.Component{
     }
 
     componentDidMount(){
+        window.Echo.channel('my-channel').listen('.my-event', function(data) {
+            console.log(data, 'ça fonctionne');
+          }); 
+          
         axios.get('http://127.0.0.1:8000/api/teamPresentation')
             .then(res => {this.setState({teams:res.data.data})})
             .catch(error => {console.log(error.response)})
@@ -28,8 +43,9 @@ class TeamPresentation extends React.Component{
 
         axios.get('http://127.0.0.1:8000/api/categorie')
         .then(res => {this.setState({categories:res.data.data})
-    console.log(res.data.data)})
-        .catch(error => {console.log(error.response)})            
+        console.log(res.data.data)})
+        .catch(error => {console.log(error.response)})  
+         
     }
  
 
@@ -46,7 +62,7 @@ handleSubmit = event =>{
         return(
             <div className="containerTeamBuilding">
             <div className="containerTeam">
-                    <h2 className="text-center my-5">Voici les équipes qui s'affrontent</h2>
+                    <h1 className="text-center my-5">Voici les équipes qui s'affrontent</h1>
                     <div className="containerRulers">
                     <h4>Les lutins ont perdu 60 🎁 dans le jeu, celui qui leur rapporte sera le grand vainqueur!</h4>
                     <h4>Il y a 10 🎁 par catégorie à trouver</h4>
@@ -54,8 +70,10 @@ handleSubmit = event =>{
                     {this.state.conditions <2
                     ?
                     <>
-                    <h3>Il faut un minimum de 2 joueurs pour commencer la partie</h3>
-                    <h5>Attendez qu'un joueur rejoigne la partie!</h5>
+                    <div className="containerConditions">
+                    <h2>Il faut un minimum de 2 joueurs pour commencer la partie</h2>
+                    <h3>Attendez qu'un joueur rejoigne la partie!</h3>
+                    </div>
                     <div>
                         {this.state.teams.map((team)=>
                         <div className="containerAvatarPresentation">

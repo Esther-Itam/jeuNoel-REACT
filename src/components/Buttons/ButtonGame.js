@@ -11,7 +11,7 @@ class ButtonGame extends React.Component{
               
                 <button type="submit" className="buttonGame">{this.props.titleButton}</button>
 
-                </div>
+              </div>
                 </>
         )
     }

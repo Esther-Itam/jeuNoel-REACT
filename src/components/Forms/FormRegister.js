@@ -13,8 +13,10 @@ class FormRegister extends React.Component{
             confirm_password:'',
             redirect:false, 
             errors:[]
+            
         }
     }
+   
 componentWillMount(){
     if(localStorage.getItem('token')){
         this.setState({redirect:true})

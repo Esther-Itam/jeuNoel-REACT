@@ -45,7 +45,7 @@ handleSubmit = event =>{
 
         return(
             <>
-                       <div className="containerTeamBuildingCategorie">
+                       <div className="containerTeamBuildingCategorieUsed">
                 <div className="containerCategorie" >
                 <div class="row justify-content-md-center">
                     <div class='row'>
