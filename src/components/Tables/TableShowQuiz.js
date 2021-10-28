@@ -24,11 +24,11 @@ class TableShowQuiz extends React.Component{
 
 componentDidMount(){
   let id = this.props.id;
-  console.log(id)
   let headers={headers:{'API_TOKEN':localStorage.getItem('token')}}
   let idToken =localStorage.getItem('token');
     axios.get(`http://127.0.0.1:8000/api/categorie/${id}`)
-        .then(res => {this.setState({quizzes:res.data.data})})
+        .then(res => {this.setState({quizzes:res.data.data})
+    console.log(res)})
         .catch(error => {console.log(error.response) })
     axios.get('http://127.0.0.1:8000/api/team_answers/index')
         .then(res=>{this.setState({results:res.data.data.length})})  

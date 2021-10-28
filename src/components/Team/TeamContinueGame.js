@@ -34,7 +34,7 @@ class TeamContinueGame extends React.Component{
                     </div>
                     )}
                 </div>
-                <div className="containerButtonGame">
+                <div className="containerButtonGameContinue">
                     <button type="button" class="buttonGame"><Link className="link" to="/startGame">Go go go!!!</Link></button>                 
                 </div>        
             </div>
