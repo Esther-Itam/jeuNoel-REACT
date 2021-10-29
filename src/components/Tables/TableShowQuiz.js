@@ -24,19 +24,20 @@ class TableShowQuiz extends React.Component{
 
 componentDidMount(){
   let id = this.props.id;
+  console.log(id)
   let headers={headers:{'API_TOKEN':localStorage.getItem('token')}}
   let idToken =localStorage.getItem('token');
     axios.get(`http://127.0.0.1:8000/api/categorie/${id}`)
-        .then(res => {this.setState({quizzes:res.data.data})
-    console.log(res)})
+        .then(res => {this.setState({quizzes:res.data.data})})
         .catch(error => {console.log(error.response) })
     axios.get('http://127.0.0.1:8000/api/team_answers/index')
         .then(res=>{this.setState({results:res.data.data.length})})  
         .catch(error => {console.log(error.response)}) 
     axios.get(`http://127.0.0.1:8000/api/teamShow/${idToken}`, headers)
         .then(res => {this.setState({userInfos:res.data.data[0]})})
-        .catch(error => {console.log(error.response)})}
-    
+        .catch(error => {console.log(error.response)})
+}
+
 handleSubmit = event =>{
     event.preventDefault()
     let bodyFormData = new FormData();
@@ -61,13 +62,13 @@ refreshPage = (event) =>{window.location.reload(false);
                          this.setState({question_id: event.target.value}, ()=>{console.log(this.state)})}
     
 render(){
-    const progress=(this.state.results/10)*100
+    const progress=(this.state.results/60)*100
         return(
             <>
                 <div className="containerQuiz" >
                     <div className="containerQuizQA">
                         <div className="progress">
-                        <div className="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="10" style={{width:`${progress}%`}}>{progress/10} questions / 10</div>
+                        <div className="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="10" style={{width:`${progress}%`}}>{this.state.results} / 60</div>
                     </div>
                 
                     <form method="POST" onSubmit={this.handleSubmit}>
@@ -97,7 +98,6 @@ render(){
                             </> 
                         
                             )} 
-                            {this.state.results>=10 ? <Redirect to={`/result/${this.props.id}`}/> : null}  
                             </form>
                     </div>
                 </div>

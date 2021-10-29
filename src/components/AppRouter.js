@@ -32,6 +32,7 @@ import CategorieUpdateScreen from './Quiz/Update/CategorieUpdateScreen';
 import AuthentificationSocialite from './Authentification/AuthentificationSocialite';
 
 import Websockets from '../Websockets';
+import ButtonProposeLeave from './Buttons/ButtonProposeLeave';
 
 
 class AppRouter extends React.Component{
@@ -57,6 +58,7 @@ class AppRouter extends React.Component{
                 <Route exact path="/random" component={Random}/>
                 <Route exact path="/startGame" component={StartGameScreen}/>
                 <Route exact path="/waiting" component={WaitingScreen}/>
+                <Route exact path="/proposeLeave" component={ButtonProposeLeave}/>
 
                 {/* ******************************QUIZ ********************************/}
                     {/* *************************INDEX**************************** */}

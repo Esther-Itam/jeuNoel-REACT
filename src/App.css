@@ -1,10 +1,7 @@
 
 body{
-  background-image:url('./pictures/fond4.gif');
-  background-size:1080px;
-  background-repeat: no-repeat;
-  background-position:50% -30%;
-  background-color:#012539;
+
+  background-color:white;
 }
 
 .containerBody{
@@ -103,13 +100,14 @@ body{
 .container_summary{
   width:100%;
   margin-top: 6%;
+
 }
 .containerSummary{
   background-image: url('./pictures/background10.png'), url('./pictures/background11.png');
   background-color:#012539;
   background-size:contain;
   padding-top: 0%;
-  padding-bottom: 12%;
+  padding-bottom: 1.7%;
   display:flex;
   justify-content:center;
   border-radius:5px;
@@ -313,8 +311,8 @@ body{
 }
 
 .containerTeamBuildingResultRandom{
-  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'),url('./pictures/snow5.png'),url('./pictures/snow.png'),linear-gradient(#3cf0f6,#fad688,#ffdf88, #ebf8e1 );;
-  background-repeat:repeat, no-repeat, repeat-x, repeat-x, no-repeat;
+  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'), url('./pictures/snow5.png'),url('./pictures/oiseau2.gif'),url('./pictures/snow.png'),linear-gradient(#f6423c,#f6bb3c,#ffdf88, #ebf8e1 );;
+  background-repeat:repeat, no-repeat, repeat-x, repeat-x, repeat-x, no-repeat;
   background-position:right;
   background-size:contain;
   padding-top: 0%;
@@ -325,8 +323,8 @@ body{
 }
 
 .containerTeamBuildingCategorie{
-  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'),url('./pictures/snow5.png'),url('./pictures/snow.png'),linear-gradient(#3cf0f6,#fad688,#ffdf88, #ebf8e1 );;
-  background-repeat:repeat, no-repeat, repeat-x, repeat-x, no-repeat;
+  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'), url('./pictures/snow5.png'),url('./pictures/oiseau2.gif'),url('./pictures/snow.png'),linear-gradient(#f6423c,#f6bb3c,#ffdf88, #ebf8e1 );;
+  background-repeat:repeat, no-repeat, repeat-x, repeat-x, repeat-x, no-repeat;
   background-position:right;
   background-size:contain;
   padding-top: 2%;
@@ -336,8 +334,8 @@ body{
   padding-bottom:8.5%;
 }
 .containerTeamBuildingCategorieUsed{
-  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'),url('./pictures/snow5.png'),url('./pictures/snow.png'),linear-gradient(#3cf0f6,#fad688,#ffdf88, #ebf8e1 );;
-  background-repeat:repeat, no-repeat, repeat-x, repeat-x, no-repeat;
+  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'), url('./pictures/snow5.png'),url('./pictures/oiseau2.gif'),url('./pictures/snow.png'),linear-gradient(#f6423c,#f6bb3c,#ffdf88, #ebf8e1 );;
+  background-repeat:repeat, no-repeat, repeat-x, repeat-x, repeat-x, no-repeat;
   background-position:right;
   background-size:contain;
   padding-top: 2%;
@@ -345,6 +343,18 @@ body{
   justify-content:center;
   color:white;
   padding-bottom:4.5%;
+}
+
+.containerTeamBuildingContinueGame{
+  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'), url('./pictures/snow5.png'),url('./pictures/oiseau2.gif'),url('./pictures/snow.png'),linear-gradient(#f6423c,#f6bb3c,#ffdf88, #ebf8e1 );;
+  background-repeat:repeat, no-repeat, repeat-x, repeat-x, repeat-x, no-repeat;
+  background-position:right;
+  background-size:contain;
+  padding-top: 0%;
+  display:flex;
+  justify-content:center;
+  color:white;
+  padding-bottom:5.5%;
 }
 .containerCategorieButton{
   width:320px;
@@ -373,8 +383,8 @@ body{
   padding-top: 2%;
 }
 .containerQuiz{
-  background-image:url('./pictures/flocon4.gif'),url('./pictures/house.png'),url('./pictures/snow5.png'), url('./pictures/oiseau2.gif'),url('./pictures/snow.png'),linear-gradient(#01B2EA,#97CBF0,#ffffff, #ffffff );;
-  background-repeat:repeat, no-repeat, repeat-x, repeat-x, repeat-x,no-repeat;
+  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'), url('./pictures/snow5.png'),url('./pictures/oiseau2.gif'),url('./pictures/snow.png'),linear-gradient(#f6423c,#f6bb3c,#ffdf88, #ebf8e1 );;
+  background-repeat:repeat, no-repeat, repeat-x, repeat-x, repeat-x, no-repeat;
   background-position:right;
   background-size:contain;
   padding-top: 2%;
@@ -454,6 +464,15 @@ font-weight: bold;
   margin-bottom: 2%;
 }
 
+.containerProposeLeave{
+  background-color: #46426ecc;
+  width:60%;
+  padding: 100px;
+  padding-top: 50px;
+  margin-top: 5%;
+  margin-bottom: 9%;
+  text-align: center;
+}
 .containerResultTeam{
   background-color: #46426ecc;
   width:60%;
@@ -462,7 +481,15 @@ font-weight: bold;
   margin-top: 5%;
   margin-bottom: 9%;
 }
-
+.containerResultTeamFinal{
+  background-color: #46426ecc;
+  width:60%;
+  padding: 100px;
+  padding-top: 50px;
+  margin-top: 3%;
+  margin-bottom: 6%;
+  text-align: center;
+}
 .containerLinkResult{
   width:60%;
   display:flex;
@@ -470,7 +497,19 @@ font-weight: bold;
   justify-content: space-between;
   margin-top: 8%;
 }
+.containerLinkResultFinal{
+  display:flex;
+  justify-content: space-between;
+  margin-top: 3%;
+}
+.containerLinkResultFinal2{
+  display:flex;
+  justify-content: space-between;
+  margin-top: 3%;
+  padding-top: 10%;
+  width:40%
 
+}
 .containerConditions{
   text-align: center;
   margin-top: 50px;
@@ -504,6 +543,47 @@ font-weight: bold;
 
 .containerLinkRandom{
   margin-top: 10%;
+}
+
+.containerResultFinal{
+  background-image:url('./pictures/fond_final2.gif');
+  background-color: black;
+  background-repeat:no-repeat;
+  background-position: 60% 72%;
+  background-size:95%;
+  padding-top: 0%;
+  display:flex;
+  justify-content:center;
+  color:white;
+}
+.containerResultFinalGame{
+  background-image:url('./pictures/fond_final3.gif');
+  background-color: black;
+  background-repeat:no-repeat;
+  background-position: 50% 70%;
+  background-size:cover;
+  padding-top: 0%;
+  display:flex;
+  justify-content:center;
+  color:white;
+  padding-bottom: 13.5%;
+}
+
+.containerStart{
+  background-image:url('./pictures/fond4.gif');
+  background-size:1080px;
+  background-repeat: no-repeat;
+  background-position:50% 0%;
+  background-color:#012539;
+  padding-bottom: 43%;
+
+}
+.containerButtonProposeLeave{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10%;
+  width:45%;
+  margin-left: 25%;
 }
 /* ****************************************************************************************************************** */
 /* ******************************************** Buttons ************************************************************* */
@@ -577,8 +657,8 @@ font-weight: bold;
 }
 /* ***************************************** interface Player *********************************************** */
 .buttonPlayerContainer{
-  margin-left: 20%;
-  margin-top: 9.5%;
+  margin-left: 18%;
+  margin-top: 10%;
 }
 .playButton{
   padding:45px 30px;
@@ -739,7 +819,20 @@ margin-bottom: 2%;
   text-decoration: none;
   margin-left: 5px;
 }
-
+.linkStandardLeave{
+  border-radius:5px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  padding: 15px;
+  padding-top: 5%;
+  width:150px;
+  height: 65px;
+  background-color: white;
+  border:none;
+  color:#46426E;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}
 .linkStandard:hover{
   color:white;
   background-color: #6c66ad;
@@ -888,6 +981,34 @@ label{
   color:black;
 }
 
+
+.containerResultTeamFinal h1{
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.containerResultTeamFinal th{
+  color:black;
+  font-size: 22px;
+
+}
+
+.containerResultTeamFinal td{
+  font-size: 22px;
+}
+
+.containerResultTeamFinal td:nth-child(2){
+  color:#f6bb3c;
+}
+.containerResultTeamFinal td:nth-child(3){
+  color:grey;
+}
+.containerResultTeamFinal td:nth-child(4){
+  color:rgb(160, 108, 12);
+}
+.containerResultTeamFinal td:nth-child(5){
+  color:black;
+}
 .containerConditions h2{
   color:white;
 } 
@@ -909,6 +1030,8 @@ label{
   border-radius: 200px;
   border: #46426E 3px solid;
 }
+
+
 /* ******************************************************************************************************************** */
 
 /* *********************************************NAV ******************************************************** */
@@ -996,7 +1119,7 @@ label{
     background-color: rgba(70, 66, 110, 0.918);
     margin-left: 23%;
     width:56%;
-    height:500px;
+    height:700px;
     padding-top: 200px;
     border-radius: 5px;
  
@@ -1107,7 +1230,7 @@ label{
   justify-content: space-between;
   flex-flow: row wrap;
 }
-.answerUpdate input{
+.inputAnswersUpdate{
   border-radius: 5px;
   border:none;
   width: 150px;
@@ -1116,7 +1239,7 @@ label{
   height:50px;
 }
 
-.questionUpdate input{
+.inputQuestionUpdate{
   border-radius: 5px;
   border:none;
   padding:5px;

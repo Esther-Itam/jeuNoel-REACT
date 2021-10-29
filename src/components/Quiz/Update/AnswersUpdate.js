@@ -42,7 +42,7 @@ handleAnswerValid= event =>{this.setState({is_valid: parseInt(event.target.value
             {this.state.quizzes.map((quiz)=>
             <div className="answerUpdate">
                 <form method="PUT"  onSubmit={this.handleSubmitAnswer}>
-                    <input onChange={this.handleAnswerChange} placeholder={quiz[2][this.props.answerIndex].answerName}/>
+                    <input className="inputAnswersUpdate" onChange={this.handleAnswerChange} placeholder={quiz[2][this.props.answerIndex].answerName}/>
                     <select className="select" class="form-select" aria-label="Default select example" onChange={this.handleAnswerValid}>
                         {quiz[2][this.props.answerIndex].answerValid===1
                         ?

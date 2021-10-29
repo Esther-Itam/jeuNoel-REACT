@@ -26,18 +26,8 @@ componentDidMount(){
                         <th scope="col"></th>
                         <th scope="col">🥇</th>
                         <th scope="col">🥈</th>
-                        {this.state.numberTeam>2
-                        ?
-                        <th scope="col">🥉</th>
-                        :
-                        null
-                        }
-                        {this.state.numberTeam>3
-                        ?
-                        <th scope="col">🏅</th>
-                        :
-                        null
-                        }
+                        {this.state.numberTeam>2 ? <th scope="col">🥉</th> : null}
+                        {this.state.numberTeam>3 ? <th scope="col">🏅</th> : null}
                         </tr>
                     </thead>
                     <tbody>

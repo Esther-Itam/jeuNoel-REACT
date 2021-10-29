@@ -47,7 +47,7 @@ render(){
                 <h1>Modification des catégories</h1>
             {this.state.categories.map((categorie)=>
                 <>
-                <div className="answerUpdate">
+                <div className="categorieUpdate">
                     <form method="PUT"  onSubmit={this.handleSubmit}>
                     <input  className="inputUpdate" onChange={this.handleNameChange} placeholder={categorie.categorieName}/>
                     <div className="buttonStandardUpdate">

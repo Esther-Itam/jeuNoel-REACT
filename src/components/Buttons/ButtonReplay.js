@@ -40,7 +40,7 @@ handleSubmit = event =>{
         return(
             <>
                 <div>
-                    <button type="submit" onClick={this.handleSubmit} className="bouton">Rejouer</button> 
+                    <button type="submit" onClick={this.handleSubmit} className="buttonStandard">Rejouer</button> 
                 </div>
                      
    

@@ -46,9 +46,11 @@ handleSubmit = event =>{
 render(){
         return(
             <>
-    <div className="containerSummaryUpdate">
-        <div className="containerUpdate" >
+     <div className="containerSummaryQA" > 
+        <div className="containerCategorie" >  
+            <div className="row justify-content-md-center">
             <h2 class="text-center my-5">Création d'un Quiz</h2>
+            <div className="container bg-white container_question">
             <form method="POST"  onSubmit={this.handleSubmit}>
                 <div class="mb-3">
                     <label for="name" class="form-label">Nom</label>
@@ -64,10 +66,12 @@ render(){
                         )}        
                     </select>
                     </div>
-                    <button type="submit" className="btn btn-sucess">Ajouter des questions/réponses</button>
+                    <button type="submit" className="buttonStandard">Ajouter des questions/réponses</button>
             </form>
+            </div>
             {this.state.displayQuestion ? <CreateQA/> : "" }
         </div>
+    </div>
     </div>
             </>
         ) 

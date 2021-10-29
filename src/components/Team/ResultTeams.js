@@ -16,7 +16,11 @@ componentDidMount(){
 
     axios.get('http://127.0.0.1:8000/api/categorieUsed')
         .then(res => {this.setState({categories:res.data.data[0].length})})
-        .catch(error => {console.log(error.response) })      
+        .catch(error => {console.log(error.response) })
+    axios.get('http://127.0.0.1:8000/api/categorieUsed')
+    .then(res => {this.setState({categorieUsed:res.data.data[0].length})
+    console.log(res.data.data[0].length)})
+    .catch(error => {console.log(error.response) })      
 }
 
     render(){
@@ -27,13 +31,19 @@ componentDidMount(){
                     <h1>Classement provisoire des équipes</h1>
                     <TableResult/>
                     <div className="containerLinkResult">
-                    {this.state.categories>6
+                    {this.state.categories===6
                         ?
-                        <Link type="button" className="linkStandard" to="/rating">Voir le classement</Link>
+                        <Link type="button" className="linkStandard" to="/rating">Voir le classement final</Link>
                         :
                         <Link type="button" className="linkStandard" to="/teamContinueGame">Continuer le jeu</Link>
                     }
-                    <ButtonLeave/>
+                     {this.state.categorieUsed<6
+                        ?
+                        <Link type="button" className="linkStandardLeave" to="/proposeLeave">Quitter</Link>
+
+                        :  
+                        <ButtonLeave/> 
+                        }
                     </div>
                     
                 </div>

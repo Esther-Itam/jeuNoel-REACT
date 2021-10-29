@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import later from '../../pictures/later.webp'
 
-
 class ButtonPlayer extends React.Component{
     constructor(){
         super()
@@ -18,13 +17,17 @@ componentDidMount(){
     axios.get('http://127.0.0.1:8000/api/teamPresentation')
         .then(res => {this.setState({teams:res.data.data.length})})
         .catch(error => {console.log(error.response)})
+    axios.get('http://127.0.0.1:8000/api/categorieUsed')
+    .then(res => {this.setState({categorieUsed:res.data.data[0].length})
+console.log(res.data.data[0].length)})
+    .catch(error => {console.log(error.response) })
 }
 
     render(){
         return(
             <>
-                
-                    
+               
+                    <div  className="containerStart">
                     <div className='containerPlayer'>
                         {this.state.teams <4
                         ?
@@ -41,8 +44,9 @@ componentDidMount(){
                         </div>       
                         }
                     </div>
+                    </div>
                    
-         
+
             </>
         )
     }

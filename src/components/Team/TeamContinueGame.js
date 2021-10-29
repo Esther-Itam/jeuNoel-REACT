@@ -20,7 +20,7 @@ class TeamContinueGame extends React.Component{
     render(){
 
         return(
-            <div className='containerTeamBuilding'>
+            <div className='containerTeamBuildingContinueGame'>
             <div className="containerTeam">
                 <h2 className="text-center my-5">Voici les équipes qui s'affrontent</h2>
                 <h4  className="text-center my-5">Tout n'est pas encore terminé, vous pouvez encore sauver Noël!</h4>
