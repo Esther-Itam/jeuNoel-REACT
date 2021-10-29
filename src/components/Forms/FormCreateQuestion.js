@@ -45,7 +45,7 @@ handleSubmitQuestion= event =>{
                 ? 
                 ""
                 :
-                <button type="submit" class="btn btn-danger">Ajouter des réponses</button> 
+                <button type="submit" class="btn btn-info">Ajouter des réponses</button> 
 
                     }    
                 </form>    

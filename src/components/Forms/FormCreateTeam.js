@@ -32,7 +32,13 @@ handleSubmit = event =>{
     let headers = {headers:{'API_TOKEN':localStorage.getItem('token')}}
     axios.post('http://127.0.0.1:8000/api/teamBuilding', bodyFormData, headers)
         .then(res => {this.setState(console.log(res))})
-        .catch(error =>{console.log(error.response)}) 
+        .catch(error=>{
+            if(error.response.status === 401){
+                this.setState({errors: error.response.data.errors}, ()=>{
+                    console.log(this.state)
+                })
+            }
+        }) 
 }
 
 handleNameChange= event =>{this.setState({name: event.target.value}, ()=>{})}

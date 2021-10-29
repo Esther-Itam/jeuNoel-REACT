@@ -46,27 +46,27 @@ handleSubmit = event =>{
 render(){
         return(
             <>
-     <div className="containerSummaryQA" > 
-        <div className="containerCategorie" >  
+     <div className="containerSummaryQACreate" > 
+        <div className="containerQuizCreate" >  
             <div className="row justify-content-md-center">
-            <h2 class="text-center my-5">Création d'un Quiz</h2>
+            <h2 className="text-center my-5">Création d'un Quiz</h2>
             <div className="container bg-white container_question">
             <form method="POST"  onSubmit={this.handleSubmit}>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Nom</label>
-                    <input onChange={this.handleNameChange} type="text" class={`form-control ${this.state.errors && this.state.errors.name ? "is-invalid" : ""}`} id="name"/>
-                    {this.state.errors && this.state.errors.name ? <div class="text-danger invalide-feedback">{this.state.errors['name']}</div> : ''}
+                <div className="mb-3">
+                    <label for="name" className="form-label">Nom</label>
+                    <input className="createNameQuiz" onChange={this.handleNameChange} type="text" className={`form-control ${this.state.errors && this.state.errors.name ? "is-invalid" : ""}`} id="name"/>
+                    {this.state.errors && this.state.errors.name ? <div className="text-danger invalide-feedback">{this.state.errors['name']}</div> : ''}
                 </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Catégorie</label>
-                    <select class="form-select" aria-label="Default select example" onChange={this.handleCategorieChange}>
+                <div className="mb-3">
+                    <label for="email" className="form-label">Catégorie</label>
+                    <select className="form-select" aria-label="Default select example" onChange={this.handleCategorieChange}>
                         <option selected>Choississez la catégorie</option>
                         {this.state.categories.map((categorie)=>
                         <option value={categorie.id}>{categorie.name}</option>
                         )}        
                     </select>
                     </div>
-                    <button type="submit" className="buttonStandard">Ajouter des questions/réponses</button>
+                    <button type="submit" className="btn btn-info">Ajouter des questions/réponses</button>
             </form>
             </div>
             {this.state.displayQuestion ? <CreateQA/> : "" }

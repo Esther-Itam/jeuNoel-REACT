@@ -153,6 +153,21 @@ body{
   min-height:500px;
   width:700px;
 }
+.containerQuizCreate{
+  background-color: #46426eb6;
+  display:flex;
+  padding-left:5%;
+  padding-right:5%;
+  padding-bottom: 3%;
+  justify-content:center;
+  margin-top: 50px;
+  border-radius:5px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  color:white;
+  min-height:500px;
+  width:700px;
+  font-size: 20px;
+}
 
 .containerCategorieGame{
     background-color: #46426eb6;
@@ -179,7 +194,20 @@ body{
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   color:white;
 }
-
+.containerSummaryQACreate{
+  background-image: url('./pictures/background11.png'),url('./pictures/flocon4.gif');
+  background-repeat: repeat-x;
+  background-color:#012539;
+  background-size:contain;
+  width:100%;
+  padding-top: 0%;
+  padding-bottom: 7%;
+  display:flex;
+  justify-content:center;
+  border-radius:5px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  color:white;
+}
 .containerPlayer{
   background-image:url('./pictures/flocon4.gif');
   background-repeat: repeat-x;
@@ -805,6 +833,10 @@ margin-bottom: 2%;
   margin-top: 1%;
   color: white;
 }
+
+.containerQuizCreate button{
+  width:100%;
+  }
 /* ****************************************************************************************************************** */
 /* ***********************************************LINK ************************************************************** */
 .linkStandard{
@@ -1015,6 +1047,23 @@ label{
 .containerConditions h3{
   color:yellow;
 } 
+
+.containerQuizCreate select{
+width:100%;
+padding:15px;
+margin-bottom: 5px;
+
+}
+
+.containerQuizCreate input{
+  padding:15px;
+  width:100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border:rgb(211, 210, 210) 1px solid;
+  border-radius: 5px;
+
+}
 /* ******************************************************************************************************************** */
 /* ***************************************************************IMG ************************************************* */
 .containerTeam img{

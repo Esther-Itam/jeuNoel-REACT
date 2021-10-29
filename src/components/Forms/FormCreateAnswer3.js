@@ -49,7 +49,7 @@ handleSubmitAnswer3= event =>{
             ? 
             ""
             :
-            <button type="submit" class="btn btn-danger">Enregistrer</button>
+            <button type="submit" class="btn btn-info">Enregistrer</button>
             }
         </form>
             </>

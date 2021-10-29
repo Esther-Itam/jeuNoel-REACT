@@ -17,7 +17,7 @@ class CreateQA extends React.Component{
             <div class="container bg-white container_question">Question 8: <FormCreateQuestion/></div>
             <div class="container bg-white container_question">Question 9: <FormCreateQuestion/></div>
             <div class="container bg-white container_question">Question 10: <FormCreateQuestion/></div>
-            <Link class="btn btn-danger" to="/summary">Enregistrer</Link>
+            <Link class="btn btn-success" to="/summary">Enregistrer</Link>
             </>
         )
     }

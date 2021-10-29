@@ -50,7 +50,7 @@ handleSubmitAnswer1= event =>{
                             <option value={numVrai}>Vrai</option>
                             <option value={numFaux}>Faux</option>   
                     </select>
-                    {this.state.hideButtonAnswer1 ? "" : <button type="submit" class="btn btn-danger">+</button>}
+                    {this.state.hideButtonAnswer1 ? "" : <button type="submit" class="btn btn-info">+</button>}
                 </form>
              {this.state.displayAnswer2
             ? 

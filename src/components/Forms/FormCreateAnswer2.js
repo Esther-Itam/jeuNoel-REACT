@@ -55,7 +55,7 @@ handleSubmitAnswer2= event =>{
             ? 
             ""
             :
-            <button type="submit" class="btn btn-danger">+</button>
+            <button type="submit" class="btn btn-info">+</button>
             }
         </form>
         {this.state.displayAnswer3
