@@ -11,6 +11,7 @@ class FormCreateAnswer2 extends React.Component{
             is_valid:0,
             displayAnswer3:false,
             hideButtonAnswer2:false,
+            disabled:false
         }
     }
 
@@ -27,6 +28,7 @@ handleSubmitAnswer2= event =>{
             .then(res=>{
                 this.setState({displayAnswer3:true})
                 this.setState({hideButtonAnswer2:true})
+                this.setState({disabled:true})
             })  
             .catch(error =>{
             if(error.response.status === 401){
@@ -45,12 +47,28 @@ handleSubmitAnswer2= event =>{
        
         <form method="POST" onSubmit={this.handleSubmitAnswer2}>
             <label for="answer" class="form-label">Réponse 2: </label>
-            <input name="answer2" onChange={this.handleAnswerChange} type="text" id="answer"/>
+            {this.state.disabled
+            ?
+            <>
+            <textarea name="answer2" disabled type="text" id="answer"/>
+            <select className="select" class="form-select" disabled aria-label="Default select example" onChange={this.handleAnswerValid2}>
+                    <option value={numVrai} selected>Vrai/Faux?</option>
+                    <option value={numVrai}>Vrai</option>
+                    <option value={numFaux}>Faux</option>   
+            </select>
+            <p className="indicationQuiz">Votre réponse a bien été enregistrée</p>
+            </>
+            :
+            <>
+            <textarea name="answer2" onChange={this.handleAnswerChange} type="text" id="answer"/>
             <select className="select" class="form-select" aria-label="Default select example" onChange={this.handleAnswerValid2}>
                     <option value={numVrai} selected>Vrai/Faux?</option>
                     <option value={numVrai}>Vrai</option>
                     <option value={numFaux}>Faux</option>   
             </select>
+            </>    
+            }
+           
              {this.state.hideButtonAnswer2
             ? 
             ""

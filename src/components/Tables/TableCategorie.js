@@ -53,7 +53,6 @@ render(){
                 <table className="table table-borderless">
                     <thead className='table-dark'>
                         <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Editer</th>
                         <th scope="col">Supprimer</th>
@@ -62,8 +61,7 @@ render(){
                     <tbody>
                     {this.state.categories.map((categorie)=>
                         <tr>
-                        <th className="table-dark" scope="row" key={categorie.id}>{categorie.id}</th>
-                        <td className="table-Secondary" key={categorie.name}>{categorie.name}</td>
+                        <td className="table-light" key={categorie.name}>{categorie.name}</td>
                         <td className="table-dark"><Link  className="linkAdmin" to={`/categorieUpdate/${categorie.id}`}>Modifier</Link></td>
                         <td  className="table-dark"><button type='submit' onClick={(event) => this.handleSubmit(event, categorie.id)} className="buttonAdmin">Supprimer</button></td>
                         </tr>   

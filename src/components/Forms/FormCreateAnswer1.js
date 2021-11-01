@@ -11,6 +11,7 @@ class FormCreateAnswer1 extends React.Component{
             is_valid:0,
             displayAnswer2:false,
             hideButtonAnswer1:false,
+            disabled:false
         }
     }
 
@@ -27,6 +28,7 @@ handleSubmitAnswer1= event =>{
             .then(res=>{
                 this.setState({displayAnswer2:true})
                 this.setState({hideButtonAnswer1:true})
+                this.setState({disabled:true})
             })  
             .catch(error =>{
             if(error.response.status === 401){
@@ -44,12 +46,27 @@ handleSubmitAnswer1= event =>{
             <>
                 <form method="POST"  onSubmit={this.handleSubmitAnswer1}>
                     <label for="answer" class="form-label">Réponse 1: </label>
-                    <input name="answer1" onChange={this.handleAnswerChange} type="text" id="answer"/>
+                    {this.state.disabled
+                    ?
+                    <>
+                    <textarea name="answer1" disabled type="text" id="answer"/>
+                    <select className="select" disabled class="form-select" aria-label="Default select example" onChange={this.handleAnswerValid1}>
+                            <option value={numVrai} selected>Vrai/Faux?</option>
+                            <option value={numVrai}>Vrai</option>
+                            <option value={numFaux}>Faux</option>   
+                    </select>
+                    <p className="indicationQuiz">Votre réponse a bien été enregistrée</p>
+                    </>
+                    :
+                    <>
+                    <textarea name="answer1" onChange={this.handleAnswerChange} type="text" id="answer"/>
                     <select className="select" class="form-select" aria-label="Default select example" onChange={this.handleAnswerValid1}>
                             <option value={numVrai} selected>Vrai/Faux?</option>
                             <option value={numVrai}>Vrai</option>
                             <option value={numFaux}>Faux</option>   
                     </select>
+                    </>
+                    }
                     {this.state.hideButtonAnswer1 ? "" : <button type="submit" class="btn btn-info">+</button>}
                 </form>
              {this.state.displayAnswer2

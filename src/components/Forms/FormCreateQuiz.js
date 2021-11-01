@@ -11,6 +11,7 @@ class FormCreateQuiz extends React.Component{
             categorie:"",
             categories:[],
             displayQuestion:false,
+            disabled:false
         }
     }
 
@@ -34,6 +35,7 @@ handleSubmit = event =>{
                 localStorage.setItem('token', res.data.api_token)
                 this.setState({redirect:true})
                 this.setState({displayQuestion:true})
+                this.setState({disabled:true})
             })  
             .catch(error =>{
             if(error.response.status === 401){
@@ -54,19 +56,47 @@ render(){
             <form method="POST"  onSubmit={this.handleSubmit}>
                 <div className="mb-3">
                     <label for="name" className="form-label">Nom</label>
+                    {this.state.disabled
+                    ?
+                    <>
+                    <input className="createNameQuiz" disabled type="text" className={`form-control ${this.state.errors && this.state.errors.name ? "is-invalid" : ""}`} id="name"/>
+                    <p className="indicationQuiz">Titre du quiz enregistré</p>
+                    </>
+                    :
+                    <>
                     <input className="createNameQuiz" onChange={this.handleNameChange} type="text" className={`form-control ${this.state.errors && this.state.errors.name ? "is-invalid" : ""}`} id="name"/>
+                    </>
+                    }
                     {this.state.errors && this.state.errors.name ? <div className="text-danger invalide-feedback">{this.state.errors['name']}</div> : ''}
                 </div>
                 <div className="mb-3">
                     <label for="email" className="form-label">Catégorie</label>
+                    {this.state.disabled
+                    ?
+                    <>
+                    <select className="form-select" disabled aria-label="Default select example" onChange={this.handleCategorieChange}>
+                    <option selected>Choississez la catégorie</option>
+                    {this.state.categories.map((categorie)=>
+                    <option value={categorie.id}>{categorie.name}</option>
+                    )}        
+                    </select>
+                    <p className="indicationQuiz">Catégorie choisie enregistrée</p>           
+                    </>
+                    :
                     <select className="form-select" aria-label="Default select example" onChange={this.handleCategorieChange}>
                         <option selected>Choississez la catégorie</option>
                         {this.state.categories.map((categorie)=>
                         <option value={categorie.id}>{categorie.name}</option>
-                        )}        
+                        )} 
                     </select>
+                    }
                     </div>
+                    {this.state.disabled
+                    ?
+                    ""
+                    :
                     <button type="submit" className="btn btn-info">Ajouter des questions/réponses</button>
+                    }
             </form>
             </div>
             {this.state.displayQuestion ? <CreateQA/> : "" }

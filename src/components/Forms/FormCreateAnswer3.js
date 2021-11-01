@@ -9,6 +9,7 @@ class FormCreateAnswer3 extends React.Component{
             answer:[],
             is_valid:0,
             hideButtonAnswer3:false,
+            disabled:false
         }
     }
 
@@ -23,7 +24,9 @@ handleSubmitAnswer3= event =>{
     bodyFormData.set('answer', this.state.answer)
     bodyFormData.set('is_valid', this.state.is_valid)
     axios.post('http://127.0.0.1:8000/api/answer', bodyFormData)
-            .then(res=>{this.setState({hideButtonAnswer3:true})})  
+            .then(res=>{this.setState({hideButtonAnswer3:true})
+                        this.setState({disabled:true})
+            })  
             .catch(error =>{
             if(error.response.status === 401){
                 this.setState({errors: error.response.data.errors}, ()=>{console.log(this.state)})
@@ -39,12 +42,28 @@ handleSubmitAnswer3= event =>{
             <>
         <form method="POST" onSubmit={this.handleSubmitAnswer3}>
             <label for="answer" class="form-label">Réponse 3: </label>
-            <input name="answer3" onChange={this.handleAnswerChange} type="text" id="answer"/>
+            {this.state.disabled
+            ?
+            <>
+            <textarea name="answer3" disabled type="text" id="answer"/>
+            <select className="select" class="form-select" disabled aria-label="Default select example" onChange={this.handleAnswerValid3}>
+                    <option value={numVrai} selected>Vrai/Faux?</option>
+                    <option value={numVrai}>Vrai</option>
+                    <option value={numFaux}>Faux</option>   
+            </select>
+            <p className="indicationQuiz">Votre réponse a bien été enregistrée</p>
+            </> 
+            :
+            <>
+            <textarea name="answer3" onChange={this.handleAnswerChange} type="text" id="answer"/>
             <select className="select" class="form-select" aria-label="Default select example" onChange={this.handleAnswerValid3}>
                     <option value={numVrai} selected>Vrai/Faux?</option>
                     <option value={numVrai}>Vrai</option>
                     <option value={numFaux}>Faux</option>   
             </select>
+            </>    
+            }
+           
             {this.state.hideButtonAnswer3
             ? 
             ""

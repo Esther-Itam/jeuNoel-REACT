@@ -54,7 +54,6 @@ render(){
                 <table class="table table-borderless">
                     <thead className='table-dark'>
                         <tr>
-                        <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Catégorie</th>
                         <th scope="col">Voir</th>
@@ -65,9 +64,8 @@ render(){
                     <tbody>
                     {this.state.quizzes.map((quiz)=>
                         <tr>
-                        <th  className="table-dark"  scope="row" key={quiz.id}>{quiz.id}</th>
-                        <td key={quiz.name}>{quiz.name}</td>
-                        <td key={quiz.categorie.name}>{quiz.categorie.name}</td>
+                        <td className="table-light" key={quiz.name}>{quiz.name}</td>
+                        <td className="table-light" key={quiz.categorie.name}>{quiz.categorie.name}</td>
                         <td className="table-dark" ><Link to={`/quizIndex/${quiz.id}`}className="linkAdmin">Voir</Link></td>
                         <td className="table-dark" ><Link to={`/quizUpdate/${quiz.id}`} className="linkAdmin">Modifier</Link></td>
                         <td className="table-dark" ><button type='submit' onClick={(event) => this.handleSubmit(event, quiz.id)} className="buttonAdmin">Supprimer</button></td>

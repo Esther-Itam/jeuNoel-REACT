@@ -12,6 +12,7 @@ class FormCreateQuestion extends React.Component{
             is_valid:0,
             displayAnswer1:false,
             hideButtonQuestion:false,
+            disabled:false
         }
     }
 
@@ -27,6 +28,7 @@ handleSubmitQuestion= event =>{
             .then(res=>{
                 this.setState({displayAnswer1:true})
                 this.setState({hideButtonQuestion:true})
+                this.setState({disabled:true})
             })  
             .catch(error =>{
             if(error.response.status === 401){
@@ -40,8 +42,18 @@ handleSubmitQuestion= event =>{
         return(
             <>
                 <form method="POST"  onSubmit={this.handleSubmitQuestion}>
-                    <input onChange={this.handleQuestionChange} type="text" id="question"/>
-                    {this.state.hideButtonQuestion
+                {this.state.disabled
+                ?
+                <>
+                <textarea disabled type="text" id="question"/>
+                <p className="indicationQuiz">Votre question a bien été enregistrée</p>
+                </>    
+                :
+                <>
+                <textarea onChange={this.handleQuestionChange} type="text" id="question"/>
+                </>
+                }  
+                {this.state.hideButtonQuestion
                 ? 
                 ""
                 :

@@ -53,7 +53,8 @@ handleSubmit = event =>{
                         
                              {this.state.categoriesShow.map((categorie)=>
                             <>
-                            <h1>La catégorie choisie est : <span className="titleCategorieChoice">{categorie[0].categorieName}</span></h1>
+                            <h1>La catégorie choisie est : </h1>
+                            <h1 className="titleCategorieChoice">{categorie[0].categorieName}</h1>
                             <form method="PUT" onSubmit={this.handleSubmit}>
                                     <button class="categorieStart" type="submit" value={categorie[0].categorieName}>Commencer</button>
                             </form>

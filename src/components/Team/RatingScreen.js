@@ -33,13 +33,8 @@ class RatingScreen extends React.Component{
                         <div className="containerLinkResultFinal">
                         <img className="gifFinal" src={gifFinal} alt="" width="400px"/>
                         <div className="containerLinkResultFinal2">
-                        <ButtonReplay/> 
-                        {this.state.categorieUsed<6
-                        ?
-                        <Link type="button" className="linkStandardLeave" to="/proposeLeave">Quitter</Link>
-                        :  
+                        <ButtonReplay/>  
                         <ButtonLeave/> 
-                        }
                         </div>
 
                     </div>

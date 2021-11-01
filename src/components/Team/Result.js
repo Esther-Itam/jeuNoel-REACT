@@ -38,7 +38,7 @@ componentDidMount(){
                 
                     <div className="row justify-content-md-center">
                         {this.state.quizzes.map((quiz)=><h1>Catégorie: {quiz[0][0].categorieName}</h1>)}    
-                        <h1>Ton équipe a déjà retrouvé <span> {count}</span> 🎁!</h1>
+                        <h1>Ton équipe a retrouvé <span> {count}</span> 🎁 sur les 60 🎁 perdus!</h1>
                         <div className="row container-result">
                             <h4>Les bonnes réponses étaient:</h4>
                             {this.state.results.map((result)=>
