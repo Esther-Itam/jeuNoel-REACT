@@ -3,19 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import loading from '../../pictures/loading.gif';
 import Echo from 'laravel-echo';
+import LARAVEL_SERVER from '../Variable';
 
-window.Pusher = require('pusher-js');      
-window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: 'bcb7c6b9143d45ae9407',
-    cluster: 'eu',
-    forceTLS: false,
-   enabledTransports: ['ws', 'wss']
-  });
-
-  window.Echo.channel('my-channel').listen('.my-event', function(data) {
-    console.log(data, 'ça fonctionne');
-  }); 
 class TeamPresentation extends React.Component{
     constructor(props){
         super(props)
@@ -29,19 +18,13 @@ class TeamPresentation extends React.Component{
     }
 
     componentDidMount(){
-        window.Echo.channel('my-channel').listen('.my-event', function(data) {
-            console.log(data, 'ça fonctionne');
-          }); 
-          
-        axios.get('http://127.0.0.1:8000/api/teamPresentation')
-            .then(res => {this.setState({teams:res.data.data})})
-            .catch(error => {console.log(error.response)})
-            
-        axios.get('http://127.0.0.1:8000/api/teamPresentation')
-            .then(res => {this.setState({conditions:res.data.data.length})})
+        axios.get(`${LARAVEL_SERVER}/teamPresentation`)
+            .then(res => {this.setState({teams:res.data.data})
+                          this.setState({conditions:res.data.data.length})
+                  })
             .catch(error => {console.log(error.response)})
 
-        axios.get('http://127.0.0.1:8000/api/categorie')
+        axios.get(`${LARAVEL_SERVER}/categorie`)
         .then(res => {this.setState({categories:res.data.data})
         console.log(res.data.data)})
         .catch(error => {console.log(error.response)})  
@@ -52,7 +35,7 @@ class TeamPresentation extends React.Component{
 handleSubmit = event =>{
     event.preventDefault()
     console.log("colonne is_used des couleurs updatée")
-    axios.put('http://127.0.0.1:8000/api/color', {is_used:0})
+    axios.put(`${LARAVEL_SERVER}/color`, {is_used:0})
         .then(res => {this.setState(console.log(res))})
         .catch(error =>{console.log(error.response)}) 
 }

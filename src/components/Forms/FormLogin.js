@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import ButtonStandard from '../Buttons/ButtonStandard';
+import LARAVEL_SERVER from '../Variable';
 
 class FormLogin extends React.Component{
     constructor(){
@@ -15,7 +16,7 @@ class FormLogin extends React.Component{
         }
     }
 componentDidMount(){
-    axios.get('http://127.0.0.1:8000/api/index')
+    axios.get(`${LARAVEL_SERVER}/index`)
         .then(res => {this.setState({users:res.data.data})})
         .catch(error => {console.log(error.response)})
 }
@@ -36,7 +37,7 @@ handleSubmit = event =>{
     bodyFormData.set('email', this.state.email)
     bodyFormData.set('password', this.state.password)
 
-    axios.post('http://127.0.0.1:8000/api/login', bodyFormData)
+    axios.post(`${LARAVEL_SERVER}/login`, bodyFormData)
             .then(res=>{
                 localStorage.setItem('token', res.data.api_token)
                 this.setState({redirect:true})

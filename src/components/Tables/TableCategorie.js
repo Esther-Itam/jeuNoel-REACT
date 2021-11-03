@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Redirect } from 'react-router';
+import LARAVEL_SERVER from '../Variable';
 
 class TableCategorie extends React.Component{
     constructor(props){
@@ -15,7 +16,7 @@ class TableCategorie extends React.Component{
     }
 
 componentDidMount(){
-    axios.get('http://127.0.0.1:8000/api/categorie')
+    axios.get(`${LARAVEL_SERVER}/categorie`)
         .then(res => {this.setState({categories:res.data.data})})
         .catch(error => {console.log(error.response)})
     }
@@ -23,7 +24,7 @@ componentDidMount(){
 handleSubmit = (event, id) =>{
     event.preventDefault()
     console.log("Catégorie supprimée")
-    axios.delete(`http://127.0.0.1:8000/api/categorie/${id}`)
+    axios.delete(`${LARAVEL_SERVER}/categorie/${id}`)
             .then(res=>{
                 this.setState({redirect:true})
                 window.location.reload(false);

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import ButtonStandard from '../Buttons/ButtonStandard';
+import LARAVEL_SERVER from '../Variable';
 
 class FormCreateCategorie extends React.Component{
 constructor(props){
@@ -22,7 +23,7 @@ handleSubmit = event =>{
     bodyFormData.set('name', this.state.name)
     bodyFormData.set('is_used', 0)
 
-    axios.post('http://127.0.0.1:8000/api/categorie', bodyFormData)
+    axios.post(`${LARAVEL_SERVER}/categorie`, bodyFormData)
             .then(res=>{ this.setState({redirect:true})})  
             .catch(error =>{
             if(error.response.status === 401){

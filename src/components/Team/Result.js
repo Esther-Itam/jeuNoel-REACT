@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import LARAVEL_SERVER from '../Variable';
 
 
 class Result extends React.Component{
@@ -16,13 +17,13 @@ class Result extends React.Component{
 
 componentDidMount(){
     let id = this.props.id;
-    axios.get(`http://127.0.0.1:8000/api/categorie/${id}`)
+    axios.get(`${LARAVEL_SERVER}/categorie/${id}`)
         .then(res => {this.setState({quizzes:res.data})})
         .catch(error => {console.log(error.response)}) 
-    axios.get('http://127.0.0.1:8000/api/team_showAnswers')
+    axios.get(`${LARAVEL_SERVER}/team_showAnswers`)
         .then(res=>{this.setState({results:res.data.data})})  
         .catch(error =>{console.log(error.response) })
-    axios.get('http://127.0.0.1:8000/api/team_answers')
+    axios.get(`${LARAVEL_SERVER}/team_answers`)
     .then(res=>{this.setState({count:res.data.data.length})})  
     .catch(error =>{console.log(error.response) })          
 }

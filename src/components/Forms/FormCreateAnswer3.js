@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import LARAVEL_SERVER from '../Variable';
 
 class FormCreateAnswer3 extends React.Component{
     constructor(props){
@@ -23,7 +24,7 @@ handleSubmitAnswer3= event =>{
     let bodyFormData = new FormData();
     bodyFormData.set('answer', this.state.answer)
     bodyFormData.set('is_valid', this.state.is_valid)
-    axios.post('http://127.0.0.1:8000/api/answer', bodyFormData)
+    axios.post(`${LARAVEL_SERVER}/answer`, bodyFormData)
             .then(res=>{this.setState({hideButtonAnswer3:true})
                         this.setState({disabled:true})
             })  

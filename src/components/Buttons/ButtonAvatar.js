@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import LARAVEL_SERVER from '../Variable';
 
 class ButtonAvatar extends React.Component{
 
@@ -14,7 +15,7 @@ constructor(props){
 
 componentDidMount(){
 
-    axios.get('http://127.0.0.1:8000/api/avatar')
+    axios.get(`${LARAVEL_SERVER}/avatar`)
         .then(res => {this.setState({avatars:res.data.data})})
         .catch(error => {console.log(error.response)})  
 }

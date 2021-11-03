@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import LARAVEL_SERVER from '../../Variable';
 
 
 class AnswersQuiz extends React.Component{
@@ -15,7 +16,7 @@ constructor(props){
 
 componentDidMount(){
     let id = this.props.id;
-    axios.get(`http://127.0.0.1:8000/api/quiz/${id}`)
+    axios.get(`${LARAVEL_SERVER}/quiz/${id}`)
     .then(res => {this.setState({quizzes:res.data.data})})
     .catch(error => {console.log(error.response)}) 
 }

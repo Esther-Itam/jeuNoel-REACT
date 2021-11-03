@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import ButtonGame from './ButtonGame';
+import LARAVEL_SERVER from '../Variable';
 
 class ButtonColor extends React.Component{
     constructor(){
@@ -20,11 +21,11 @@ class ButtonColor extends React.Component{
 componentDidMount(){
     this._isMounted = true;
     let id = this.props.idColor;
-    axios.get(`http://127.0.0.1:8000/api/color/${id}`)
+    axios.get(`${LARAVEL_SERVER}/color/${id}`)
         .then(res => {this.setState({colorsDisabled:res.data})})
         .catch(error => {console.log(error.response)})
 
-    axios.put(`http://127.0.0.1:8000/api/color/${id}`)
+    axios.put(`${LARAVEL_SERVER}/color/${id}`)
         .then(res => {this.setState({colorsDisabled:res.data})})
         .catch(error => { console.log(error.response)})}
 
@@ -37,7 +38,7 @@ handleSubmit = event =>{
     event.preventDefault()
     console.log("couleur updatée")
     this.setState({redirect:true})
-    axios.put(`http://127.0.0.1:8000/api/color/${id}`, {is_used:1})
+    axios.put(`${LARAVEL_SERVER}/color/${id}`, {is_used:1})
         .then(res => {this.setState(res)
         console.log(res)
         })

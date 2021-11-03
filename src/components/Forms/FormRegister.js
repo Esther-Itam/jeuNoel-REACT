@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import ButtonStandard from '../Buttons/ButtonStandard';
+import LARAVEL_SERVER from '../Variable';
 
 class FormRegister extends React.Component{
     constructor(){
@@ -37,7 +38,7 @@ handleSubmit = event =>{
     bodyFormData.set('password', this.state.password)
     bodyFormData.set('confirm_password', this.state.confirm_password)
 
-    axios.post('http://127.0.0.1:8000/api/register', bodyFormData)
+    axios.post(`${LARAVEL_SERVER}/register`, bodyFormData)
             .then(res=>{
                 localStorage.setItem('token', res.data.data.api_token)
                 this.setState({redirect:true})

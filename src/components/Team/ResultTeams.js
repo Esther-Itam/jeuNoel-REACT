@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ButtonLeave from '../Buttons/ButtonLeave';
 import TableResult from '../Tables/TableResult';
+import LARAVEL_SERVER from '../Variable';
 
 
 class ResultTeams extends React.Component{
@@ -14,10 +15,10 @@ class ResultTeams extends React.Component{
 
 componentDidMount(){
 
-    axios.get('http://127.0.0.1:8000/api/categorieUsed')
+    axios.get(`${LARAVEL_SERVER}/categorieUsed`)
         .then(res => {this.setState({categories:res.data.data[0].length})})
         .catch(error => {console.log(error.response) })
-    axios.get('http://127.0.0.1:8000/api/categorieUsed')
+    axios.get(`${LARAVEL_SERVER}/categorieUsed`)
     .then(res => {this.setState({categorieUsed:res.data.data[0].length})
     console.log(res.data.data[0].length)})
     .catch(error => {console.log(error.response) })      

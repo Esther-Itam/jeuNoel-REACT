@@ -3,6 +3,7 @@ import axios from 'axios';
 import ButtonAvatar from '../Buttons/ButtonAvatar';
 import ColorCheckManagement from '../Team/ColorCheckManagement';
 import ColorManagement from '../Team/ColorManagement';
+import LARAVEL_SERVER from '../Variable';
 
 
 class FormCreateTeam extends React.Component{
@@ -30,7 +31,7 @@ handleSubmit = event =>{
     bodyFormData.set('avatar', this.state.avatar)
     bodyFormData.set('color', this.state.color)
     let headers = {headers:{'API_TOKEN':localStorage.getItem('token')}}
-    axios.post('http://127.0.0.1:8000/api/teamBuilding', bodyFormData, headers)
+    axios.post(`${LARAVEL_SERVER}/teamBuilding`, bodyFormData, headers)
         .then(res => {this.setState(console.log(res))})
         .catch(error=>{
             if(error.response.status === 401){

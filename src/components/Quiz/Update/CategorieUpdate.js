@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import ButtonStandard from '../../Buttons/ButtonStandard';
+import LARAVEL_SERVER from '../../Variable';
 
 
 class CategorieUpdate extends React.Component{
@@ -17,7 +18,7 @@ class CategorieUpdate extends React.Component{
 
 componentDidMount(){
     let id = this.props.id;
-    axios.get(`http://127.0.0.1:8000/api/categorieShow/${id}`)
+    axios.get(`${LARAVEL_SERVER}/categorieShow/${id}`)
         .then(res => {this.setState({categories:res.data.data[0]})})
         .catch(error => {console.log(error.response)}) 
 }
@@ -27,7 +28,7 @@ handleSubmit= event =>{
     event.preventDefault()
     console.log("catégorie modifiée")
     let id = this.props.id;
-    axios.put(`http://127.0.0.1:8000/api/categorie/${id}`, {name:this.state.name})
+    axios.put(`${LARAVEL_SERVER}/categorie/${id}`, {name:this.state.name})
             .then(res=>{this.setState({redirect:true})})  
             .catch(error =>{console.log(error.response)}) 
 }

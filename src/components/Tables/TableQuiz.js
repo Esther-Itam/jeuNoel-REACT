@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Redirect } from 'react-router';
+import LARAVEL_SERVER from '../Variable';
 
 class TableQuiz extends React.Component{
     constructor(props){
@@ -18,7 +19,7 @@ class TableQuiz extends React.Component{
     }
 
 componentDidMount(){
-    axios.get('http://127.0.0.1:8000/api/quiz')
+    axios.get(`${LARAVEL_SERVER}/quiz`)
         .then(res => {this.setState({quizzes:res.data.data})})
         .catch(error => {console.log(error.response)})
 }
@@ -26,7 +27,7 @@ componentDidMount(){
 handleSubmit = (event, id) =>{
     event.preventDefault()
     console.log("Quiz supprimé")
-    axios.delete(`http://127.0.0.1:8000/api/quiz/${id}`)
+    axios.delete(`${LARAVEL_SERVER}/quiz/${id}`)
             .then(res=>{
                 this.setState({redirect:true})
                 window.location.reload(false);

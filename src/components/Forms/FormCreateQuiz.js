@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import CreateQA from '../Quiz/Create/CreateQA';
+import LARAVEL_SERVER from '../Variable';
 
 class FormCreateQuiz extends React.Component{
     constructor(props){
@@ -16,7 +17,7 @@ class FormCreateQuiz extends React.Component{
     }
 
 componentDidMount(){
-    axios.get('http://127.0.0.1:8000/api/categorie')
+    axios.get(`${LARAVEL_SERVER}/categorie`)
     .then(res => {this.setState({categories:res.data.data})})
     .catch(error => {console.log(error.response)})
 }
@@ -30,7 +31,7 @@ handleSubmit = event =>{
     let bodyFormData = new FormData();
     bodyFormData.set('name', this.state.name)
     bodyFormData.set('categorie', this.state.categorie)
-    axios.post('http://127.0.0.1:8000/api/quiz', bodyFormData)
+    axios.post(`${LARAVEL_SERVER}/quiz`, bodyFormData)
             .then(res=>{
                 localStorage.setItem('token', res.data.api_token)
                 this.setState({redirect:true})

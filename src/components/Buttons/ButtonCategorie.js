@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import LARAVEL_SERVER from '../Variable';
 
 class ButtonCategorie extends React.Component{
     constructor(props){
@@ -13,7 +14,7 @@ class ButtonCategorie extends React.Component{
     }
 
 componentDidMount(){
-    axios.get('http://127.0.0.1:8000/api/categorie')
+    axios.get(`${LARAVEL_SERVER}/categorie`)
         .then(res => {this.setState({categories:res.data.data})})
         .catch(error => {console.log(error.response)})}         
 

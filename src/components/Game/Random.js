@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import gifRandom from '../../pictures/random.webp';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import gitBonhomme from '../../pictures/bonhomme.webp';
 import LinkGame from '../Buttons/LinkGame';
+import LARAVEL_SERVER from '../Variable';
 
 const Random = () =>{
       const [colors, setColors]=useState("");
@@ -12,7 +12,7 @@ const Random = () =>{
       const [redirect, setRedirect]=useState("");
 
 useEffect(() => {
-  axios.get('http://127.0.0.1:8000/api/teamPresentation').then((res) => {
+  axios.get(`${LARAVEL_SERVER}/teamPresentation`).then((res) => {
       setTeams(res.data.data);
   },1000)
 },[]);
@@ -20,7 +20,7 @@ useEffect(() => {
 useEffect(() => {
   let headers={headers:{'API_TOKEN':localStorage.getItem('token')}}
   let id =localStorage.getItem('token');
-  axios.get(`http://127.0.0.1:8000/api/teamShow/${id}`, headers).then((res) => {setRedirect(res.data.data[0][0].teamColor);
+  axios.get(`${LARAVEL_SERVER}/teamShow/${id}`, headers).then((res) => {setRedirect(res.data.data[0][0].teamColor);
   },1000)
 },[]);
 

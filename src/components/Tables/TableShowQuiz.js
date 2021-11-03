@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Timer from '../Game/Timer';
-import { Redirect } from 'react-router';
-import ButtonStandard from '../Buttons/ButtonStandard';
+import LARAVEL_SERVER from '../Variable';
 
 class TableShowQuiz extends React.Component{
     constructor(props){
@@ -27,13 +25,13 @@ componentDidMount(){
   console.log(id)
   let headers={headers:{'API_TOKEN':localStorage.getItem('token')}}
   let idToken =localStorage.getItem('token');
-    axios.get(`http://127.0.0.1:8000/api/categorie/${id}`)
+    axios.get(`${LARAVEL_SERVER}/categorie/${id}`)
         .then(res => {this.setState({quizzes:res.data.data})})
         .catch(error => {console.log(error.response) })
-    axios.get('http://127.0.0.1:8000/api/team_answers/index')
+    axios.get(`${LARAVEL_SERVER}/team_answers/index`)
         .then(res=>{this.setState({results:res.data.data.length})})  
         .catch(error => {console.log(error.response)}) 
-    axios.get(`http://127.0.0.1:8000/api/teamShow/${idToken}`, headers)
+    axios.get(`${LARAVEL_SERVER}/teamShow/${idToken}`, headers)
         .then(res => {this.setState({userInfos:res.data.data[0]})})
         .catch(error => {console.log(error.response)})
 }
@@ -45,7 +43,7 @@ handleSubmit = event =>{
     bodyFormData.set('answer_id', this.state.answer_id)
     bodyFormData.set('team_id', this.state.userInfos[0].teamId)
 
-    axios.post('http://127.0.0.1:8000/api/team_answers', bodyFormData)
+    axios.post(`${LARAVEL_SERVER}/team_answers`, bodyFormData)
             .then(res=>{localStorage.setItem('token', res.data.data.api_token) 
             console.log(res.data.data.api_token)
         })  

@@ -3,6 +3,7 @@ import axios from 'axios';
 import Navbar from '../../Navbar/Navbar';
 import QuizControlScreen from './QuizControlScreen';
 import CategorieControlScreen from './CategorieControlScreen';
+import LARAVEL_SERVER from '../../Variable';
 
 class SummaryScreen extends React.Component{
     constructor(props){
@@ -15,7 +16,7 @@ class SummaryScreen extends React.Component{
     }
 
 componentDidMount(){
-    axios.get('http://127.0.0.1:8000/api/quiz')
+    axios.get(`${LARAVEL_SERVER}/quiz`)
         .then(res => {this.setState({quizzes:res.data.data})})
         .catch(error => {console.log(error.response)})
 }
@@ -23,7 +24,7 @@ componentDidMount(){
 handleSubmit = (event, id) =>{
     event.preventDefault()
     console.log("Quiz supprimé")
-    axios.delete(`http://127.0.0.1:8000/api/quiz/${id}`)
+    axios.delete(`${LARAVEL_SERVER}/quiz/${id}`)
             .then(res=>{this.setState({redirect:true})})  
             .catch(error =>{console.log(error.response)})             
 }            

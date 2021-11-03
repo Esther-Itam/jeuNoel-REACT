@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
+import LARAVEL_SERVER from '../Variable';
 
 class ButtonLeaveOk extends React.Component{
     constructor(){
@@ -19,7 +20,7 @@ handleSubmit = event =>{
     this.usedUpdate();
     this.teamDelete();
 }
-usedUpdate = () =>{axios.put('http://127.0.0.1:8000/api/categorie', {is_used:0})
+usedUpdate = () =>{axios.put(`${LARAVEL_SERVER}/categorie`, {is_used:0})
 .then(res => {this.setState(console.log(res))
               this.setState({redirect:true})
               window.location.reload(false);
@@ -31,7 +32,7 @@ usedUpdate = () =>{axios.put('http://127.0.0.1:8000/api/categorie', {is_used:0})
     console.log(error.response)
 })
 }
-teamDelete = () =>{axios.delete('http://127.0.0.1:8000/api/teamDelete')
+teamDelete = () =>{axios.delete(`${LARAVEL_SERVER}/teamDelete`)
 .then(res=>{console.log(res.data)})  
 .catch(error =>{
     if(error.response.status === 401){

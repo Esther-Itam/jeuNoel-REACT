@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {GoogleLoginButton} from 'react-social-login-buttons';
 
 class Home extends React.Component{
@@ -24,8 +23,8 @@ class Home extends React.Component{
                
                     <h1>Bienvenue au Quizz de Noël</h1>
                     <div className="containerLinkHome">
-                    <Link className="linkStandard" to="/register">S'inscrire</Link>
-                    <Link className="linkStandard" to="/login">Se connecter</Link>
+                    <a className="linkStandard" href="/register">S'inscrire</a>
+                    <a className="linkStandard" href="/login">Se connecter</a>
                     <a className="linkGoogle" href="http://127.0.0.1:8000/auth/redirect/google"><GoogleLoginButton style={googleStyle}/></a>
                     </div>
                 </div>

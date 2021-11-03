@@ -1,10 +1,8 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
 import Home from './Home';
 import RegisterScreen from './Authentification/RegisterScreen';
 import LoginScreen from './Authentification/LoginScreen';
 import AccountScreen from './Authentification/AccountScreen';
-
 import PlayerScreen from './Game/PlayerScreen';
 import StartGameScreen from './Game/StartGameScreen';
 import Random from './Game/Random';
@@ -33,6 +31,7 @@ import AuthentificationSocialite from './Authentification/AuthentificationSocial
 
 import Websockets from '../Websockets';
 import ButtonProposeLeave from './Buttons/ButtonProposeLeave';
+import { Route, Switch } from 'react-router';
 
 
 class AppRouter extends React.Component{

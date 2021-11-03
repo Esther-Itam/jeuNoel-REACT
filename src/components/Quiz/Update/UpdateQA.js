@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import IndexUpdateQA from './IndexUpdateQA';
+import LARAVEL_SERVER from '../../Variable';
 
 
 class UpdateQA extends React.Component{
@@ -16,7 +17,7 @@ class UpdateQA extends React.Component{
 
 componentDidMount(){
   let id = this.props.id;
-    axios.get(`http://127.0.0.1:8000/api/quiz/${id}`)
+    axios.get(`${LARAVEL_SERVER}/quiz/${id}`)
     .then(res => {
         this.setState({quizzes:res.data.data})
         this.setState({index:res.data.data[0][1].length})

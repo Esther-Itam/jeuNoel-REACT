@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 import ButtonStandard from '../Buttons/ButtonStandard';
+import LARAVEL_SERVER from '../Variable';
 
 class FormUpdate extends React.Component{
     constructor(){
@@ -22,7 +23,7 @@ componentDidMount(){
         let id=localStorage.getItem('token')
         let headers={
             headers:{'API_TOKEN':localStorage.getItem('token')}}
-            axios.get(`http://127.0.0.1:8000/api/show/${id}`, headers)
+            axios.get(`${LARAVEL_SERVER}/show/${id}`, headers)
             .then(res=>{this.setState({userInfos:res.data.data[0]})})
             .catch(error=>{console.log(error.response)})   
     }else{
@@ -40,7 +41,7 @@ handleSubmit = event =>{
     let headers = {
         headers:{'API_TOKEN':localStorage.getItem('token')}
     }
-        axios.put(`http://127.0.0.1:8000/api/update/${id}`, {headers, name:this.state.name, password:this.state.password, confirm_password:this.state.confirm_password})
+        axios.put(`${LARAVEL_SERVER}/update/${id}`, {headers, name:this.state.name, password:this.state.password, confirm_password:this.state.confirm_password})
         .then(res=>{ console.log(res.data)
                     this.setState({redirect:true})
                 })

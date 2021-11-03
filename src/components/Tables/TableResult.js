@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import LARAVEL_SERVER from '../Variable';
 
 class TableResult extends React.Component{
 
@@ -10,7 +11,7 @@ class TableResult extends React.Component{
 
 componentDidMount(){
 
-    axios.get('http://127.0.0.1:8000/api/results')
+    axios.get(`${LARAVEL_SERVER}/results`)
             .then(res=>{
             this.setState({results:res.data.data[0]})
             this.setState({numberTeam:res.data.data[0].length})

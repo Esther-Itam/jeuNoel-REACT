@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ButtonColor from '../Buttons/ButtonColor';
+import LARAVEL_SERVER from '../Variable';
 
 class ColorCheckManagement extends React.Component{
     constructor(props){
@@ -13,7 +14,7 @@ class ColorCheckManagement extends React.Component{
 
 componentDidMount(){
 
-    axios.get('http://127.0.0.1:8000/api/color')
+    axios.get(`${LARAVEL_SERVER}/color`)
         .then(res => {this.setState({colors:res.data.data})
             console.log(res.data.data)})
         .catch(error => {console.log(error.response)})

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
-
+import LARAVEL_SERVER from '../../Variable';
 import TableShowQuiz from '../../Tables/TableShowQuiz';
 
 class ResultCondition extends React.Component{
@@ -25,11 +25,11 @@ class ResultCondition extends React.Component{
 componentDidMount(){
     let id = this.props.id;
 
-    axios.get('http://127.0.0.1:8000/api/team_answers/index')
+    axios.get(`${LARAVEL_SERVER}/team_answers/inde`)
         .then(res=>{this.setState({results:res.data.data.length})})  
         .catch(error => {console.log(error.response)}) 
 
-    axios.get('http://127.0.0.1:8000/api/categorieUsed')
+    axios.get(`${LARAVEL_SERVER}/categorieUsed`)
     .then(res => {this.setState({categorieUsed:res.data.data[0].length})
 console.log(res.data.data[0].length)})
     .catch(error => {console.log(error.response) })

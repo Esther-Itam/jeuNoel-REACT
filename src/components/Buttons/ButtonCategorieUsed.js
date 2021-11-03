@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
+import LARAVEL_SERVER from '../Variable';
 
 class ButtonCategorieUsed extends React.Component{
     constructor(props){
@@ -16,7 +17,7 @@ class ButtonCategorieUsed extends React.Component{
 
 componentDidMount(){
     let id =  this.props.idCategorie;
-    axios.get(`http://127.0.0.1:8000/api/categorieShow/${id}`)
+    axios.get(`${LARAVEL_SERVER}/categorieShow/${id}`)
         .then(res => {this.setState({categoriesShow:res.data.data})})
         .catch(error => {console.log(error.response)})
 }
@@ -25,7 +26,7 @@ handleSubmit = event =>{
     event.preventDefault()
     console.log("catégorie disabled")
     let id =  this.props.idCategorie;
-    axios.put(`http://127.0.0.1:8000/api/categorie/${id}`, {is_used:1})
+    axios.put(`${LARAVEL_SERVER}/categorie/${id}`, {is_used:1})
             .then(res=>{this.setState({redirect:true}) })  
             .catch(error =>{
                 if(error.response.status === 401){

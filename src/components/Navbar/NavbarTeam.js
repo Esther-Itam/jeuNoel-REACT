@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../../pictures/logo.webp'
+import LARAVEL_SERVER from '../Variable';
 
 class NavbarTeam extends React.Component{
 
@@ -15,7 +16,7 @@ constructor(){
 componentDidMount(){
     let headers={headers:{'API_TOKEN':localStorage.getItem('token')}}
     let id =localStorage.getItem('token');
-    axios.get(`http://127.0.0.1:8000/api/teamShow/${id}`, headers)
+    axios.get(`${LARAVEL_SERVER}/teamShow/${id}`, headers)
         .then(res => {this.setState({userInfos:res.data.data[0]}) })
         .catch(error => {console.log(error.response)})       
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import later from '../../pictures/later.webp'
+import LARAVEL_SERVER from '../Variable';
 
 class ButtonPlayer extends React.Component{
     constructor(){
@@ -14,10 +15,10 @@ class ButtonPlayer extends React.Component{
 
     
 componentDidMount(){
-    axios.get('http://127.0.0.1:8000/api/teamPresentation')
+    axios.get(`${LARAVEL_SERVER}/teamPresentation`)
         .then(res => {this.setState({teams:res.data.data.length})})
         .catch(error => {console.log(error.response)})
-    axios.get('http://127.0.0.1:8000/api/categorieUsed')
+    axios.get(`${LARAVEL_SERVER}/categorieUsed`)
     .then(res => {this.setState({categorieUsed:res.data.data[0].length})
 console.log(res.data.data[0].length)})
     .catch(error => {console.log(error.response) })
