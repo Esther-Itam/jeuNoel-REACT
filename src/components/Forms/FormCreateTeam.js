@@ -18,10 +18,6 @@ const [clicked3, setClicked3]=useState(false);
 const [clicked4, setClicked4]=useState(false);
 
 
- useEffect(() => {
-    axios.get(`${LARAVEL_SERVER}/colorwebsock`).then((res) => {console.log(res.data.data)
-    },1000)
-  },[]);
 
 const handleSubmit = event =>{
     event.preventDefault()

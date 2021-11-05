@@ -1,46 +1,34 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import loading from '../../pictures/loading.gif';
 import LARAVEL_SERVER from '../Variable';
+import { useAppContext } from '../../Context';
+import React, { useState, useEffect} from 'react';
 
-class TeamPresentation extends React.Component{
-    constructor(props){
-        super(props)
-        this.state={
-            errors:[],
-            teams:[],
-            conditions:[],
-            categories:[]
+function TeamPresentation() {
 
-        }
-    }
-
-    componentDidMount(){
-        axios.get(`${LARAVEL_SERVER}/teamPresentation`)
-            .then(res => {this.setState({teams:res.data.data})
-                          this.setState({conditions:res.data.data.length})
-                  })
-            .catch(error => {console.log(error.response)})
-
-        axios.get(`${LARAVEL_SERVER}/categorie`)
-        .then(res => {this.setState({categories:res.data.data})
-        console.log(res.data.data)})
-        .catch(error => {console.log(error.response)})  
-         
-    }
+const { state, dispatch } = useAppContext();
+const [teams, setTeams]=useState([]);
+const [conditions, setConditions]=useState([]);
  
 
-handleSubmit = event =>{
+useEffect(() => {
+axios.get(`${LARAVEL_SERVER}/teamPresentation`)
+.then(res => {
+    
+    setTeams(res.data.data);
+    setConditions(res.data.data.length);
+},1000)
+},[]);
+
+const handleSubmit = event =>{
     event.preventDefault()
     console.log("colonne is_used des couleurs updatée")
     axios.put(`${LARAVEL_SERVER}/color`, {is_used:0})
-        .then(res => {this.setState(console.log(res))})
+        .then(res => {console.log(res)})
         .catch(error =>{console.log(error.response)}) 
 }
     
-    render(){
-
         return(
             <div className="containerTeamBuilding">
             <div className="containerTeam">
@@ -49,7 +37,7 @@ handleSubmit = event =>{
                     <h4>Les lutins ont perdu 60 🎁 dans le jeu, celui qui leur rapporte sera le grand vainqueur!</h4>
                     <h4>Il y a 10 🎁 par catégorie à trouver</h4>
                     </div>
-                    {this.state.conditions <2
+                    {conditions <2
                     ?
                     <>
                     <div className="containerConditions">
@@ -57,37 +45,34 @@ handleSubmit = event =>{
                     <h3>Attendez qu'un joueur rejoigne la partie!</h3>
                     </div>
                     <div>
-                        {this.state.teams.map((team)=>
                         <div className="containerAvatarPresentation">
                             <div className="containerAvatarPresentationTitle">
-                            <div className="avatar_button" style={{backgroundImage:`url(${team.avatar})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
-                            <h2 style={{color:team.color.color}}>L'équipe {team.name}</h2>
+                            <div className="avatar_button" style={{backgroundImage:`url(${state.avatar})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
+                            <h2 style={{color:state.teamcolor}}>L'équipe {state.name}</h2>
                         </div>
                         </div>
-                        )}
                     </div>
                     <img src={loading} alt="" width="800px"/>
                     </>
                     :
                
                     <>
-                        {this.state.teams.map((team)=>
+                    {state.teams.map((team)=>
                         <div className="containerAvatarPresentation">
                             <div className="containerAvatarPresentationTitle">
-                            <div className="avatar_button" style={{backgroundImage:`url(${team.avatar})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
-                            <h2 style={{color:team.color.color}}>L'équipe {team.name}</h2>
+                               <div className="avatar_button" style={{backgroundImage:`url(${team.avatar})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
+                               <h2 style={{color:team.color.color}}>L'équipe {team.name}</h2> 
+                            </div>
                         </div>
-                        </div>
-                        )}
+                    )}
                         <div className="containerButtonGame">
-                        <button type="button" class="buttonGame" onClick={this.handleSubmit} value={0}><Link className="link" to="/startGame">GO!</Link></button>                 
+                        <button type="button" class="buttonGame" onClick={handleSubmit} value={0}><Link className="link" to="/startGame">GO!</Link></button>                 
                         </div>
                     </>               
                     }
             </div>
             </div>
         )
-    }
 }
 
   

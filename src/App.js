@@ -24,15 +24,40 @@ function App(){
         state,
         dispatch
     }
-
+/* **************************WEBSOCKET COLOR ******************************** */
 useEffect(() => {
     window.Echo.channel('color-used').listen('.color-used', (data) =>{
          data.color.map((color) => {
-             console.log('color updated by websockets')
             dispatch({type:color.colorName.toUpperCase(), value:color.colorUsed}) 
         }); 
     },1000)
   },[]);
+
+  /* **************************WEBSOCKET TEAM ******************************** */
+  useEffect(() => {
+    window.Echo.channel('team-event').listen('.team-event', (data) =>{
+            dispatch({type:"TEAMS", teams:data.teams})
+    },1000)
+  },[]);
+
+/* **************************WEBSOCKET RESULT ******************************** */
+useEffect(() => {
+    window.Echo.channel('result-event').listen('.result-event', (data) =>{
+           dispatch({type:"RESULTS", results:data.team_answers})
+    },1000)
+    },[]);
+
+/* **************************WEBSOCKET CATEGORIES ******************************** */
+useEffect(() => {
+    window.Echo.channel('categorie-event').listen('.categorie-event', (data) =>{
+        
+             console.log({type:"CATEGORIES", categories:data.categorieShow})
+            dispatch({type:"CATEGORIES", categories:data.categorieShow}) 
+        
+    },1000)
+  },[]);
+
+
   return (
     <AppContext.Provider value={providerState} >
           <Router>

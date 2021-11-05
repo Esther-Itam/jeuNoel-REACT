@@ -1,24 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import LARAVEL_SERVER from '../Variable';
+import { useAppContext } from '../../Context';
 
-class TableResult extends React.Component{
+function TableResult(){
 
-    constructor(){
-        super()
-        this.state={results:[]}
-    }
+    const { state, dispatch } = useAppContext();
+   const {numberTeam, setNumberTeam}=useState([]);
 
-componentDidMount(){
+   useEffect(() => {
+        axios.get(`${LARAVEL_SERVER}/results`)
+        .then(res => {
+            console.log(res.data.data[0].length)
+             setNumberTeam(res.data.data[0].length);
+        },1000)
+        },[]); 
 
-    axios.get(`${LARAVEL_SERVER}/results`)
-            .then(res=>{
-            this.setState({results:res.data.data[0]})
-            this.setState({numberTeam:res.data.data[0].length})
-            })  
-            .catch(error =>{console.log(error.response)})
-}
-    render(){
         return(
             <div>
                <table className="table bg-white table-bordered border-warning">
@@ -27,8 +24,8 @@ componentDidMount(){
                         <th scope="col"></th>
                         <th scope="col">🥇</th>
                         <th scope="col">🥈</th>
-                        {this.state.numberTeam>2 ? <th scope="col">🥉</th> : null}
-                        {this.state.numberTeam>3 ? <th scope="col">🏅</th> : null}
+                        {numberTeam>2 ? <th scope="col">🥉</th> : null}
+                        {numberTeam>3 ? <th scope="col">🏅</th> : null}
                         </tr>
                     </thead>
                     <tbody>
@@ -36,20 +33,19 @@ componentDidMount(){
                         </tr>
                         <tr>
                         <th  className="table-warning" scope="row">Equipe</th>
-                       {this.state.results.map((result)=>
+                       {state.results.map((result)=>
                         <td>{result.teamName}</td>
                         )}
                         </tr>
                         <tr>
                         <th  className="table-warning" scope="row">Score</th>
-                       {this.state.results.map((result)=><td>{parseInt(result.userCount)} 🎁</td>)}
+                       {state.results.map((result)=><td>{parseInt(result.userCount)} 🎁</td>)}
                         </tr> 
                     </tbody>
                     </table>
                     
             </div>
         )
-    }
 }
 
 export default TableResult;

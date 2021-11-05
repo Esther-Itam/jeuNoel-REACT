@@ -5,8 +5,11 @@ export const initialState = {
         blue    : 0,
         yellow  : 0,
     },
-    teamColor: null
-};
+    teams       : [],
+    teamColor   : null,
+    results     : [],
+    categories  : [],
+}; 
 
 function rootReducer(state, action) {
     switch (action.type) {
@@ -47,6 +50,22 @@ function rootReducer(state, action) {
                 ...state,
                 teamColor: action.value
             };
+        
+        case 'TEAMS' :
+            return{
+                ...state,
+                teams: action.teams
+        };  
+        case 'RESULTS' :
+            return{
+                ...state,
+                results: action.results
+            };
+        case 'CATEGORIES' :
+            return{
+                ...state,
+                categories: action.categories
+            };       
         default:
             return state;
     }
