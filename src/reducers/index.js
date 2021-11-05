@@ -9,6 +9,8 @@ export const initialState = {
     teamColor   : null,
     results     : [],
     categories  : [],
+    random      : 0,
+    display     : false
 }; 
 
 function rootReducer(state, action) {
@@ -65,7 +67,18 @@ function rootReducer(state, action) {
             return{
                 ...state,
                 categories: action.categories
-            };       
+            };
+            
+        case 'RANDOM' :
+            return{
+                ...state,
+                random: action.random
+            };
+        case 'DISPLAY' :
+            return{
+                ...state,
+                display: action.display
+            };            
         default:
             return state;
     }

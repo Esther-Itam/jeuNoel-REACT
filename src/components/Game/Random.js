@@ -4,12 +4,15 @@ import axios from 'axios';
 import gitBonhomme from '../../pictures/bonhomme.webp';
 import LinkGame from '../Buttons/LinkGame';
 import LARAVEL_SERVER from '../Variable';
+import { Redirect } from 'react-router';
+import { useAppContext } from '../../Context';
 
 const Random = () =>{
       const [colors, setColors]=useState("");
       const [affichage, setAffichage]=useState(false);
       const [teams, setTeams]=useState([]);
       const [redirect, setRedirect]=useState("");
+      const { state, dispatch } = useAppContext();
 
 useEffect(() => {
   axios.get(`${LARAVEL_SERVER}/teamPresentation`).then((res) => {
@@ -33,19 +36,22 @@ const random= () =>{
   })
   let randomColor = Math.floor(Math.random() * data.length);
     setColors(data[randomColor]);
-    setAffichage(true)
+    dispatch({type:"RANDOM", random:data[randomColor]});
+    console.log({type:"RANDOM", value:data[randomColor]})
+    dispatch({type:"DISPLAY", display:true});
+
 
 }
 
         return (
         <>  
-            {affichage ?  
+            {state.display ?  
             <>
              <div className="containerTeamBuildingResultRandom">
               <div className="containerTeamRandomResultRandom">
               <h2>
                 {(() => {
-                  switch (colors) {
+                  switch (state.random) {
                     case "red":   return "L'équipe rouge commence la partie";
                     case "green": return "L'équipe verte commence la partie";
                     case "blue":  return "L'équipe bleue commence la partie";
@@ -54,7 +60,7 @@ const random= () =>{
                   }
                 })()}
               </h2>
-              <div className="color_button_random" style={{backgroundColor:colors}} value={colors}></div> 
+              <div className="color_button_random" style={{backgroundColor:state.random}} value={state.random}></div> 
               <div className="containerTeamRandomdiv">
                   <img src={gitBonhomme} alt="" width="400px"/>
               </div>
@@ -72,7 +78,9 @@ const random= () =>{
               <div className="containerTeamRandom">
                 <h2 class="text-center my-5">Une équipe va être sélectionnée au hasard</h2>
                 <h4 class="text-center my-5">L'équipe sélectionnée choisira la catégorie</h4>
+
                 <button className="bouton" onClick={random}>Lancement du random</button>
+
                 <div className="containerTeamRandomdiv">
                   <img src={gifRandom} alt="" width="400px"/>
                 </div>
