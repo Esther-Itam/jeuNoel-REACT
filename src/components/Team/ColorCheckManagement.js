@@ -15,8 +15,7 @@ class ColorCheckManagement extends React.Component{
 componentDidMount(){
 
     axios.get(`${LARAVEL_SERVER}/color`)
-        .then(res => {this.setState({colors:res.data.data})
-            console.log(res.data.data)})
+        .then(res => {this.setState({colors:res.data.data})})
         .catch(error => {console.log(error.response)})
 
 }

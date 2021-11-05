@@ -7,7 +7,7 @@ class ButtonColorDisabled extends React.Component{
         return(
             <>
 
-            <button className="color_button" type="button" style={{backgroundColor:"grey"}} disabled></button>
+            <button className="color_button" onClick={this.props.onClickColor}  type="submit" style={{backgroundColor:"grey"}} ></button>
 
             </>
         )

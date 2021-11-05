@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import loading from '../../pictures/loading.gif';
-import Echo from 'laravel-echo';
 import LARAVEL_SERVER from '../Variable';
 
 class TeamPresentation extends React.Component{

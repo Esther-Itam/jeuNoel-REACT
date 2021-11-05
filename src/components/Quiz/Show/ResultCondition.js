@@ -25,7 +25,7 @@ class ResultCondition extends React.Component{
 componentDidMount(){
     let id = this.props.id;
 
-    axios.get(`${LARAVEL_SERVER}/team_answers/inde`)
+    axios.get(`${LARAVEL_SERVER}/team_answers/${id}`)
         .then(res=>{this.setState({results:res.data.data.length})})  
         .catch(error => {console.log(error.response)}) 
 

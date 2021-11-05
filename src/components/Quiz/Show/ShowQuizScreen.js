@@ -1,6 +1,5 @@
 import React from 'react';
 import NavbarTeam from '../../Navbar/NavbarTeam';
-import TableShowQuiz from '../../Tables/TableShowQuiz';
 import ResultCondition from './ResultCondition';
 
 class ShowQuizScreen extends React.Component{
