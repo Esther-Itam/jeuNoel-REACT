@@ -57,6 +57,16 @@ useEffect(() => {
     },1000)
   },[]);
 
+ /* **************************WEBSOCKET RANDOM ******************************** */
+useEffect(() => {
+    window.Echo.channel('random-event').listen('.random-event', (data) =>{
+            
+             console.log({type:"RANDOM", random:data.random})
+            dispatch({type:"RANDOM", random:data.random}) 
+        
+    },1000)
+  },[]);
+
 
   return (
     <AppContext.Provider value={providerState} >

@@ -5,7 +5,7 @@ import LoginScreen from './Authentification/LoginScreen';
 import AccountScreen from './Authentification/AccountScreen';
 import PlayerScreen from './Game/PlayerScreen';
 import StartGameScreen from './Game/StartGameScreen';
-import Random from './Game/Random';
+import RandomScreen from './Game/RandomScreen';
 import CategoriesScreen from './Game/CategoriesScreen';
 import CategorieShowScreen from './Game/CategorieShowScreen';
 import WaitingScreen from './Game/WaitingScreen';
@@ -53,7 +53,7 @@ class AppRouter extends React.Component{
                 <Route exact path="/player" component={PlayerScreen}/>
                 <Route exact path="/categorie" component={CategoriesScreen}/>
                 <Route exact path="/categorieShow/:id" component={CategorieShowScreen}/>
-                <Route exact path="/random" component={Random}/>
+                <Route exact path="/random" component={RandomScreen}/>
                 <Route exact path="/startGame" component={StartGameScreen}/>
                 <Route exact path="/waiting" component={WaitingScreen}/>
                 <Route exact path="/proposeLeave" component={ButtonProposeLeave}/>

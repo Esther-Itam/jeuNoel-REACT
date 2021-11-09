@@ -12,8 +12,8 @@ function TableResult(){
         axios.get(`${LARAVEL_SERVER}/results`)
         .then(res => {
             console.log(res.data.data[0].length)
-             setNumberTeam(res.data.data[0].length);
-        },1000)
+/*              setNumberTeam(res.data.data[0].length);
+ */        },1000)
         },[]); 
 
         return(

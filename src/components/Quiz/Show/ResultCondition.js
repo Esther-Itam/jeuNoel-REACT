@@ -40,12 +40,12 @@ render(){
         return(
             <>
             <TableShowQuiz id={this.props.id}/>
-               {this.state.categorieUsed===1 && this.state.results===10?<Redirect to={`/result/${this.props.id}`}/>:null}
-               {this.state.categorieUsed===2 && this.state.results===20?<Redirect to={`/result/${this.props.id}`}/>:null}
-               {this.state.categorieUsed===3 && this.state.results===30?<Redirect to={`/result/${this.props.id}`}/>:null}
-               {this.state.categorieUsed===4 && this.state.results===40?<Redirect to={`/result/${this.props.id}`}/>:null}
-               {this.state.categorieUsed===5 && this.state.results===50?<Redirect to={`/result/${this.props.id}`}/>:null}
-               {this.state.categorieUsed===6 && this.state.results===60?<Redirect to={`/result/${this.props.id}`}/>:null}
+               {this.state.categorieUsed>1 && this.state.results>20?<Redirect to={`/result/${this.props.id}`}/>:null}
+               {this.state.categorieUsed>2 && this.state.results>40?<Redirect to={`/result/${this.props.id}`}/>:null}
+               {this.state.categorieUsed===3 && this.state.results===60?<Redirect to={`/result/${this.props.id}`}/>:null}
+               {this.state.categorieUsed===4 && this.state.results===80?<Redirect to={`/result/${this.props.id}`}/>:null}
+               {this.state.categorieUsed===5 && this.state.results===100?<Redirect to={`/result/${this.props.id}`}/>:null}
+               {this.state.categorieUsed===6 && this.state.results===120?<Redirect to={`/result/${this.props.id}`}/>:null}
 
             </>
         )

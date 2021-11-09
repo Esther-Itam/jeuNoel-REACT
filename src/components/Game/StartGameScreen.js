@@ -1,6 +1,6 @@
 import React from 'react';
 import NavbarTeam from '../Navbar/NavbarTeam';
-import Random from './Random';
+import ButtonRandom from '../Buttons/ButtonRandom';
 
 class StartGame extends React.Component{
 
@@ -8,7 +8,7 @@ class StartGame extends React.Component{
         return(
             <>
                 <NavbarTeam/>
-                <Random/>
+                <ButtonRandom/>
             </>
         )
     }
