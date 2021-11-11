@@ -6,16 +6,16 @@ import { useAppContext } from '../../Context';
 function TableResult(){
 
     const { state, dispatch } = useAppContext();
-   const {numberTeam, setNumberTeam}=useState([]);
+   const [numberTeam, setNumberTeam] =useState([]);
 
    useEffect(() => {
         axios.get(`${LARAVEL_SERVER}/results`)
         .then(res => {
             console.log(res.data.data[0].length)
-/*              setNumberTeam(res.data.data[0].length);
- */        },1000)
+             setNumberTeam(res.data.data[0].length);
+        },1000)
         },[]); 
-
+console.log(state.results)
         return(
             <div>
                <table className="table bg-white table-bordered border-warning">

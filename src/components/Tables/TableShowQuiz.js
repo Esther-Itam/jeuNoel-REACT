@@ -1,76 +1,76 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import LARAVEL_SERVER from '../Variable';
+import { useAppContext } from '../../Context';
 
-class TableShowQuiz extends React.Component{
-    constructor(props){
-        super(props)
-        this.state={
-  
-            errors:[],
-            quiz:"",
-            quizzes:[],
-            question_id:0,
-            answer_id:0,
-            quiz:0,
-            team_answers:[],
-            questions:[],
-            userInfos:[]
+function TableShowQuiz(props){
+    const [errors, setErrors] = useState([]);
+    const [quizzes, setQuizzes] = useState([]);
+    const [question_id, setQuestion_id] = useState([]);
+    const [answer_id, setAnswer_id] = useState([]);
+    const [userInfos, setUserInfos] = useState([]);
+    const [results, setResults] = useState([]);
+    const { state, dispatch } = useAppContext();
 
-        }
-    }
+useEffect(() => {
+    let id = props.id;
+    axios.get(`${LARAVEL_SERVER}/categorie/${id}`).then((res) => {
+        setQuizzes(res.data.data);
 
-componentDidMount(){
-  let id = this.props.id;
-  console.log(id)
-  let headers={headers:{'API_TOKEN':localStorage.getItem('token')}}
-  let idToken =localStorage.getItem('token');
-    axios.get(`${LARAVEL_SERVER}/categorie/${id}`)
-        .then(res => {this.setState({quizzes:res.data.data})})
-        .catch(error => {console.log(error.response) })
-    axios.get(`${LARAVEL_SERVER}/team_answers/index`)
-        .then(res=>{this.setState({results:res.data.data.length})})  
-        .catch(error => {console.log(error.response)}) 
-    axios.get(`${LARAVEL_SERVER}/teamShow/${idToken}`, headers)
-        .then(res => {this.setState({userInfos:res.data.data[0]})})
-        .catch(error => {console.log(error.response)})
-}
+    },1000)
+    },[]);
 
-handleSubmit = event =>{
+    
+useEffect(() => {
+    axios.get(`${LARAVEL_SERVER}/team_answers/index`).then((res) => {
+        setResults(res.data.data.length);
+    },1000)
+    },[]);
+
+useEffect(() => {
+    let headers={headers:{'API_TOKEN':localStorage.getItem('token')}}
+    let idToken =localStorage.getItem('token');
+    axios.get(`${LARAVEL_SERVER}/teamShow/${idToken}`, headers).then((res) => {
+        setUserInfos(res.data.data[0]);
+    },1000)
+    },[]);    
+
+
+const handleSubmit = event =>{
     event.preventDefault()
     let bodyFormData = new FormData();
-    bodyFormData.set('question_id', this.state.question_id)
-    bodyFormData.set('answer_id', this.state.answer_id)
-    bodyFormData.set('team_id', this.state.userInfos[0].teamId)
+    bodyFormData.set('question_id', question_id)
+    bodyFormData.set('answer_id', answer_id)
+    bodyFormData.set('team_id', userInfos[0].teamId)
 
     axios.post(`${LARAVEL_SERVER}/team_answers`, bodyFormData)
             .then(res=>{localStorage.setItem('token', res.data.data.api_token) 
             console.log(res.data.data.api_token)
         })  
             .catch(error =>{
-                if(error.response.status === 401){this.setState({errors: error.response.data.errors}, ()=>{})}
+                if(error.response.status === 401){setErrors(error.response.data.errors)}
                 console.log(error.response)
             })
              
 }
 
-handleAnswerChange = event =>{this.setState({answer_id: event.target.value}, ()=>{})} 
+const handleAnswerChange = event =>{setAnswer_id(event.target.value)} 
 
-refreshPage = (event) =>{window.location.reload(false);
-                         this.setState({question_id: event.target.value}, ()=>{console.log(this.state)})}
-    
-render(){
-    const progress=(this.state.results/60)*100
+const refreshPage = (event) =>{window.location.reload(false);
+                         setQuestion_id(event.target.value)}
+  console.log(state.quizzes)  
+
+    const progress=(results/60)*100
         return(
             <>
                 <div className="containerQuiz" >
                     <div className="containerQuizQA">
                         <div className="progress">
-                        <div className="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="10" style={{width:`${progress}%`}}>{this.state.results} / 60</div>
+                        <div className="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="10" style={{width:`${progress}%`}}>{results} / 60</div>
                     </div>
                 
-                    <form method="POST" onSubmit={this.handleSubmit}>
-                        {this.state.quizzes.map((quiz)=>
+                    <form method="POST" onSubmit={handleSubmit}>
+                     {quizzes.map((quiz)=>
                         <>
                     {/*   <Timer question_id={quiz[2][0].questionId} answer_id={quiz[3][0].answerId}/> */}
                             <h1>Catégorie: {quiz[0][0].categorieName}</h1>
@@ -78,30 +78,30 @@ render(){
                             <div className="container bg-white container_question">
                             <h4>Question: {quiz[2][0].questionName}</h4>
                             <div className="form-check">
-                                <input onChange={this.handleAnswerChange} value={quiz[3][0].answerId} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                                <input onChange={handleAnswerChange} value={quiz[3][0].answerId} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
                                 <label className="form-check-label" for="flexRadioDefault1">{quiz[3][0].answerName}</label>
                             </div>
                             <div className="form-check">
-                                <input onChange={this.handleAnswerChange} value={quiz[3][1].answerId} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                                <input onChange={handleAnswerChange} value={quiz[3][1].answerId} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
                                 <label className="form-check-label" for="flexRadioDefault1">{quiz[3][1].answerName}</label>
                             </div>
                             <div className="form-check">
-                                <input onChange={this.handleAnswerChange} value={quiz[3][2].answerId} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                                <input onChange={handleAnswerChange} value={quiz[3][2].answerId} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
                                 <label className="form-check-label" for="flexRadioDefault1">{quiz[3][2].answerName}</label>
                             </div>
                                 <div className="containerButtonQuiz">
-                                <button  className="buttonStandard" type="submit" value={quiz[2][0].questionId} onClick={this.refreshPage}  to={`/quizShow/${quiz[0][0].categorieId}`}>Valider</button>
+                                <button  className="buttonStandard" type="submit" value={quiz[2][0].questionId} onClick={refreshPage}  to={`/quizShow/${quiz[0][0].categorieId}`}>Valider</button>
                                 </div>
                             </div>
                             </> 
                         
-                            )} 
+                            )}  
                             </form>
                     </div>
                 </div>
             </>
         )
     }
-}
+
 
 export default TableShowQuiz;

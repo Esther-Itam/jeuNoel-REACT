@@ -10,7 +10,8 @@ export const initialState = {
     results     : [],
     categories  : [],
     random      : 0,
-    display     : false
+    display     : false,
+    quiz        : []
 }; 
 
 function rootReducer(state, action) {
@@ -78,7 +79,12 @@ function rootReducer(state, action) {
             return{
                 ...state,
                 display: action.display
-            };            
+            };
+        case 'QUIZ' :
+            return{
+                ...state,
+                quizzes: action.quizzes
+            };                
         default:
             return state;
     }

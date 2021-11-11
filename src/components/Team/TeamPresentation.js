@@ -45,12 +45,14 @@ const handleSubmit = event =>{
                     <h3>Attendez qu'un joueur rejoigne la partie!</h3>
                     </div>
                     <div>
+                    {state.teams.map((team)=>
                         <div className="containerAvatarPresentation">
                             <div className="containerAvatarPresentationTitle">
-                            <div className="avatar_button" style={{backgroundImage:`url(${state.avatar})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
-                            <h2 style={{color:state.teamcolor}}>L'équipe {state.name}</h2>
+                            <div className="avatar_button" style={{backgroundImage:`url(${team.avatar})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
+                            <h2 style={{color:team.teamcolor}}>L'équipe {team.name}</h2>
                         </div>
                         </div>
+                    )}    
                     </div>
                     <img src={loading} alt="" width="800px"/>
                     </>

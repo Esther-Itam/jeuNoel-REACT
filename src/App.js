@@ -44,6 +44,7 @@ useEffect(() => {
 useEffect(() => {
     window.Echo.channel('result-event').listen('.result-event', (data) =>{
            dispatch({type:"RESULTS", results:data.team_answers})
+           console.log(data.team_answers)
     },1000)
     },[]);
 
@@ -67,6 +68,15 @@ useEffect(() => {
     },1000)
   },[]);
 
+/* **************************WEBSOCKET QUIZ ******************************** */
+useEffect(() => {
+  window.Echo.channel('quiz-event').listen('.quiz-event', (data) =>{
+          
+           console.log({type:"QUIZ", quizzes:data.data})
+          dispatch({type:"QUIZ", quizzes:data.data}) 
+      
+  },1000)
+},[]);
 
   return (
     <AppContext.Provider value={providerState} >
