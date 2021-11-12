@@ -76,7 +76,7 @@ const refreshPage = (event) =>{window.location.reload(false);
                             <h1>Catégorie: {quiz[0][0].categorieName}</h1>
                             <h3>Quiz: {quiz[1][0].quizName}</h3>
                             <div className="container bg-white container_question">
-                            <h4>Question: {quiz[2][0].questionName}</h4>
+                            <h4>{quiz[2][0].questionName}</h4>
                             <div className="form-check">
                                 <input onChange={handleAnswerChange} value={quiz[3][0].answerId} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
                                 <label className="form-check-label" for="flexRadioDefault1">{quiz[3][0].answerName}</label>
