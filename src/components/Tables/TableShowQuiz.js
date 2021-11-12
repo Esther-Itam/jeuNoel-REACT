@@ -14,10 +14,12 @@ function TableShowQuiz(props){
 
 useEffect(() => {
     let id = props.id;
-    axios.get(`${LARAVEL_SERVER}/categorie/${id}`).then((res) => {
+    axios.get(`${LARAVEL_SERVER}/categorie/${id}`)
+    .then((res) => {
         setQuizzes(res.data.data);
-
-    },1000)
+    }
+    
+    ,1000)
     },[]);
 
     
@@ -63,7 +65,7 @@ const refreshPage = (event) =>{window.location.reload(false);
     const progress=(results/60)*100
         return(
             <>
-                <div className="containerQuiz" >
+               
                     <div className="containerQuizQA">
                         <div className="progress">
                         <div className="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="10" style={{width:`${progress}%`}}>{results} / 60</div>
@@ -98,7 +100,7 @@ const refreshPage = (event) =>{window.location.reload(false);
                             )}  
                             </form>
                     </div>
-                </div>
+              
             </>
         )
     }

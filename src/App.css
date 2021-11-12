@@ -1,7 +1,10 @@
 
 body{
 
-  background-color:white;
+  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'), url('./pictures/snow5.png'),url('./pictures/oiseau2.gif'),url('./pictures/snow.png'),linear-gradient(#f6423c,#f6bb3c,#ffdf88, #ebf8e1 );;
+  background-repeat:repeat, no-repeat, repeat-x, repeat-x, repeat-x, no-repeat;
+  background-position:right;
+  background-size:contain;
 }
 
 .containerBody{
@@ -426,16 +429,18 @@ body{
 
 .containerQuizQA{
   background-color: #46426ee8;
-  padding: 100px;
-  padding-top: 50px;
+  padding: 50px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
+  width:60%;
+  margin-left: 20%;
+  margin-top: 2%;
 }
 
 .containerQuizQA h1{
   text-align: center;
   margin-top: 50px;
+  color:white;
 
 }
 .containerQuizQA h3{
@@ -596,7 +601,7 @@ font-weight: bold;
   display:flex;
   justify-content:center;
   color:white;
-  padding-bottom: 13.5%;
+  padding-bottom: 8%;
 }
 
 .containerStart{
@@ -612,8 +617,8 @@ font-weight: bold;
   display: flex;
   justify-content: space-between;
   margin-top: 10%;
-  width:45%;
-  margin-left: 25%;
+  margin-left: 13%;
+  width:70%;
 }
 /* ****************************************************************************************************************** */
 /* ******************************************** Buttons ************************************************************* */
@@ -856,6 +861,19 @@ margin-bottom: 2%;
 .containerQuizCreate button{
   width:100%;
   }
+
+  .hover{
+color:transparent;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  width:150px;
+  }
+  .hover:hover{
+    border: 1px solid #888;
+    color:yellow;
+    border-radius: 5px;
+  }
+
 /* ****************************************************************************************************************** */
 /* ***********************************************LINK ************************************************************** */
 .linkStandard{
@@ -869,6 +887,24 @@ margin-bottom: 2%;
   text-transform: uppercase;
   text-decoration: none;
   margin-left: 5px;
+}
+.linkStandardContinue{
+  border-radius:5px;
+  box-shadow: rgba(255, 254, 254, 0.4) 0px 0px 0px 2px, rgba(40, 41, 43, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  padding: 20px;
+  background-color: rgb(141, 8, 8);
+  border:none;
+  color:white;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  height:65px;
+}
+
+.linkStandardContinue:hover{
+  color:white;
+  background-color: rgb(199, 86, 86);
+  box-shadow: rgba(255, 254, 254, 0.4) 0px 0px 0px 2px, rgba(40, 41, 43, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 .linkStandardLeave{
   border-radius:5px;
