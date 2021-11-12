@@ -517,7 +517,8 @@ font-weight: bold;
   margin-bottom: 9%;
 }
 .containerResultTeamFinal{
-  background-color: #46426ecc;
+  background-image: url('./pictures/confetti2.gif');
+  background-color: #46426ef3;
   width:60%;
   padding: 100px;
   padding-top: 50px;
