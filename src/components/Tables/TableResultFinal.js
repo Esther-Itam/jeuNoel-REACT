@@ -18,9 +18,7 @@ function TableResultFinal(){
 console.log(state.results)
         return(
             <div>
-                {state.results.map((result)=>
-                <h1>L'équipe {result.teamName} remporte la partie avec {parseInt(result.userCount)} 🎁 retrouvés</h1>
-                )}
+                <h2>🏆 L'équipe <strong>{state.results[0].teamName}</strong> remporte la partie avec {parseInt(state.results[0].userCount)} 🎁 retrouvés</h2>
                <table className="table bg-white table-bordered border-warning">
                     <thead className="table-warning">
                         <tr>
