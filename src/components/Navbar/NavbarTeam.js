@@ -17,7 +17,8 @@ componentDidMount(){
     let headers={headers:{'API_TOKEN':localStorage.getItem('token')}}
     let id =localStorage.getItem('token');
     axios.get(`${LARAVEL_SERVER}/teamShow/${id}`, headers)
-        .then(res => {this.setState({userInfos:res.data.data[0]}) })
+        .then(res => {this.setState({userInfos:res.data.data[0]})
+    console.log(res.data.data[0]) })
         .catch(error => {console.log(error.response)})       
 }
     
@@ -34,7 +35,14 @@ componentDidMount(){
                                 <img src={logo} alt="" width="100px"/>
                             </li>
                             <li className="nav-item">
-                                {this.state.userInfos.map((userInfo)=><h1 style={{color:userInfo.teamColor}} className="titleNavTeam">Equipe {userInfo.teamName}</h1>)}
+                                {this.state.userInfos.map((userInfo)=>
+                                <>
+                                <div className="itemNavTeam">
+                                    <div className="avatar_button_nav" style={{backgroundImage:`url(${userInfo.teamAvatar})`, backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}}></div>
+                                    <h1 style={{color:userInfo.teamColor}} className="titleNavTeam">Equipe {userInfo.teamName}</h1>
+                                </div>
+                                </>
+                                )}
                             </li>
                         </>
                         :

@@ -732,6 +732,15 @@ font-weight: bold;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+.avatar_button_nav{
+  width:100px;
+  height:100px;
+  padding:0;
+  border: none;
+  margin-right: 10px;
+  background-color: #46426E;
+  border-radius: 50%;
+}
 
 .avatar_button:focus{
 
@@ -1079,6 +1088,12 @@ label{
   margin-bottom: 50px;
   color:#FFB900;
 }
+.win{
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: italic;
+
+}
 .containerResultTeamFinal th{
   color:black;
   font-size: 22px;
@@ -1187,11 +1202,15 @@ margin-bottom: 5px;
   font-size: 19px;
 
 }
-
+.itemNavTeam{
+  margin-left: 125%;
+  width:500px;
+  display:flex;
+}
 .titleNavTeam{
-  margin-left:700px;
-  margin-top:2%;
+  padding-left: 2%;
   font-size: 50px;
+  margin-top: 3%;
 }
 
 /* ************************************************************************************************************** */
