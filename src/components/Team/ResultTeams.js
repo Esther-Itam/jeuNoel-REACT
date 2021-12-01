@@ -36,15 +36,12 @@ componentDidMount(){
                         ?
                         <Link type="button" className="linkStandard" to="/rating">Voir le classement final</Link>
                         :
+                        <>
                         <Link type="button" className="linkStandard" to="/teamContinueGame">Continuer le jeu</Link>
-                    }
-                     {this.state.categorieUsed<6
-                        ?
                         <Link type="button" className="linkStandardLeave" to="/proposeLeave">Quitter</Link>
+                        </>
+                    }
 
-                        :  
-                        <ButtonLeave/> 
-                        }
                     </div>
                     
                 </div>

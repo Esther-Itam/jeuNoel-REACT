@@ -3,29 +3,26 @@ import React, {useEffect, useState} from 'react';
 import LARAVEL_SERVER from '../Variable';
 
 function Timer(props) {
-    const [seconds, setSeconds] = useState(90);
+    const [seconds, setSeconds] = useState(30);
     const [data, setData] = useState();
     const [redirect, setRedirect]=useState(false);
 
-    useEffect(() => {
-      if (seconds > 0) {
-        setTimeout(() => setSeconds(seconds - 1), 1000);
-      } else {
-        setSeconds('FINI!');
-        const getPosts = async () => {
-          await axios.post(`${LARAVEL_SERVER}/team_answers`, {answer_id:props.answer_id,
-          question_id:props.question_id})
-          .then(res => {
-            setData(res.data);
-            setRedirect(true);
+    if (seconds > 0) {
+      setTimeout(() => setSeconds(seconds - 1), 1000);
+    }else{
+    setSeconds('FINI!');
+    setRedirect(true);
+   }  
+   
+useEffect(() => {
+
+    axios.post(`${LARAVEL_SERVER}/team_answers`, {answer_id:props.answer_id,
+    question_id:props.question_id})
+    .then(res => {
+      setData(res.data);
       
-          }).catch(error => {
-            console.log(error.response)
-          });
-        };
-        getPosts();
-      }
-    });
+  },1000)
+  },[]);   
 
    
 /*     if(redirect){

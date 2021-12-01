@@ -1,5 +1,5 @@
 import React from 'react';
-import NavbarTeam from '../../Navbar/NavbarTeam';
+import Navbar from '../../Navbar/Navbar';
 import IndexQA from './IndexQA';
 
 
@@ -8,7 +8,7 @@ class IndexQuizScreen extends React.Component{
     render(){
         return(
             <>
-                <NavbarTeam/>
+                <Navbar/>
                 <IndexQA id={this.props.match.params.id}/>        
             </>
         )

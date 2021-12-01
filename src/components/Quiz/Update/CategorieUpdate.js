@@ -50,7 +50,7 @@ render(){
                 <>
                 <div className="categorieUpdate">
                     <form method="PUT"  onSubmit={this.handleSubmit}>
-                    <input  className="inputUpdate" onChange={this.handleNameChange} placeholder={categorie.categorieName}/>
+                    <textarea  className="inputUpdate" onChange={this.handleNameChange}>{categorie.categorieName}</textarea>
                     <div className="buttonStandardUpdate">
                     <ButtonStandard text={"Modifier"}/>
                     </div>

@@ -41,10 +41,10 @@ useEffect(() => {
               <h2>
                 {(() => {
                   switch (state.random) {
-                    case "red":   return "L'équipe rouge commence la partie";
-                    case "green": return "L'équipe verte commence la partie";
-                    case "blue":  return "L'équipe bleue commence la partie";
-                    case "yellow":return "L'équipe jaune commence la partie";
+                    case "red":   return "L'équipe rouge choisie la catégorie";
+                    case "green": return "L'équipe verte choisie la catégorie";
+                    case "blue":  return "L'équipe bleue choisie la catégorie";
+                    case "yellow":return "L'équipe jaune choisie la catégorie";
                     default:      return "Relancer le random";
                   }
                 })()}

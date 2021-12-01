@@ -65,14 +65,14 @@ handleSubmit = event =>{
                     <div className="mb-3">
                         <label for="email" className="form-label">Email</label>
                         <input onChange={this.handleEmailChange} type="email" className={`form-control ${this.state.errors && this.state.errors.email ? "is-invalid" : ""}`} id="email"/>
-                        {this.state.errors && this.state.errors.email ? <div className="text-danger invalide-feedback">{this.state.errors['email']}</div> : ''}
+                        {this.state.errors && this.state.errors.email ? <div className="text-danger invalide-feedback">{this.state.errors['email']}</div> : ""}
                     </div>
                     <div className="mb-3">
                         <label for="password" className="form-label">Mot de passe</label>
                         <input onChange={this.handlePasswordChange} type="password" className={`form-control ${this.state.errors && this.state.errors.password ? "is-invalid" : ""}`} id="password"/>
-                        {this.state.errors && this.state.errors.password ? <div className="text-danger invalide-feedback">{this.state.errors['password']}</div> : ''}
+                        {this.state.errors && this.state.errors.password ? <div className="text-danger invalide-feedback">{this.state.errors['password']}</div> : ""}
                     </div> 
-                    {this.state.errors && this.state.errors === "bad_credentials" ? <div className="alert alert-warning">Vos identifiants de connexion sont incorrects</div> : ""}
+                    {this.state.errors && this.state.errors === "bad_credentials" ? <div className="alert alert-warning">Vos identifiants de connexion sont incorrects</div> : <div class="valid-feedback">Vos identifiants de connexion sont corrects</div>}
                     
                     <ButtonStandard text={"Se connecter"}/>
                 </form>

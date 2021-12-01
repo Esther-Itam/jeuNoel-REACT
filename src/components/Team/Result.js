@@ -18,7 +18,8 @@ class Result extends React.Component{
 componentDidMount(){
     let id = this.props.id;
     axios.get(`${LARAVEL_SERVER}/categorie/${id}`)
-        .then(res => {this.setState({quizzes:res.data})})
+        .then(res => {this.setState({quizzes:res.data.data})
+    console.log(res.data.data)})
         .catch(error => {console.log(error.response)}) 
     axios.get(`${LARAVEL_SERVER}/team_showAnswers`)
         .then(res=>{this.setState({results:res.data.data})})  
@@ -38,7 +39,7 @@ componentDidMount(){
                 <div  className="containerResultText">
                 
                     <div className="row justify-content-md-center">
-                        {this.state.quizzes.map((quiz)=><h1>Catégorie: {quiz[0][0].categorieName}</h1>)}    
+                         {this.state.quizzes.map((quiz)=><h1>Catégorie: {quiz[0][0].categorieName}</h1>)}    
                         <h1>Ton équipe a retrouvé <span> {count}</span> 🎁 sur les 60 🎁 perdus!</h1>
                         <div className="row container-result">
                             <h4>Les bonnes réponses étaient:</h4>

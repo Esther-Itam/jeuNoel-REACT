@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import LARAVEL_SERVER from '../Variable';
 import { useAppContext } from '../../Context';
+import Timer from '../Game/Timer';
 
 function TableShowQuiz(props){
     const [errors, setErrors] = useState([]);
@@ -59,7 +60,8 @@ const handleSubmit = event =>{
 const handleAnswerChange = event =>{setAnswer_id(event.target.value)} 
 
 const refreshPage = (event) =>{window.location.reload(false);
-                         setQuestion_id(event.target.value)}
+                         setQuestion_id(event.target.value);
+}
   console.log(state.quizzes)  
 
     const progress=(results/60)*100
@@ -74,8 +76,8 @@ const refreshPage = (event) =>{window.location.reload(false);
                     <form method="POST" onSubmit={handleSubmit}>
                      {quizzes.map((quiz)=>
                         <>
-                    {/*   <Timer question_id={quiz[2][0].questionId} answer_id={quiz[3][0].answerId}/> */}
-                            <h1>Catégorie: {quiz[0][0].categorieName}</h1>
+{/*                      <Timer question_id={quiz[2][0].questionId} answer_id={quiz[3][0].answerId}/> 
+ */}                            <h1>Catégorie: {quiz[0][0].categorieName}</h1>
                             <h3>Quiz: {quiz[1][0].quizName}</h3>
                             <div className="container bg-white container_question">
                             <h4>{quiz[2][0].questionName}</h4>

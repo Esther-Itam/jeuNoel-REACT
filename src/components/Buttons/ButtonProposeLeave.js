@@ -10,7 +10,8 @@ class ButtonProposeLeave extends React.Component{
         return(
             <div  className="containerResultFinalGame">
                 <div  className="containerProposeLeave">
-                <h1>Ne te laisse pas impressionner, reviens jouer! Tu peux encore sauver Noël!!!</h1>
+                <h1>Ne te laisse pas impressionner, reviens jouer!</h1>
+                <h1> Tu peux encore sauver Noël!!!</h1>
                 <div className="containerButtonProposeLeave">
                 <Link type="button" className="linkStandardContinue" to="/teamContinueGame">Continuer le jeu</Link>
                 <span className="hover"> 

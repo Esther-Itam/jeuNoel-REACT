@@ -55,7 +55,7 @@ render(){
                 <table class="table table-borderless">
                     <thead className='table-dark'>
                         <tr>
-                        <th scope="col">Name</th>
+                        <th scope="col">Nom</th>
                         <th scope="col">Catégorie</th>
                         <th scope="col">Voir</th>
                         <th scope="col">Editer</th>

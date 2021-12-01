@@ -67,22 +67,22 @@ handleSubmit = event =>{
                     <div className="mb-3">
                         <label for="name" className="form-label">Pseudo</label>
                         <input onChange={this.handleNameChange} type="text" className={`form-control ${this.state.errors && this.state.errors.name ? "is-invalid" : ""}`} id="name"/>
-                        {this.state.errors && this.state.errors.name ? <div className="text-danger invalide-feedback">{this.state.errors['name']}</div> : ''}
+                        {this.state.errors && this.state.errors.name ? <div className="text-danger invalide-feedback">{this.state.errors['name']}</div> : ""}
                     </div>
                     <div className="mb-3">
                         <label for="email" className="form-label">Email</label>
                         <input onChange={this.handleEmailChange} type="email" className={`form-control ${this.state.errors && this.state.errors.email ? "is-invalid" : ""}`} id="email"/>
-                        {this.state.errors && this.state.errors.email ? <div className="text-danger invalide-feedback">{this.state.errors['email']}</div> : ''}
+                        {this.state.errors && this.state.errors.email ? <div className="text-danger invalide-feedback">{this.state.errors['email']}</div> : ""}
                     </div>
                     <div className="mb-3">
                         <label for="password" className="form-label">Mot de passe</label>
                         <input onChange={this.handlePasswordChange} type="password" className={`form-control ${this.state.errors && this.state.errors.password ? "is-invalid" : ""}`} id="password"/>
-                        {this.state.errors && this.state.errors.password ? <div className="text-danger invalide-feedback">{this.state.errors['password']}</div> : ''}
+                        {this.state.errors && this.state.errors.password ? <div className="text-danger invalide-feedback">{this.state.errors['password']}</div> : ""}
                     </div> 
                     <div className="mb-3">
                         <label for="confirm_password" className="form-label">Confirmation du mot de passe</label>
                         <input onChange={this.handleConfirmPasswordChange} type="password" className={`form-control ${this.state.errors && this.state.errors.confirm_password ? "is-invalid" : ""}`} id="confirm_password"/>
-                        {this.state.errors && this.state.errors.confirm_password ? <div className="text-danger invalide-feedback">{this.state.errors['confirm_password']}</div> : ''}
+                        {this.state.errors && this.state.errors.confirm_password ? <div className="text-danger invalide-feedback">{this.state.errors['confirm_password']}</div> : ""}
                     </div> 
                     <ButtonStandard text={"Enregister"}/>
                 </form>

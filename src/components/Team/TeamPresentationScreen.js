@@ -2,17 +2,14 @@ import React from 'react';
 import NavbarTeam from '../Navbar/NavbarTeam';
 import TeamPresentation from './TeamPresentation';
 
-class TeamPresentationScreen extends React.Component{
+function TeamPresentationScreen(){
  
-    render(){
-
         return(
             <>
                 <NavbarTeam/>
                 <TeamPresentation/>
             </>
         )
-    }
 }
 
   

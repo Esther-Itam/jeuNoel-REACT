@@ -3,9 +3,7 @@ import Navbar from '../../Navbar/Navbar';
 import CategorieUpdate from './CategorieUpdate';
 
 
-class CategorieUpdateScreen extends React.Component{
-
-render(){
+function CategorieUpdateScreen(){
 
     return(
     <>
@@ -13,7 +11,6 @@ render(){
         <CategorieUpdate id={this.props.match.params.id}/>
     </>
         )
-    }
 }
 
 export default CategorieUpdateScreen;
