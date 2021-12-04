@@ -1,3 +1,3 @@
- const LARAVEL_SERVER='http://127.0.0.1:8000/api';
+ const LARAVEL_SERVER='https://quiznoelback.esther-itam.fr/api';
 
  export default LARAVEL_SERVER;

@@ -1,5 +1,6 @@
 import React from 'react';
 import {GoogleLoginButton} from 'react-social-login-buttons';
+import LARAVEL_SERVER from './Variable';
 
 class Home extends React.Component{
     constructor(){
@@ -25,7 +26,7 @@ class Home extends React.Component{
                     <div className="containerLinkHome">
                     <a className="linkStandard" href="/register">S'inscrire</a>
                     <a className="linkStandard" href="/login">Se connecter</a>
-                    <a className="linkGoogle" href="http://127.0.0.1:8000/auth/redirect/google"><GoogleLoginButton style={googleStyle}/></a>
+                    <a className="linkGoogle" href={`${LARAVEL_SERVER}/answer/auth/redirect/google`}><GoogleLoginButton style={googleStyle}/></a>
                     </div>
                 </div>
             </div>
