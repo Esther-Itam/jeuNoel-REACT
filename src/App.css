@@ -1,10 +1,11 @@
 
 body{
 
-  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'), url('./pictures/snow5.png'),url('./pictures/oiseau2.gif'),url('./pictures/snow.png'),linear-gradient(#0c0570,#5a5fac,#f6863c,#ffdf88, #ebf8e1 );;
+  background-image: url('./pictures/flocon4.gif'), url('./pictures/house.png'), url('./pictures/snow5.png'),url('./pictures/oiseau2.gif'),url('./pictures/snow.png'),linear-gradient(#0c0570,#5a5fac,#f6863c,#ffdf88, #ebf8e1 );
   background-repeat:repeat, no-repeat, repeat-x, repeat-x, repeat-x, no-repeat;
   background-position:right;
   background-size:contain;
+  height: 600px;
 }
 
 .containerBody{
@@ -436,6 +437,7 @@ body{
   width:60%;
   margin-left: 20%;
   margin-top: 2%;
+  min-height: 600px;
 }
 
 .containerQuizQA h1{

@@ -17,8 +17,7 @@ componentDidMount(){
     let headers={headers:{'API_TOKEN':localStorage.getItem('token')}}
     let id =localStorage.getItem('token');
     axios.get(`${LARAVEL_SERVER}/teamShow/${id}`, headers)
-        .then(res => {this.setState({userInfos:res.data.data[0]})
-    console.log(res.data.data[0]) })
+        .then(res => {this.setState({userInfos:res.data.data[0]})})
         .catch(error => {console.log(error.response)})       
 }
     

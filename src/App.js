@@ -71,8 +71,7 @@ useEffect(() => {
 /* **************************WEBSOCKET QUIZ ******************************** */
 useEffect(() => {
   window.Echo.channel('quiz-event').listen('.quiz-event', (data) =>{
-          
-           console.log({type:"QUIZ", quizzes:data.data})
+         
           dispatch({type:"QUIZ", quizzes:data.data}) 
       
   },1000)

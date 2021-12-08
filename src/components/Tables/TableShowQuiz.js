@@ -3,6 +3,7 @@ import axios from 'axios';
 import LARAVEL_SERVER from '../Variable';
 import { useAppContext } from '../../Context';
 import Timer from '../Game/Timer';
+import { Redirect } from 'react-router';
 
 function TableShowQuiz(props){
     const [errors, setErrors] = useState([]);
@@ -35,6 +36,7 @@ useEffect(() => {
     let idToken =localStorage.getItem('token');
     axios.get(`${LARAVEL_SERVER}/teamShow/${idToken}`, headers).then((res) => {
         setUserInfos(res.data.data[0]);
+      
     },1000)
     },[]);    
 
@@ -45,26 +47,22 @@ const handleSubmit = event =>{
     bodyFormData.set('question_id', question_id)
     bodyFormData.set('answer_id', answer_id)
     bodyFormData.set('team_id', userInfos[0].teamId)
+    console.log(userInfos.teamId)
 
     axios.post(`${LARAVEL_SERVER}/team_answers`, bodyFormData)
-            .then(res=>{localStorage.setItem('token', res.data.data.api_token) 
-            console.log(res.data.data.api_token)
-        })  
-            .catch(error =>{
-                if(error.response.status === 401){setErrors(error.response.data.errors)}
-                console.log(error.response)
+            .then(res=>{console.log(res)})  
+            .catch(error =>{console.log(error.response)
             })
-             
+                
 }
 
 const handleAnswerChange = event =>{setAnswer_id(event.target.value)} 
 
-const refreshPage = (event) =>{window.location.reload(false);
-                         setQuestion_id(event.target.value);
+const refreshPage = (event) =>{setQuestion_id(event.target.value);
+    setTimeout(function(){  window.location.reload()}, 10);  
 }
-  console.log(state.quizzes)  
-
-    const progress=(results/60)*100
+ 
+const progress=(results/60)*100
         return(
             <>
                
