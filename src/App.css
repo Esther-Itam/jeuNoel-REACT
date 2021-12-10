@@ -1793,6 +1793,29 @@ margin-top:-10%;
     margin-top: 30px;
     width:80%;
   }
+
+  .containerHome{
+    margin-left:31%;
+    margin-top:7%;
+    height:430px;
+  }
+  .containerTeamBuildingMax{
+     padding-bottom:0%;
+  }
+
+  .containerTeamMax{
+
+    padding-bottom: 0px;
+    margin-left:5%;
+
+  }
+
+  .containerTeamMax img{
+
+    width:350px;
+    margin-left: 10%;
+  }
+
 }
 
 @media screen and (min-width:480px) and (max-width: 1100px){
@@ -2124,5 +2147,22 @@ margin-top:-13%;
 .containerAvatarPresentationTitle h2{
   margin-top: 2.5%;
   font-size: 28px;
+}
+
+.containerTeamBuildingMax{
+  padding-bottom:37%;
+}
+
+.containerTeamMax{
+
+ padding-bottom: 0px;
+ margin-left:5%;
+
+}
+
+.containerTeamMax img{
+
+ width:300px;
+ margin-left: 10%;
 }
 }

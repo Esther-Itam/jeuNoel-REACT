@@ -28,13 +28,16 @@ console.log(res.data.data[0].length)})
         return(
             <>
                
-                    <div  className="containerStart">
-                    <div className='containerPlayer'>
+                    
                         {this.state.teams <4
                         ?
+                        <div  className="containerStart">
+                    <div className='containerPlayer'>
                         <div className="buttonPlayerContainer">
                         <Link className="playButton" to='/teamBuilding'>Jouer</Link>
                         </div>
+                        </div>
+                    </div>
                         :
                         <div className="containerTeamBuildingMax">
                             <div className="containerTeamMax">
@@ -44,8 +47,7 @@ console.log(res.data.data[0].length)})
                             </div>
                         </div>       
                         }
-                    </div>
-                    </div>
+                   
                    
 
             </>
