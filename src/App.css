@@ -158,6 +158,20 @@ body{
   min-height:500px;
   width:1100px;
 }
+
+.containerCategorieQA{
+  background-color: #46426eb6;
+  padding:100px;
+  display:flex;
+  justify-content:center;
+  margin-top: 50px;
+  border-radius:5px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  color:white;
+  min-height:500px;
+  width:1100px;
+}
+
 .containerQuizCreate{
   background-color: #46426eb6;
   display:flex;
@@ -254,6 +268,7 @@ body{
   color:#46426E;
   font-weight: bold;
   width:1000px;
+  margin-bottom:3%;
 }
 
 .container_question2{
@@ -1023,6 +1038,11 @@ label{
   text-align: center;
   margin-bottom: 5%;
 }
+
+.containerCategorieQA h1, h3{
+  text-align: center;
+  margin-bottom: 5%;
+}
 .containerCategorie h5{
   margin-top: 20px;
   margin-bottom: 50px;
@@ -1760,6 +1780,19 @@ margin-top:-10%;
 .containerAvatarPresentationTitle h2{
   margin-top: 2.5%;
 }
+
+.container_summary ul{
+
+  margin-left: 5%;
+  width:90%;
+
+  }
+
+  .containerCategorieQA{
+    padding:80px;
+    margin-top: 30px;
+    width:80%;
+  }
 }
 
 @media screen and (min-width:480px) and (max-width: 1100px){

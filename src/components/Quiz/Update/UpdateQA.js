@@ -29,7 +29,7 @@ render(){
         return(
     <>
      <div className="containerSummaryQA" > 
-        <div className="containerCategorie" >  
+        <div className="containerCategorieQA" >  
             <div className="row justify-content-md-center">
                 {this.state.quizzes.map((quiz)=>
                 <>

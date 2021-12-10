@@ -72,7 +72,7 @@ handleSubmit = event =>{
                         <input onChange={this.handlePasswordChange} type="password" className={`form-control ${this.state.errors && this.state.errors.password ? "is-invalid" : ""}`} id="password"/>
                         {this.state.errors && this.state.errors.password ? <div className="text-danger invalide-feedback">{this.state.errors['password']}</div> : ""}
                     </div> 
-                    {this.state.errors && this.state.errors === "bad_credentials" ? <div className="alert alert-warning">Vos identifiants de connexion sont incorrects</div> : <div class="valid-feedback">Vos identifiants de connexion sont corrects</div>}
+                    {this.state.errors && this.state.errors === "bad_credentials" ? <div className="alert alert-warning">Vos identifiants de connexion sont incorrects</div> : <div className="valid-feedback">Vos identifiants de connexion sont corrects</div>}
                     
                     <ButtonStandard text={"Se connecter"}/>
                 </form>

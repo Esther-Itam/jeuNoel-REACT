@@ -28,7 +28,7 @@ componentDidMount(){
         return(
             <>
             <div className="containerSummaryQA" > 
-                <div className="containerCategorie" >  
+                <div className="containerCategorieQA" >  
                     <div class="row justify-content-md-center">
                         {this.state.quizzes.map((quiz)=><h1>Quiz: {quiz[0][0].quizName}</h1>)}
                                             <IndexQuizQA numberQuestion={1} questionIndex={0} answerIndex1={0} answerIndex2={1} answerIndex3={2} id = {this.props.id}/>
