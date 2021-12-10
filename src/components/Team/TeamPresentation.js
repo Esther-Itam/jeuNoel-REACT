@@ -32,7 +32,7 @@ const handleSubmit = event =>{
     return(
         <div className="containerTeamBuilding">
             <div className="containerTeam">
-                <h1 className="text-center my-5">Voici les équipes qui s'affrontent</h1>
+                <h1 className="text-center my-4">Voici les équipes qui s'affrontent</h1>
                 <div className="containerRulers">
                     <h4>Les lutins ont perdu 60 🎁 dans le jeu, celui qui leur rapporte sera le grand vainqueur!</h4>
                     <h4>Il y a 10 🎁 par catégorie à trouver</h4>

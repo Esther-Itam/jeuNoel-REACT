@@ -256,6 +256,13 @@ body{
   width:1000px;
 }
 
+.container_question2{
+  background-color:#46426E;
+  font-weight: bold;
+  width:1000px;
+  color:white;
+}
+
 .container_question textarea{
   width:100%;
 }
@@ -430,7 +437,7 @@ body{
 }
 
 .containerQuizQA{
-  background-color: #46426ee8;
+  background-color: #46426e;
   padding: 50px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -742,7 +749,7 @@ font-weight: bold;
   border: none;
   margin-right: 10px;
   background-color: #46426E;
-  border-radius: 50%;
+
 }
 
 .avatar_button:focus{
@@ -1166,6 +1173,10 @@ margin-bottom: 5px;
 }
 
 
+.containerTeamRandomdiv img{
+  width:400px;
+
+}
 /* ******************************************************************************************************************** */
 
 /* *********************************************NAV ******************************************************** */
@@ -1215,6 +1226,7 @@ margin-bottom: 5px;
   font-size: 50px;
   margin-top: 3%;
 }
+
 
 /* ************************************************************************************************************** */
 
@@ -1475,3 +1487,609 @@ background-color: azure;
   height: 35px;
 }
 
+@media screen and (min-width:1200px) and (max-width: 1550px){
+  .titleNav{
+    margin-left:350px;
+  }
+
+  .identifiantNav{
+    margin-left:10%;
+    margin-top:1%;
+
+  }
+
+  .containerPlayer{
+    background-size:contain;
+  
+  }
+
+  .containerStart{
+    background-size:700px;
+    background-position:50% 2%;
+    padding-bottom: 20%;
+  }
+
+  .playButton{
+    padding:35px 20px;
+  }
+
+  .buttonPlayerContainer{
+    margin-left: 15%;
+    margin-top: 8%;
+  }
+
+  .container{
+    margin-top: 0%;
+  }
+
+  .containerBody{
+    padding-top: 1%;
+    padding-bottom: 2%;
+  
+  }
+  .containerButtonStandard{
+    margin-left: 40%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+  
+  }
+
+  .containerTeamBuilding{
+    background-size:contain;
+    padding-bottom:2.5%;
+  }
+
+  .containerTeam{
+
+    padding-bottom: 30px;
+    padding-top: 0px;
+    margin-top: 1%;
+    margin-left: 3%;
+
+  }
+  
+.containerTeam label{
+  font-size: 21px;
+}
+.containerTeam h2{
+  font-size: 30px;
+}
+.containerTeam h1{
+  font-size: 30px;
+}
+.avatar_button{
+  width: 75px;
+  height:75px;
+ 
+}
+
+
+.color_button{
+  width:75px;
+height:75px;
+margin-bottom: 15px;
+margin-top: 15px;
+
+}
+
+.buttonGame{
+  width:100px;
+  height: 100px;
+  margin-top: 53px;
+  font-size: 20px;
+}
+
+.containerButtonGame{
+
+margin-top:-70px;
+}
+.itemNavTeam{
+  margin-left: 85%;
+
+}
+
+.containerTeamBuildingResultRandom{
+
+  padding-bottom:0%;
+}
+
+
+.containerTeamRandom{
+  background-color: rgb(70, 66, 110);
+  text-align: center;
+  padding-left:50px;
+  padding-right:50px;
+  padding-top: 20px;
+  margin-top: 2%;
+  margin-left: 0%;
+  border-radius:5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  color:white;
+}
+
+.containerTeamRandomdiv img{
+  width:300px;
+
+}
+
+
+.containerbuttonRandom{
+  height:100px;
+  width:100px;
+  padding-top: 3.5%;
+  font-size: 17px;
+  margin-bottom: 3%;
+  
+}
+
+.bonnet{
+  float:right;
+  position: absolute;
+  margin-left: 24.5%;
+  margin-top: -5.7%;
+  width:150px;
+  }
+
+  .linkGame{
+    padding: 30px 20px;
+    font-size: 20px;
+    margin-left: 78%;
+  }
+
+  .color_button_random{
+    width:90px;
+  height:90px;
+  margin-bottom: 1.5%;
+  }
+
+  .containerCategorieGame{
+  padding:2%;
+  margin-top: 10px;
+
+}
+
+.containerCategorieButton{
+  margin:20px;
+  font-size: 35px; 
+  height: 110px;
+
+}
+
+.containerCategorieButtonUsed{
+  margin:20px;
+  font-size: 35px; 
+  height: 110px;
+}
+
+.containerTeamBuildingCategorie{
+  padding-bottom:0%;
+}
+
+.containerCategorie{
+  padding:30px;
+  margin-top: 1%;
+  width:800px;
+}
+
+.container_question2{
+
+  width:800px;
+  margin-left: 5%;
+  margin-top: -1%;
+}
+
+
+.containerQuizQA{
+  padding: 40px;
+  margin-top: 1%;
+  min-height: 580px;
+  background-image: url('./pictures/loading2.gif');
+  background-repeat:no-repeat;
+  background-position:50% 75%;
+  background-size:30%;
+
+}
+
+.containerQuizQA h1{
+  margin-top: 30px;
+
+}
+
+
+.containerQuizQA h4{
+  font-size: 22px;;
+}
+
+.form-check-label{
+  font-size: 18px;;
+}
+
+.containerButtonQuiz{
+  margin-left: 80%;
+  margin-top: 1%;
+}
+
+.progress{
+
+  height: 25px;
+}
+
+.containerResultText{
+  width:90%;
+
+}
+
+.container-result{
+  width:90%;
+}
+
+.container-result h5{
+  font-size: 19px;
+}
+
+.containerResultText h1{
+  font-size: 30px;
+}
+
+.containerResult{
+  padding-bottom: 2%;
+
+}
+.containerResultTeam{
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.containerResultFinalGame{
+
+  padding-bottom: 0%;
+}
+
+.containerTeamBuildingContinueGame{
+
+  padding-bottom:0%;
+}
+
+.containerButtonGameContinue{
+
+  width: 18%;
+margin-top:-10%;
+
+}
+
+.containerAvatarPresentationTitle h2{
+  margin-top: 2.5%;
+}
+}
+
+@media screen and (min-width:480px) and (max-width: 1100px){
+
+  .titleNav{
+    margin-left:100px;
+    font-size: 30px;
+  }
+
+  .identifiantNav{
+    margin-left:-40%;
+    margin-top:9%;
+
+  }
+
+  .containerPlayer{
+    background-size:contain;
+  
+  }
+
+  .containerStart{
+    background-size:800px;
+
+    background-position:50% 2%;
+    padding-bottom: 30%;
+  }
+
+  .playButton{
+    padding:35px 20px;
+  }
+
+  .buttonPlayerContainer{
+    margin-left: 30%;
+    margin-top: 18%;
+  }
+
+  .container{
+    margin-top: 0%;
+  }
+
+  .containerBody{
+    padding-top: 1%;
+    padding-bottom: 2%;
+  
+  }
+  .containerButtonStandard{
+    margin-left: 25%;
+  
+  }
+
+  .containerTeamBuilding{
+    background-size:contain;
+    padding-bottom:2.5%;
+  }
+
+  .containerTeam{
+
+    padding-bottom: 30px;
+    padding-top: 0px;
+    margin-top: 1%;
+    margin-left: 3%;
+
+  }
+  
+.containerTeam label{
+  font-size: 21px;
+}
+.containerTeam h2{
+  font-size: 30px;
+}
+.containerTeam h1{
+  font-size: 30px;
+}
+.avatar_button{
+  width: 75px;
+  height:75px;
+ 
+}
+
+
+.color_button{
+  width:70px;
+height:70px;
+margin-bottom: 15px;
+margin-top: 15px;
+
+}
+
+.buttonGame{
+  width:80px;
+  height: 80px;
+  margin-top: 52px;
+  font-size: 17px;
+}
+
+.containerButtonGame{
+width:16%;
+margin-top:-90px;
+margin-left:75%;
+}
+
+.containerRulers h4{
+  font-size: 18px;
+}
+.itemNavTeam{
+  margin-left: 25%;
+
+
+}
+.titleNavTeam{
+  font-size: 32px;
+}
+.avatar_button_nav{
+  width:80px;
+  margin-top:-3%;
+}
+.containerTeamBuildingResultRandom{
+
+  background-size:cover;
+}
+
+
+.containerTeamRandom{
+  background-color: rgb(70, 66, 110);
+  text-align: center;
+  padding-left:50px;
+  padding-right:50px;
+  padding-top: 20px;
+  margin-top: 2%;
+  margin-left: 0%;
+  border-radius:5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  color:white;
+}
+
+.containerTeamRandomdiv img{
+  width:300px;
+
+}
+
+
+.containerbuttonRandom{
+  height:100px;
+  width:100px;
+  padding-top: 3.5%;
+  font-size: 17px;
+  margin-bottom: 3%;
+  
+}
+
+.bonnet{
+  float:right;
+  position: absolute;
+  margin-left: 43%;
+  margin-top: -9%;
+  width:120px;
+  }
+
+  .linkGame{
+    padding: 25px 15px;
+    font-size: 20px;
+    margin-left: 76%;
+  }
+
+  .color_button_random{
+    width:75px;
+  height:75px;
+  margin-bottom: 1.5%;
+  }
+
+  .containerCategorieGame{
+  padding:2%;
+  margin-top: 5px;
+
+}
+.containerTeamRandomResultRandom{
+  padding-bottom: 5%;
+}
+.containerCategorieButton{
+  margin:5px;
+  font-size: 30px; 
+  height: 80px;
+
+}
+
+.containerCategorieButtonUsed{
+  margin:5px;
+  font-size: 35px; 
+  height: 80px;
+}
+
+
+.containerTeamBuildingCategorie{
+  padding-bottom:0%;
+}
+
+.containerTeamBuildingCategorieUsed{
+  background-size:cover;
+  }
+  
+
+.containerCategorie{
+  padding:30px;
+  margin-top: 1%;
+  width:800px;
+}
+
+.container_question2{
+
+  width:530px;
+  margin-left: 5%;
+  margin-top: 10%;
+}
+
+
+.containerQuizQA{
+  padding: 40px;
+  margin-top: 1%;
+  min-height: 580px;
+  background-image: url('./pictures/loading2.gif');
+  background-repeat:no-repeat;
+  background-position:50% 75%;
+  background-size:25%;
+  width:90%;
+  margin-left: 5%;
+
+}
+
+.containerQuizQA h1{
+  margin-top: 25px;
+
+}
+
+
+.containerQuizQA h4{
+  font-size: 18px;
+}
+
+.form-check-label{
+  font-size: 15px;;
+}
+
+.containerButtonQuiz{
+  margin-left: 80%;
+  margin-top: 6%;
+}
+
+.progress{
+
+  height: 20px;
+  font-size: 18px;
+}
+
+.containerResultText{
+  width:90%;
+
+}
+
+.container-result{
+  width:90%;
+  margin-left: 5%;
+}
+
+.container-result h5{
+  font-size: 17px;
+}
+
+.containerResultText h1{
+  font-size: 25px;
+}
+
+.containerResult{
+  padding-bottom: 2%;
+
+}
+
+.linkStandardContainerResult{
+  margin-left:25%;
+  margin-top: 2%;
+}
+.containerResultTeam{
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width:90%;
+
+}
+
+.containerResultTeam td{
+  font-size: 18px;
+}
+
+.containerResultTeam th{
+  font-size: 18px;
+}
+.containerLinkResult{
+  width:100%;
+  margin-left:0%;
+}
+.containerResultFinalGame{
+
+  padding-bottom: 0%;
+  background-size: cover;
+
+}
+.containerProposeLeave{
+  width:90%;
+  padding-left:10%;
+  padding-right:10%;
+  padding-bottom: 27%;
+}
+
+.containerButtonProposeLeave{
+  width:100%;
+  margin-left: 0%;
+
+}
+.containerTeamBuildingContinueGame{
+
+  padding-bottom:0%;
+}
+
+.containerButtonGameContinue{
+
+  width: 18%;
+margin-top:-13%;
+
+}
+
+.containerAvatarPresentationTitle h2{
+  margin-top: 2.5%;
+  font-size: 28px;
+}
+}

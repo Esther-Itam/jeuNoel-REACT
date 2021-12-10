@@ -24,10 +24,18 @@ function App(){
         state,
         dispatch
     }
+
+
+    useEffect(() => {
+      window.Echo.channel('my-channel').listen('.my-event', (data) =>{
+           console.log(data) 
+      },1000)
+    },[]);
 /* **************************WEBSOCKET COLOR ******************************** */
 useEffect(() => {
     window.Echo.channel('color-used').listen('.color-used', (data) =>{
          data.color.map((color) => {
+          console.log({type:color.colorName.toUpperCase(), value:color.colorUsed})
             dispatch({type:color.colorName.toUpperCase(), value:color.colorUsed}) 
         }); 
     },1000)

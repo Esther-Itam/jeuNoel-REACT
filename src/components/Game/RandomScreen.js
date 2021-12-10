@@ -51,7 +51,7 @@ useEffect(() => {
               </h2>
               <div className="color_button_random" style={{backgroundColor:state.random}} value={state.random}></div> 
               <div className="containerTeamRandomdiv">
-                  <img src={gitBonhomme} alt="" width="400px"/>
+                  <img src={gitBonhomme} alt=""/>
               </div>
               {state.random === redirect 
               ?

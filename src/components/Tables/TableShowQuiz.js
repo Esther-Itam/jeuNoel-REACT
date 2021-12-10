@@ -13,15 +13,19 @@ function TableShowQuiz(props){
     const [userInfos, setUserInfos] = useState([]);
     const [results, setResults] = useState([]);
     const { state, dispatch } = useAppContext();
+    const [teams, setTeams] = useState([]);
+     const [div, setDiv] = useState();
+
 
 useEffect(() => {
     let id = props.id;
     axios.get(`${LARAVEL_SERVER}/categorie/${id}`)
     .then((res) => {
         setQuizzes(res.data.data);
-    }
-    
+    }   
     ,1000)
+    .catch(error =>{console.log(error.response)
+    })
     },[]);
 
     
@@ -40,6 +44,12 @@ useEffect(() => {
     },1000)
     },[]);    
 
+   
+    useEffect(() => {
+        axios.get(`${LARAVEL_SERVER}/teamPresentation`).then((res) => {
+            setTeams(res.data.data.length);
+        },1000)
+        },[]);
 
 const handleSubmit = event =>{
     event.preventDefault()
@@ -61,14 +71,20 @@ const handleAnswerChange = event =>{setAnswer_id(event.target.value)}
 const refreshPage = (event) =>{setQuestion_id(event.target.value);
     setTimeout(function(){  window.location.reload()}, 10);  
 }
- 
-const progress=(results/60)*100
+
         return(
             <>
-               
                     <div className="containerQuizQA">
                         <div className="progress">
-                        <div className="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow={progress} aria-valuemin="0" aria-valuemax="10" style={{width:`${progress}%`}}>{results} / 60</div>
+                        {teams===2 ? 
+                            <div className="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow={(results/120)*100} aria-valuemin="0" aria-valuemax="10" style={{width:`${(results/120)*100}%`}}>{Math.round(results/2)} / 60</div>
+                        : null}
+                          {teams===3 ? 
+                            <div className="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow={(results/180)*100} aria-valuemin="0" aria-valuemax="10" style={{width:`${(results/180)*100}%`}}>{Math.round(results/3)} / 60</div>
+                        : null} 
+                         {teams===4 ? 
+                            <div className="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow={(results/240)*100} aria-valuemin="0" aria-valuemax="10" style={{width:`${(results/240)*100}%`}}>{Math.round(results/4)} / 60</div>
+                        : null}   
                     </div>
                 
                     <form method="POST" onSubmit={handleSubmit}>
@@ -77,7 +93,7 @@ const progress=(results/60)*100
 {/*                      <Timer question_id={quiz[2][0].questionId} answer_id={quiz[3][0].answerId}/> 
  */}                            <h1>Catégorie: {quiz[0][0].categorieName}</h1>
                             <h3>Quiz: {quiz[1][0].quizName}</h3>
-                            <div className="container bg-white container_question">
+                            <div className="container_question2">
                             <h4>{quiz[2][0].questionName}</h4>
                             <div className="form-check">
                                 <input onChange={handleAnswerChange} value={quiz[3][0].answerId} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
